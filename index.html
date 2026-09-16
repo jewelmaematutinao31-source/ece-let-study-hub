@@ -3,315 +3,242 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jewel's ECE LET Study Hub 📚</title>
+
+<title>Jewel's ECE LET Study Hub 📚🧸</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
-  font-family:"Trebuchet MS",Arial,sans-serif;
-  background:linear-gradient(135deg,#fff8ed,#eef8f1,#f5efff);
-  color:#344054;
+    margin:0;
+    font-family:"Trebuchet MS", Arial, sans-serif;
+    background:linear-gradient(135deg,#fff8ef,#f4f8ff,#fff4f7);
+    color:#3f3f46;
+    line-height:1.6;
 }
 
 header{
-  background:linear-gradient(135deg,#5b8c7a,#7ba88e,#9c8ac4);
-  color:white;
-  padding:38px 20px;
-  text-align:center;
-  border-radius:0 0 35px 35px;
-  box-shadow:0 5px 18px #0002;
+    background:linear-gradient(135deg,#8ecae6,#bde0fe,#ffc8dd);
+    padding:45px 20px;
+    text-align:center;
+    color:#263238;
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
 }
 
 header h1{
-  margin:0;
-  font-size:clamp(25px,6vw,42px);
+    margin:0;
+    font-size:clamp(30px,6vw,50px);
 }
 
 header p{
-  margin:12px auto 0;
-  max-width:650px;
-  line-height:1.6;
+    margin:12px auto 0;
+    max-width:700px;
+    font-size:18px;
 }
 
 .container{
-  max-width:1000px;
-  margin:auto;
-  padding:22px 15px 50px;
-}
-
-.welcome{
-  background:white;
-  border-radius:22px;
-  padding:22px;
-  margin-bottom:20px;
-  box-shadow:0 5px 18px #0000000d;
-  text-align:center;
-}
-
-.welcome h2{
-  margin-top:0;
-  color:#527c6b;
+    width:min(1100px,92%);
+    margin:30px auto 60px;
 }
 
 .progress-box{
-  background:#edf3ee;
-  border-radius:20px;
-  height:18px;
-  overflow:hidden;
-  margin-top:15px;
+    background:white;
+    padding:22px;
+    border-radius:20px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    margin-bottom:30px;
+    text-align:center;
 }
 
-.progress{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,#6caa86,#a58bd1);
-  transition:.4s;
+.progress-bar{
+    width:100%;
+    height:18px;
+    background:#eee;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:12px;
 }
 
-.progress-text{
-  font-size:13px;
-  margin-top:8px;
-  color:#667085;
-}
-
-.section-title{
-  text-align:center;
-  color:#527c6b;
-  margin:30px 0 15px;
+.progress-fill{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#90dbf4,#a2d2ff,#cdb4db);
+    transition:.4s;
 }
 
 .lesson-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:15px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:22px;
 }
 
 .lesson-card{
-  background:white;
-  border-radius:22px;
-  padding:20px;
-  box-shadow:0 5px 16px #0000000d;
-  cursor:pointer;
-  transition:.2s;
-  border:2px solid transparent;
+    background:white;
+    border-radius:22px;
+    padding:25px;
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+    transition:.25s;
+    border:2px solid transparent;
 }
 
 .lesson-card:hover{
-  transform:translateY(-4px);
-  border-color:#9fc7ad;
+    transform:translateY(-4px);
+    border-color:#bde0fe;
 }
 
-.lesson-card .icon{
-  font-size:35px;
-}
-
-.lesson-card h3{
-  margin:10px 0 8px;
-  color:#527c6b;
+.lesson-card h2{
+    margin-top:0;
+    color:#5b5b70;
 }
 
 .lesson-card p{
-  font-size:14px;
-  line-height:1.5;
-  color:#667085;
+    color:#666;
 }
 
-.lesson-card button{
-  border:0;
-  background:#e5f1e8;
-  color:#416d58;
-  padding:9px 14px;
-  border-radius:12px;
-  font-weight:bold;
-  cursor:pointer;
+.lesson-number{
+    display:inline-block;
+    background:#ffe5ec;
+    padding:5px 12px;
+    border-radius:20px;
+    font-weight:bold;
+    margin-bottom:10px;
 }
 
-.completed{
-  border-color:#77b58d!important;
-  background:#f5fff7;
+button{
+    border:none;
+    border-radius:14px;
+    padding:12px 18px;
+    font-family:inherit;
+    font-size:15px;
+    cursor:pointer;
+    background:#a2d2ff;
+    color:#243447;
+    transition:.2s;
 }
 
-.completed button{
-  background:#77b58d;
-  color:white;
-}
-
-#lessonArea{
-  display:none;
-  margin-top:25px;
-}
-
-.lesson-content{
-  background:white;
-  border-radius:25px;
-  padding:25px;
-  box-shadow:0 5px 20px #00000012;
-}
-
-.lesson-content h2{
-  color:#527c6b;
-  margin-top:0;
-}
-
-.lesson-content h3{
-  color:#896fae;
-  margin-top:25px;
-}
-
-.lesson-content p,
-.lesson-content li{
-  line-height:1.7;
-}
-
-.lesson-content ul{
-  padding-left:22px;
-}
-
-.fact{
-  background:#fff7df;
-  border-left:5px solid #e5b84b;
-  padding:15px;
-  border-radius:12px;
-  margin:15px 0;
-}
-
-.memory{
-  background:#f0eaff;
-  border-left:5px solid #9a7bc1;
-  padding:15px;
-  border-radius:12px;
-  margin:15px 0;
-}
-
-.warning{
-  background:#fff0f0;
-  border-left:5px solid #d98b8b;
-  padding:15px;
-  border-radius:12px;
-  margin:15px 0;
-}
-
-.timeline{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:20px 0;
-}
-
-.timeline div{
-  flex:1;
-  min-width:150px;
-  padding:15px;
-  border-radius:15px;
-  background:#edf7ef;
-  text-align:center;
-}
-
-.timeline strong{
-  display:block;
-  color:#527c6b;
-  margin-bottom:8px;
-}
-
-.back-btn,
-.complete-btn,
-.quiz-btn{
-  border:0;
-  border-radius:14px;
-  padding:12px 18px;
-  font-weight:bold;
-  cursor:pointer;
-  margin:8px 5px 8px 0;
-}
-
-.back-btn{
-  background:#eee;
-  color:#555;
+button:hover{
+    transform:scale(1.03);
+    opacity:.9;
 }
 
 .complete-btn{
-  background:#6eaa86;
-  color:white;
+    margin-top:12px;
+    background:#cdeac0;
 }
 
-.quiz-btn{
-  background:#9278bd;
-  color:white;
+.complete-btn.completed{
+    background:#8fd694;
+}
+
+.lesson-content{
+    display:none;
+    margin-top:20px;
+    padding-top:20px;
+    border-top:2px dashed #ddd;
+}
+
+.lesson-content.show{
+    display:block;
+}
+
+.lesson-content h3{
+    color:#536d8a;
+}
+
+.fact{
+    background:#f7f1ff;
+    padding:15px;
+    border-radius:15px;
+    margin:12px 0;
+}
+
+.warning{
+    background:#fff3cd;
+    padding:15px;
+    border-radius:15px;
+    margin:12px 0;
+}
+
+.term{
+    background:#eef9f1;
+    padding:14px;
+    border-radius:15px;
+    margin:10px 0;
+}
+
+ul{
+    padding-left:25px;
 }
 
 .quiz-section{
-  display:none;
-  background:white;
-  padding:25px;
-  border-radius:25px;
-  box-shadow:0 5px 20px #00000012;
-  margin-top:25px;
+    margin-top:45px;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
 }
 
-.question{
-  border-bottom:1px solid #eee;
-  padding:18px 0;
+.quiz-question{
+    background:#fafafa;
+    padding:20px;
+    border-radius:18px;
+    margin:18px 0;
 }
 
-.question p{
-  font-weight:bold;
-  line-height:1.5;
+.quiz-question label{
+    display:block;
+    padding:8px;
+    margin:5px 0;
+    border-radius:10px;
+    cursor:pointer;
 }
 
-.option{
-  display:block;
-  padding:11px;
-  margin:7px 0;
-  border-radius:10px;
-  background:#f7f8fa;
-  cursor:pointer;
+.quiz-question label:hover{
+    background:#f0f6ff;
 }
 
-.option:hover{
-  background:#edf5ef;
-}
-
-.submit-btn{
-  border:0;
-  background:#527c6b;
-  color:white;
-  padding:14px 22px;
-  border-radius:14px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:20px;
-}
-
-#result{
-  margin-top:20px;
-  font-size:18px;
-  font-weight:bold;
+.result{
+    margin-top:20px;
+    padding:20px;
+    border-radius:18px;
+    background:#eef9f1;
+    display:none;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
 }
 
 footer{
-  text-align:center;
-  padding:25px;
-  color:#777;
-  font-size:13px;
+    text-align:center;
+    padding:35px 20px;
+    background:#f1f1f1;
+    color:#666;
+}
+
+.back-top{
+    margin-top:20px;
+    background:#ffc8dd;
 }
 
 @media(max-width:600px){
-  header{
-    padding:30px 15px;
-  }
+    header{
+        padding:35px 15px;
+    }
 
-  .lesson-content{
-    padding:18px;
-  }
+    .container{
+        width:94%;
+    }
 
-  .timeline div{
-    min-width:100%;
-  }
+    .lesson-card,
+    .quiz-section{
+        padding:20px;
+    }
 }
 </style>
 </head>
@@ -319,850 +246,1508 @@ footer{
 <body>
 
 <header>
-  <h1>📚 Jewel's ECE LET Study Hub 🧸</h1>
-  <p>
-    A beginner-friendly reviewer for Early Childhood Education,
-    Human Growth and Development, and LET Major preparation.
-  </p>
+    <h1>📚 Jewel's ECE LET Study Hub 🧸</h1>
+    <p>
+        A simple review space for Early Childhood Education,
+        child development, prenatal development, learning, play,
+        and important ECE concepts for the LET.
+    </p>
 </header>
 
 <div class="container">
 
-<div class="welcome">
-  <h2>🌱 Start From the Beginning</h2>
-  <p>
-    You don't need to know everything yet. Study one lesson at a time,
-    understand the concept, then test yourself.
-  </p>
+    <div class="progress-box">
+        <h2>🌷 My Study Progress</h2>
+        <p id="progressText">0 of 8 lessons completed</p>
 
-  <div class="progress-box">
-    <div class="progress" id="progressBar"></div>
-  </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+    </div>
 
-  <div class="progress-text" id="progressText">
-    0 of 8 lessons completed
-  </div>
-</div>
+    <div class="lesson-grid">
 
-<h2 class="section-title">📖 Study Lessons</h2>
+        <!-- LESSON 1 -->
+        <div class="lesson-card">
+            <span class="lesson-number">Lesson 1</span>
+            <h2>🧬 Fertilization & Prenatal Development</h2>
+            <p>
+                Learn what happens from fertilization until birth.
+            </p>
 
-<div class="lesson-grid">
+            <button onclick="toggleLesson(1)">
+                📖 Open Lesson
+            </button>
 
-<div class="lesson-card" id="card1">
-  <div class="icon">🧬</div>
-  <h3>Lesson 1</h3>
-  <h3>Fertilization & Prenatal Development</h3>
-  <p>Learn how human life begins and the three prenatal periods.</p>
-  <button onclick="openLesson(1)">Study Lesson</button>
-</div>
+            <div class="lesson-content" id="lesson1">
 
-<div class="lesson-card" id="card2">
-  <div class="icon">🤰</div>
-  <h3>Lesson 2</h3>
-  <h3>Prenatal Influences</h3>
-  <p>Learn about heredity, environment, teratogens, and maternal factors.</p>
-  <button onclick="openLesson(2)">Study Lesson</button>
-</div>
+                <h3>1. Fertilization</h3>
 
-<div class="lesson-card" id="card3">
-  <div class="icon">👶</div>
-  <h3>Lesson 3</h3>
-  <h3>Birth & Newborn Development</h3>
-  <p>Newborn characteristics, reflexes, and early development.</p>
-  <button onclick="openLesson(3)">Study Lesson</button>
-</div>
+                <p>
+                    Fertilization happens when a sperm cell joins
+                    with an ovum (egg cell).
+                </p>
 
-<div class="lesson-card" id="card4">
-  <div class="icon">🍼</div>
-  <h3>Lesson 4</h3>
-  <h3>Infancy & Toddlerhood</h3>
-  <p>Physical, cognitive, language, and social-emotional milestones.</p>
-  <button onclick="openLesson(4)">Study Lesson</button>
-</div>
+                <div class="term">
+                    <strong>Sperm + Ovum → Zygote</strong>
+                </div>
 
-<div class="lesson-card" id="card5">
-  <div class="icon">🧸</div>
-  <h3>Lesson 5</h3>
-  <h3>Preschool Development</h3>
-  <p>Development of children ages 3–6 and characteristics of preschoolers.</p>
-  <button onclick="openLesson(5)">Study Lesson</button>
-</div>
+                <p>
+                    The resulting cell is called a
+                    <strong>zygote</strong>.
+                </p>
 
-<div class="lesson-card" id="card6">
-  <div class="icon">🧠</div>
-  <h3>Lesson 6</h3>
-  <h3>Developmental Theorists</h3>
-  <p>Piaget, Erikson, Vygotsky, Freud, Kohlberg, and Bronfenbrenner.</p>
-  <button onclick="openLesson(6)">Study Lesson</button>
-</div>
+                <h3>2. Zygote</h3>
 
-<div class="lesson-card" id="card7">
-  <div class="icon">🎨</div>
-  <h3>Lesson 7</h3>
-  <h3>Learning Through Play</h3>
-  <p>Developmentally appropriate practice, curriculum, and assessment.</p>
-  <button onclick="openLesson(7)">Study Lesson</button>
-</div>
+                <p>
+                    The zygote is the first stage after fertilization.
+                    It begins dividing into more cells.
+                </p>
 
-<div class="lesson-card" id="card8">
-  <div class="icon">🌟</div>
-  <h3>Lesson 8</h3>
-  <h3>Developmental Milestones</h3>
-  <p>Important physical, cognitive, language, and social milestones.</p>
-  <button onclick="openLesson(8)">Study Lesson</button>
-</div>
+                <h3>3. Prenatal Periods</h3>
 
-</div>
+                <div class="fact">
+                    <strong>Germinal Period</strong><br>
+                    Fertilization to approximately 2 weeks.
+                    The fertilized egg divides and travels toward
+                    the uterus.
+                </div>
 
-<div id="lessonArea">
-  <div class="lesson-content" id="lessonContent"></div>
-</div>
+                <div class="fact">
+                    <strong>Embryonic Period</strong><br>
+                    Approximately 2 to 8 weeks.
+                    Major organs and body structures begin developing.
+                </div>
 
-<h2 class="section-title">📝 Practice Examination</h2>
+                <div class="fact">
+                    <strong>Fetal Period</strong><br>
+                    Approximately 9 weeks until birth.
+                    Growth and maturation of body systems continue.
+                </div>
 
-<div class="welcome">
-  <p>
-    After studying the lessons, test your knowledge with a
-    30-item ECE practice quiz.
-  </p>
-  <button class="quiz-btn" onclick="openQuiz()">Start 30-Item Quiz</button>
-</div>
+                <h3>Remember This Order</h3>
 
-<div class="quiz-section" id="quizSection">
-<h2 style="color:#527c6b;">📝 ECE Practice Quiz</h2>
-<p>Choose the best answer for each question.</p>
+                <div class="term">
+                    Fertilization → Zygote → Embryo → Fetus → Birth
+                </div>
 
-<form id="quizForm">
+                <h3>Implantation</h3>
 
-<div class="question">
-<p>1. The union of the sperm and ovum is called:</p>
-<label class="option"><input type="radio" name="q1" value="A"> A. Implantation</label>
-<label class="option"><input type="radio" name="q1" value="B"> B. Fertilization</label>
-<label class="option"><input type="radio" name="q1" value="C"> C. Gestation</label>
-<label class="option"><input type="radio" name="q1" value="D"> D. Ovulation</label>
-</div>
+                <p>
+                    Implantation occurs when the developing conceptus
+                    attaches to the lining of the uterus.
+                </p>
 
-<div class="question">
-<p>2. The fertilized egg is called a:</p>
-<label class="option"><input type="radio" name="q2" value="A"> A. Fetus</label>
-<label class="option"><input type="radio" name="q2" value="B"> B. Embryo</label>
-<label class="option"><input type="radio" name="q2" value="C"> C. Zygote</label>
-<label class="option"><input type="radio" name="q2" value="D"> D. Placenta</label>
-</div>
+                <button class="complete-btn" onclick="completeLesson(1)">
+                    ✅ Mark Lesson Complete
+                </button>
+            </div>
+        </div>
 
-<div class="question">
-<p>3. The germinal period generally lasts from fertilization to approximately:</p>
-<label class="option"><input type="radio" name="q3" value="A"> A. 2 weeks</label>
-<label class="option"><input type="radio" name="q3" value="B"> B. 8 weeks</label>
-<label class="option"><input type="radio" name="q3" value="C"> C. 12 weeks</label>
-<label class="option"><input type="radio" name="q3" value="D"> D. Birth</label>
-</div>
 
-<div class="question">
-<p>4. During which prenatal period do major organs begin to form?</p>
-<label class="option"><input type="radio" name="q4" value="A"> A. Germinal</label>
-<label class="option"><input type="radio" name="q4" value="B"> B. Embryonic</label>
-<label class="option"><input type="radio" name="q4" value="C"> C. Fetal</label>
-<label class="option"><input type="radio" name="q4" value="D"> D. Neonatal</label>
-</div>
+        <!-- LESSON 2 -->
+        <div class="lesson-card">
+            <span class="lesson-number">Lesson 2</span>
+            <h2>🤰 Prenatal Influences</h2>
+            <p>
+                Learn about factors that can influence development
+                before birth.
+            </p>
 
-<div class="question">
-<p>5. The developing human from approximately the ninth week until birth is called the:</p>
-<label class="option"><input type="radio" name="q5" value="A"> A. Zygote</label>
-<label class="option"><input type="radio" name="q5" value="B"> B. Embryo</label>
-<label class="option"><input type="radio" name="q5" value="C"> C. Fetus</label>
-<label class="option"><input type="radio" name="q5" value="D"> D. Blastocyst</label>
-</div>
+            <button onclick="toggleLesson(2)">
+                📖 Open Lesson
+            </button>
 
-<div class="question">
-<p>6. A harmful environmental agent that can cause prenatal abnormalities is called a:</p>
-<label class="option"><input type="radio" name="q6" value="A"> A. Teratogen</label>
-<label class="option"><input type="radio" name="q6" value="B"> B. Chromosome</label>
-<label class="option"><input type="radio" name="q6" value="C"> C. Hormone</label>
-<label class="option"><input type="radio" name="q6" value="D"> D. Neuron</label>
-</div>
+            <div class="lesson-content" id="lesson2">
 
-<div class="question">
-<p>7. Which is an example of a newborn reflex?</p>
-<label class="option"><input type="radio" name="q7" value="A"> A. Reading</label>
-<label class="option"><input type="radio" name="q7" value="B"> B. Rooting</label>
-<label class="option"><input type="radio" name="q7" value="C"> C. Writing</label>
-<label class="option"><input type="radio" name="q7" value="D"> D. Counting</label>
-</div>
+                <h3>Teratogens</h3>
 
-<div class="question">
-<p>8. The rooting reflex helps a newborn:</p>
-<label class="option"><input type="radio" name="q8" value="A"> A. Walk</label>
-<label class="option"><input type="radio" name="q8" value="B"> B. Find the breast or nipple</label>
-<label class="option"><input type="radio" name="q8" value="C"> C. Hold a pencil</label>
-<label class="option"><input type="radio" name="q8" value="D"> D. Crawl</label>
-</div>
+                <p>
+                    A teratogen is an environmental agent that can
+                    negatively affect prenatal development.
+                </p>
 
-<div class="question">
-<p>9. According to Erikson, the major task of infancy is:</p>
-<label class="option"><input type="radio" name="q9" value="A"> A. Initiative vs. Guilt</label>
-<label class="option"><input type="radio" name="q9" value="B"> B. Trust vs. Mistrust</label>
-<label class="option"><input type="radio" name="q9" value="C"> C. Industry vs. Inferiority</label>
-<label class="option"><input type="radio" name="q9" value="D"> D. Identity vs. Role Confusion</label>
-</div>
+                <div class="warning">
+                    Examples can include alcohol, certain drugs,
+                    some infections, radiation, and certain toxic
+                    environmental substances.
+                </div>
 
-<div class="question">
-<p>10. According to Erikson, toddlerhood is associated with:</p>
-<label class="option"><input type="radio" name="q10" value="A"> A. Autonomy vs. Shame and Doubt</label>
-<label class="option"><input type="radio" name="q10" value="B"> B. Trust vs. Mistrust</label>
-<label class="option"><input type="radio" name="q10" value="C"> C. Initiative vs. Guilt</label>
-<label class="option"><input type="radio" name="q10" value="D"> D. Identity vs. Role Confusion</label>
-</div>
+                <h3>Maternal Nutrition</h3>
 
-<div class="question">
-<p>11. According to Erikson, preschool children develop:</p>
-<label class="option"><input type="radio" name="q11" value="A"> A. Trust</label>
-<label class="option"><input type="radio" name="q11" value="B"> B. Autonomy</label>
-<label class="option"><input type="radio" name="q11" value="C"> C. Initiative</label>
-<label class="option"><input type="radio" name="q11" value="D"> D. Identity</label>
-</div>
+                <p>
+                    Adequate nutrition supports healthy prenatal growth
+                    and development.
+                </p>
 
-<div class="question">
-<p>12. Piaget's preoperational stage generally occurs during:</p>
-<label class="option"><input type="radio" name="q12" value="A"> A. Birth–2 years</label>
-<label class="option"><input type="radio" name="q12" value="B"> B. 2–7 years</label>
-<label class="option"><input type="radio" name="q12" value="C"> C. 7–11 years</label>
-<label class="option"><input type="radio" name="q12" value="D"> D. 12 years onward</label>
-</div>
+                <h3>Maternal Health</h3>
 
-<div class="question">
-<p>13. A child believes everyone sees the world exactly as he does. This is called:</p>
-<label class="option"><input type="radio" name="q13" value="A"> A. Conservation</label>
-<label class="option"><input type="radio" name="q13" value="B"> B. Egocentrism</label>
-<label class="option"><input type="radio" name="q13" value="C"> C. Reversibility</label>
-<label class="option"><input type="radio" name="q13" value="D"> D. Seriation</label>
-</div>
+                <p>
+                    A pregnant person's health, infections, medications,
+                    stress, and exposure to harmful substances may
+                    influence prenatal development.
+                </p>
 
-<div class="question">
-<p>14. Vygotsky emphasized the importance of:</p>
-<label class="option"><input type="radio" name="q14" value="A"> A. Social interaction</label>
-<label class="option"><input type="radio" name="q14" value="B"> B. Reflexes only</label>
-<label class="option"><input type="radio" name="q14" value="C"> C. Punishment</label>
-<label class="option"><input type="radio" name="q14" value="D"> D. Memorization</label>
-</div>
+                <h3>Critical Periods</h3>
 
-<div class="question">
-<p>15. The Zone of Proximal Development refers to tasks a child can perform:</p>
-<label class="option"><input type="radio" name="q15" value="A"> A. Only independently</label>
-<label class="option"><input type="radio" name="q15" value="B"> B. With appropriate guidance or assistance</label>
-<label class="option"><input type="radio" name="q15" value="C"> C. Without learning</label>
-<label class="option"><input type="radio" name="q15" value="D"> D. Only through memorization</label>
-</div>
+                <p>
+                    Some periods of prenatal development are especially
+                    important because particular organs and structures
+                    are developing rapidly.
+                </p>
 
-<div class="question">
-<p>16. Which activity best develops fine-motor skills?</p>
-<label class="option"><input type="radio" name="q16" value="A"> A. Running</label>
-<label class="option"><input type="radio" name="q16" value="B"> B. Jumping</label>
-<label class="option"><input type="radio" name="q16" value="C"> C. Cutting with scissors</label>
-<label class="option"><input type="radio" name="q16" value="D"> D. Climbing</label>
-</div>
+                <div class="fact">
+                    <strong>LET Tip:</strong>
+                    When studying prenatal development, remember:
+                    nutrition + health + environment can all influence
+                    the developing baby.
+                </div>
 
-<div class="question">
-<p>17. Which activity best develops gross-motor skills?</p>
-<label class="option"><input type="radio" name="q17" value="A"> A. Beading</label>
-<label class="option"><input type="radio" name="q17" value="B"> B. Drawing</label>
-<label class="option"><input type="radio" name="q17" value="C"> C. Running and jumping</label>
-<label class="option"><input type="radio" name="q17" value="D"> D. Buttoning clothes</label>
-</div>
+                <button class="complete-btn" onclick="completeLesson(2)">
+                    ✅ Mark Lesson Complete
+                </button>
+            </div>
+        </div>
 
-<div class="question">
-<p>18. Developmentally appropriate practice considers:</p>
-<label class="option"><input type="radio" name="q18" value="A"> A. Age only</label>
-<label class="option"><input type="radio" name="q18" value="B"> B. Age, individuality, and cultural context</label>
-<label class="option"><input type="radio" name="q18" value="C"> C. Academic performance only</label>
-<label class="option"><input type="radio" name="q18" value="D"> D. Teacher preference only</label>
-</div>
 
-<div class="question">
-<p>19. Play-based learning means children learn through:</p>
-<label class="option"><input type="radio" name="q19" value="A"> A. Meaningful play experiences</label>
-<label class="option"><input type="radio" name="q19" value="B"> B. Lectures only</label>
-<label class="option"><input type="radio" name="q19" value="C"> C. Written exams only</label>
-<label class="option"><input type="radio" name="q19" value="D"> D. Repetition without understanding</label>
-</div>
+        <!-- LESSON 3 -->
+        <div class="lesson-card">
+            <span class="lesson-number">Lesson 3</span>
+            <h2>👶 Birth & Newborn Development</h2>
+            <p>
+                Important concepts about birth and the newborn period.
+            </p>
 
-<div class="question">
-<p>20. A child sorting objects by color is demonstrating:</p>
-<label class="option"><input type="radio" name="q20" value="A"> A. Classification</label>
-<label class="option"><input type="radio" name="q20" value="B"> B. Attachment</label>
-<label class="option"><input type="radio" name="q20" value="C"> C. Imitation</label>
-<label class="option"><input type="radio" name="q20" value="D"> D. Accommodation only</label>
-</div>
+            <button onclick="toggleLesson(3)">
+                📖 Open Lesson
+            </button>
 
-<div class="question">
-<p>21. A child's first social relationship is usually formed with:</p>
-<label class="option"><input type="radio" name="q21" value="A"> A. Classmates</label>
-<label class="option"><input type="radio" name="q21" value="B"> B. Primary caregivers</label>
-<label class="option"><input type="radio" name="q21" value="C"> C. Neighbors</label>
-<label class="option"><input type="radio" name="q21" value="D"> D. Teachers</label>
-</div>
+            <div class="lesson-content" id="lesson3">
 
-<div class="question">
-<p>22. Secure attachment is promoted by caregivers who are:</p>
-<label class="option"><input type="radio" name="q22" value="A"> A. Consistently responsive</label>
-<label class="option"><input type="radio" name="q22" value="B"> B. Always absent</label>
-<label class="option"><input type="radio" name="q22" value="C"> C. Harsh and unpredictable</label>
-<label class="option"><input type="radio" name="q22" value="D"> D. Unresponsive</label>
-</div>
+                <h3>Newborn Period</h3>
 
-<div class="question">
-<p>23. The ability to understand that an object still exists even when hidden is called:</p>
-<label class="option"><input type="radio" name="q23" value="A"> A. Conservation</label>
-<label class="option"><input type="radio" name="q23" value="B"> B. Object permanence</label>
-<label class="option"><input type="radio" name="q23" value="C"> C. Egocentrism</label>
-<label class="option"><input type="radio" name="q23" value="D"> D. Symbolic thinking</label>
-</div>
+                <p>
+                    The newborn period is the earliest period of life
+                    after birth.
+                </p>
 
-<div class="question">
-<p>24. Object permanence develops primarily during Piaget's:</p>
-<label class="option"><input type="radio" name="q24" value="A"> A. Sensorimotor stage</label>
-<label class="option"><input type="radio" name="q24" value="B"> B. Preoperational stage</label>
-<label class="option"><input type="radio" name="q24" value="C"> C. Concrete operational stage</label>
-<label class="option"><input type="radio" name="q24" value="D"> D. Formal operational stage</label>
-</div>
+                <h3>Reflexes</h3>
 
-<div class="question">
-<p>25. Which is an example of symbolic play?</p>
-<label class="option"><input type="radio" name="q25" value="A"> A. A child using a block as a telephone</label>
-<label class="option"><input type="radio" name="q25" value="B"> B. A child sleeping</label>
-<label class="option"><input type="radio" name="q25" value="C"> C. A child eating lunch</label>
-<label class="option"><input type="radio" name="q25" value="D"> D. A child standing still</label>
-</div>
+                <div class="term">
+                    <strong>Rooting Reflex</strong><br>
+                    The baby turns toward a touch near the mouth or cheek.
+                </div>
 
-<div class="question">
-<p>26. The teacher's role in child-centered learning is primarily to:</p>
-<label class="option"><input type="radio" name="q26" value="A"> A. Control every action</label>
-<label class="option"><input type="radio" name="q26" value="B"> B. Facilitate and support learning</label>
-<label class="option"><input type="radio" name="q26" value="C"> C. Give lectures all day</label>
-<label class="option"><input type="radio" name="q26" value="D"> D. Prevent children from exploring</label>
-</div>
+                <div class="term">
+                    <strong>Sucking Reflex</strong><br>
+                    Helps the baby suck when something touches the mouth.
+                </div>
 
-<div class="question">
-<p>27. Observation is useful because it allows teachers to:</p>
-<label class="option"><input type="radio" name="q27" value="A"> A. Diagnose every child immediately</label>
-<label class="option"><input type="radio" name="q27" value="B"> B. Understand children's development and needs</label>
-<label class="option"><input type="radio" name="q27" value="C"> C. Compare children unfairly</label>
-<label class="option"><input type="radio" name="q27" value="D"> D. Replace all teaching</label>
-</div>
+                <div class="term">
+                    <strong>Moro Reflex</strong><br>
+                    A startle response involving movements of the arms
+                    and body.
+                </div>
 
-<div class="question">
-<p>28. Which domain includes cooperation, empathy, and relationships?</p>
-<label class="option"><input type="radio" name="q28" value="A"> A. Physical development</label>
-<label class="option"><input type="radio" name="q28" value="B"> B. Social-emotional development</label>
-<label class="option"><input type="radio" name="q28" value="C"> C. Motor development only</label>
-<label class="option"><input type="radio" name="q28" value="D"> D. Prenatal development</label>
-</div>
+                <div class="term">
+                    <strong>Grasping Reflex</strong><br>
+                    The baby closes the fingers around an object
+                    placed in the palm.
+                </div>
 
-<div class="question">
-<p>29. Language development is best supported by:</p>
-<label class="option"><input type="radio" name="q29" value="A"> A. Avoiding conversation</label>
-<label class="option"><input type="radio" name="q29" value="B"> B. Talking, reading, singing, and responding to children</label>
-<label class="option"><input type="radio" name="q29" value="C"> C. Correcting every mistake harshly</label>
-<label class="option"><input type="radio" name="q29" value="D"> D. Giving worksheets only</label>
-</div>
+                <h3>Newborn Development</h3>
 
-<div class="question">
-<p>30. The best way to support young children's learning is to provide:</p>
-<label class="option"><input type="radio" name="q30" value="A"> A. A safe, stimulating, responsive environment</label>
-<label class="option"><input type="radio" name="q30" value="B"> B. Constant punishment</label>
-<label class="option"><input type="radio" name="q30" value="C"> C. Only academic drills</label>
-<label class="option"><input type="radio" name="q30" value="D"> D. No opportunities for play</label>
-</div>
+                <ul>
+                    <li>Rapid physical growth occurs.</li>
+                    <li>Senses begin adapting to the environment.</li>
+                    <li>Babies communicate through crying and other behaviors.</li>
+                    <li>Early caregiver interaction supports development.</li>
+                </ul>
 
-<button type="button" class="submit-btn" onclick="checkQuiz()">Submit Quiz</button>
-</form>
+                <button class="complete-btn" onclick="completeLesson(3)">
+                    ✅ Mark Lesson Complete
+                </button>
+            </div>
+        </div>
 
-<div id="result"></div>
-</div>
+
+        <!-- LESSON 4 -->
+        <div class="lesson-card">
+            <span class="lesson-number">Lesson 4</span>
+            <h2>🍼 Infancy & Toddlerhood</h2>
+            <p>
+                Understand physical, cognitive, language,
+                and social-emotional development.
+            </p>
+
+            <button onclick="toggleLesson(4)">
+                📖 Open Lesson
+            </button>
+
+            <div class="lesson-content" id="lesson4">
+
+                <h3>Physical Development</h3>
+
+                <p>
+                    Infants gradually gain control over their bodies,
+                    progressing from simpler movements to more
+                    coordinated motor skills.
+                </p>
+
+                <div class="term">
+                    Head control → sitting → crawling → standing → walking
+                </div>
+
+                <h3>Cognitive Development</h3>
+
+                <p>
+                    Infants learn through their senses and actions.
+                    They explore objects, people, and their environment.
+                </p>
+
+                <h3>Object Permanence</h3>
+
+                <p>
+                    Object permanence is the understanding that an object
+                    continues to exist even when it cannot currently be seen.
+                </p>
+
+                <h3>Language Development</h3>
+
+                <ul>
+                    <li>Crying and cooing</li>
+                    <li>Babbling</li>
+                    <li>Gestures</li>
+                    <li>First words</li>
+                    <li>Increasing vocabulary</li>
+                </ul>
+
+                <h3>Social-Emotional Development</h3>
+
+                <p>
+                    Responsive and consistent caregivers help children
+                    develop trust, security, and emotional regulation.
+                </p>
+
+                <button class="complete-btn" onclick="completeLesson(4)">
+                    ✅ Mark Lesson Complete
+                </button>
+            </div>
+        </div>
+
+
+        <!-- LESSON 5 -->
+        <div class="lesson-card">
+            <span class="lesson-number">Lesson 5</span>
+            <h2>🧸 Preschool Development</h2>
+            <p>
+                Review development during the preschool years.
+            </p>
+
+            <button onclick="toggleLesson(5)">
+                📖 Open Lesson
+            </button>
+
+            <div class="lesson-content" id="lesson5">
+
+                <h3>Physical Development</h3>
+
+                <p>
+                    Preschool children generally develop better balance,
+                    coordination, strength, and fine-motor control.
+                </p>
+
+                <h3>Cognitive Development</h3>
+
+                <p>
+                    Children become increasingly curious and use
+                    symbols, language, imagination, and pretend play.
+                </p>
+
+                <h3>Language</h3>
+
+                <p>
+                    Vocabulary and sentence complexity increase rapidly
+                    during the preschool years.
+                </p>
+
+                <h3>Social Development</h3>
+
+                <p>
+                    Children begin developing friendships, cooperation,
+                    self-control, and an understanding of social rules.
+                </p>
+
+                <div class="fact">
+                    <strong>Important:</strong>
+                    Development happens at different rates.
+                    Milestones are useful guides, not exact deadlines
+                    for every child.
+                </div>
+
+                <button class="complete-btn" onclick="completeLesson(5)">
+                    ✅ Mark Lesson Complete
+                </button>
+            </div>
+        </div>
+
+
+        <!-- LESSON 6 -->
+        <div class="lesson-card">
+            <span class="lesson-number">Lesson 6</span>
+            <h2>🧠 Developmental Theorists</h2>
+            <p>
+                Learn the major theorists commonly associated with
+                child development.
+            </p>
+
+            <button onclick="toggleLesson(6)">
+                📖 Open Lesson
+            </button>
+
+            <div class="lesson-content" id="lesson6">
+
+                <h3>Jean Piaget</h3>
+
+                <div class="term">
+                    <strong>Cognitive Development</strong><br>
+                    Focused on how children actively construct knowledge.
+                </div>
+
+                <p>
+                    Four major stages:
+                </p>
+
+                <ul>
+                    <li>Sensorimotor</li>
+                    <li>Preoperational</li>
+                    <li>Concrete operational</li>
+                    <li>Formal operational</li>
+                </ul>
+
+                <h3>Erik Erikson</h3>
+
+                <div class="term">
+                    <strong>Psychosocial Development</strong><br>
+                    Described development through psychosocial conflicts
+                    across the lifespan.
+                </div>
+
+                <h3>Lev Vygotsky</h3>
+
+                <div class="term">
+                    <strong>Sociocultural Theory</strong><br>
+                    Emphasized social interaction, language, and cultural
+                    context in learning.
+                </div>
+
+                <h3>John Bowlby</h3>
+
+                <div class="term">
+                    <strong>Attachment Theory</strong><br>
+                    Emphasized the importance of early emotional bonds
+                    between children and caregivers.
+                </div>
+
+                <h3>Lawrence Kohlberg</h3>
+
+                <div class="term">
+                    <strong>Moral Development</strong><br>
+                    Studied the development of moral reasoning.
+                </div>
+
+                <h3>Urie Bronfenbrenner</h3>
+
+                <div class="term">
+                    <strong>Ecological Systems Theory</strong><br>
+                    Examined how different environmental systems
+                    influence development.
+                </div>
+
+                <button class="complete-btn" onclick="completeLesson(6)">
+                    ✅ Mark Lesson Complete
+                </button>
+            </div>
+        </div>
+
+
+        <!-- LESSON 7 -->
+        <div class="lesson-card">
+            <span class="lesson-number">Lesson 7</span>
+            <h2>🎨 Learning Through Play</h2>
+            <p>
+                Understand why play is important in early childhood.
+            </p>
+
+            <button onclick="toggleLesson(7)">
+                📖 Open Lesson
+            </button>
+
+            <div class="lesson-content" id="lesson7">
+
+                <h3>Why Children Play</h3>
+
+                <ul>
+                    <li>Develops problem-solving skills</li>
+                    <li>Supports language development</li>
+                    <li>Encourages creativity</li>
+                    <li>Builds social skills</li>
+                    <li>Supports physical development</li>
+                    <li>Allows children to practice new ideas</li>
+                </ul>
+
+                <h3>Types of Play</h3>
+
+                <div class="term">
+                    <strong>Solitary Play</strong><br>
+                    A child plays independently.
+                </div>
+
+                <div class="term">
+                    <strong>Parallel Play</strong><br>
+                    Children play beside each other but have limited
+                    interaction.
+                </div>
+
+                <div class="term">
+                    <strong>Associative Play</strong><br>
+                    Children interact and share materials but may not
+                    have a common organized goal.
+                </div>
+
+                <div class="term">
+                    <strong>Cooperative Play</strong><br>
+                    Children work or play together toward a shared goal.
+                </div>
+
+                <h3>Teacher's Role</h3>
+
+                <p>
+                    An early childhood teacher can provide safe materials,
+                    observe children, ask questions, encourage exploration,
+                    and scaffold learning.
+                </p>
+
+                <button class="complete-btn" onclick="completeLesson(7)">
+                    ✅ Mark Lesson Complete
+                </button>
+            </div>
+        </div>
+
+
+        <!-- LESSON 8 -->
+        <div class="lesson-card">
+            <span class="lesson-number">Lesson 8</span>
+            <h2>📈 Developmental Milestones</h2>
+            <p>
+                Review major areas of child development.
+            </p>
+
+            <button onclick="toggleLesson(8)">
+                📖 Open Lesson
+            </button>
+
+            <div class="lesson-content" id="lesson8">
+
+                <h3>Four Major Developmental Domains</h3>
+
+                <div class="term">
+                    <strong>1. Physical / Motor</strong><br>
+                    Movement, coordination, strength, and body development.
+                </div>
+
+                <div class="term">
+                    <strong>2. Cognitive</strong><br>
+                    Thinking, memory, attention, reasoning, and problem solving.
+                </div>
+
+                <div class="term">
+                    <strong>3. Language / Communication</strong><br>
+                    Understanding and using language and other forms
+                    of communication.
+                </div>
+
+                <div class="term">
+                    <strong>4. Social-Emotional</strong><br>
+                    Relationships, emotions, self-awareness,
+                    and social interaction.
+                </div>
+
+                <h3>Remember</h3>
+
+                <p>
+                    Development is interconnected. A child may be developing
+                    rapidly in one area while progressing more gradually
+                    in another.
+                </p>
+
+                <div class="fact">
+                    <strong>LET Tip:</strong>
+                    When answering a developmental question,
+                    identify which domain the behavior belongs to:
+                    physical, cognitive, language, or social-emotional.
+                </div>
+
+                <button class="complete-btn" onclick="completeLesson(8)">
+                    ✅ Mark Lesson Complete
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <section class="quiz-section">
+
+        <h2>📝 30-Item ECE Practice Quiz</h2>
+
+        <p>
+            Choose the best answer for each question.
+            Your score will appear after you submit.
+        </p>
+
+        <form id="quizForm">
+
+            <div class="quiz-question">
+                <strong>1. What is the result of fertilization?</strong>
+
+                <label>
+                    <input type="radio" name="q1" value="A">
+                    A. Embryo
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="B">
+                    B. Zygote
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="C">
+                    C. Fetus
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="D">
+                    D. Placenta
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>2. Which prenatal period lasts approximately from fertilization to two weeks?</strong>
+
+                <label>
+                    <input type="radio" name="q2" value="A">
+                    A. Germinal
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="B">
+                    B. Embryonic
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="C">
+                    C. Fetal
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="D">
+                    D. Neonatal
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>3. During which period do major organs begin developing?</strong>
+
+                <label>
+                    <input type="radio" name="q3" value="A">
+                    A. Germinal
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="B">
+                    B. Embryonic
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="C">
+                    C. Fetal
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="D">
+                    D. Toddler
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>4. Which term refers to an environmental agent that can negatively affect prenatal development?</strong>
+
+                <label>
+                    <input type="radio" name="q4" value="A">
+                    A. Milestone
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="B">
+                    B. Teratogen
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="C">
+                    C. Reflex
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="D">
+                    D. Schema
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>5. Which reflex causes a newborn to turn toward a touch near the cheek?</strong>
+
+                <label>
+                    <input type="radio" name="q5" value="A">
+                    A. Moro
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="B">
+                    B. Grasping
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="C">
+                    C. Rooting
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="D">
+                    D. Babinski
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>6. Which reflex is associated with sucking?</strong>
+
+                <label>
+                    <input type="radio" name="q6" value="A">
+                    A. Sucking reflex
+                </label>
+
+                <label>
+                    <input type="radio" name="q6" value="B">
+                    B. Moro reflex
+                </label>
+
+                <label>
+                    <input type="radio" name="q6" value="C">
+                    C. Rooting reflex
+                </label>
+
+                <label>
+                    <input type="radio" name="q6" value="D">
+                    D. Grasping reflex
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>7. Which concept means understanding that an object still exists even when it cannot be seen?</strong>
+
+                <label>
+                    <input type="radio" name="q7" value="A">
+                    A. Conservation
+                </label>
+
+                <label>
+                    <input type="radio" name="q7" value="B">
+                    B. Object permanence
+                </label>
+
+                <label>
+                    <input type="radio" name="q7" value="C">
+                    C. Egocentrism
+                </label>
+
+                <label>
+                    <input type="radio" name="q7" value="D">
+                    D. Attachment
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>8. Who developed the theory of cognitive development?</strong>
+
+                <label>
+                    <input type="radio" name="q8" value="A">
+                    A. Erikson
+                </label>
+
+                <label>
+                    <input type="radio" name="q8" value="B">
+                    B. Piaget
+                </label>
+
+                <label>
+                    <input type="radio" name="q8" value="C">
+                    C. Bowlby
+                </label>
+
+                <label>
+                    <input type="radio" name="q8" value="D">
+                    D. Kohlberg
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>9. Which theorist is associated with psychosocial development?</strong>
+
+                <label>
+                    <input type="radio" name="q9" value="A">
+                    A. Piaget
+                </label>
+
+                <label>
+                    <input type="radio" name="q9" value="B">
+                    B. Erikson
+                </label>
+
+                <label>
+                    <input type="radio" name="q9" value="C">
+                    C. Vygotsky
+                </label>
+
+                <label>
+                    <input type="radio" name="q9" value="D">
+                    D. Bronfenbrenner
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>10. Who emphasized the importance of social interaction and culture in learning?</strong>
+
+                <label>
+                    <input type="radio" name="q10" value="A">
+                    A. Vygotsky
+                </label>
+
+                <label>
+                    <input type="radio" name="q10" value="B">
+                    B. Freud
+                </label>
+
+                <label>
+                    <input type="radio" name="q10" value="C">
+                    C. Kohlberg
+                </label>
+
+                <label>
+                    <input type="radio" name="q10" value="D">
+                    D. Bowlby
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>11. Which theorist is strongly associated with attachment theory?</strong>
+
+                <label>
+                    <input type="radio" name="q11" value="A">
+                    A. Bowlby
+                </label>
+
+                <label>
+                    <input type="radio" name="q11" value="B">
+                    B. Piaget
+                </label>
+
+                <label>
+                    <input type="radio" name="q11" value="C">
+                    C. Erikson
+                </label>
+
+                <label>
+                    <input type="radio" name="q11" value="D">
+                    D. Bronfenbrenner
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>12. Which theorist studied moral development?</strong>
+
+                <label>
+                    <input type="radio" name="q12" value="A">
+                    A. Vygotsky
+                </label>
+
+                <label>
+                    <input type="radio" name="q12" value="B">
+                    B. Kohlberg
+                </label>
+
+                <label>
+                    <input type="radio" name="q12" value="C">
+                    C. Bowlby
+                </label>
+
+                <label>
+                    <input type="radio" name="q12" value="D">
+                    D. Piaget
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>13. Which theorist developed ecological systems theory?</strong>
+
+                <label>
+                    <input type="radio" name="q13" value="A">
+                    A. Bronfenbrenner
+                </label>
+
+                <label>
+                    <input type="radio" name="q13" value="B">
+                    B. Erikson
+                </label>
+
+                <label>
+                    <input type="radio" name="q13" value="C">
+                    C. Piaget
+                </label>
+
+                <label>
+                    <input type="radio" name="q13" value="D">
+                    D. Kohlberg
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>14. Which type of play occurs when children play beside one another with little interaction?</strong>
+
+                <label>
+                    <input type="radio" name="q14" value="A">
+                    A. Cooperative play
+                </label>
+
+                <label>
+                    <input type="radio" name="q14" value="B">
+                    B. Associative play
+                </label>
+
+                <label>
+                    <input type="radio" name="q14" value="C">
+                    C. Parallel play
+                </label>
+
+                <label>
+                    <input type="radio" name="q14" value="D">
+                    D. Dramatic play
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>15. Which type of play involves children working together toward a shared goal?</strong>
+
+                <label>
+                    <input type="radio" name="q15" value="A">
+                    A. Solitary play
+                </label>
+
+                <label>
+                    <input type="radio" name="q15" value="B">
+                    B. Parallel play
+                </label>
+
+                <label>
+                    <input type="radio" name="q15" value="C">
+                    C. Cooperative play
+                </label>
+
+                <label>
+                    <input type="radio" name="q15" value="D">
+                    D. Unoccupied play
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>16. Which developmental domain includes memory and problem solving?</strong>
+
+                <label>
+                    <input type="radio" name="q16" value="A">
+                    A. Physical
+                </label>
+
+                <label>
+                    <input type="radio" name="q16" value="B">
+                    B. Cognitive
+                </label>
+
+                <label>
+                    <input type="radio" name="q16" value="C">
+                    C. Social
+                </label>
+
+                <label>
+                    <input type="radio" name="q16" value="D">
+                    D. Motor
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>17. Which developmental domain includes relationships and emotions?</strong>
+
+                <label>
+                    <input type="radio" name="q17" value="A">
+                    A. Social-emotional
+                </label>
+
+                <label>
+                    <input type="radio" name="q17" value="B">
+                    B. Physical
+                </label>
+
+                <label>
+                    <input type="radio" name="q17" value="C">
+                    C. Cognitive
+                </label>
+
+                <label>
+                    <input type="radio" name="q17" value="D">
+                    D. Language
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>18. Which developmental domain includes vocabulary and communication?</strong>
+
+                <label>
+                    <input type="radio" name="q18" value="A">
+                    A. Cognitive
+                </label>
+
+                <label>
+                    <input type="radio" name="q18" value="B">
+                    B. Physical
+                </label>
+
+                <label>
+                    <input type="radio" name="q18" value="C">
+                    C. Language
+                </label>
+
+                <label>
+                    <input type="radio" name="q18" value="D">
+                    D. Social
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>19. Which developmental domain includes coordination and movement?</strong>
+
+                <label>
+                    <input type="radio" name="q19" value="A">
+                    A. Language
+                </label>
+
+                <label>
+                    <input type="radio" name="q19" value="B">
+                    B. Physical
+                </label>
+
+                <label>
+                    <input type="radio" name="q19" value="C">
+                    C. Social
+                </label>
+
+                <label>
+                    <input type="radio" name="q19" value="D">
+                    D. Emotional
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>20. Which stage of Piaget's theory comes first?</strong>
+
+                <label>
+                    <input type="radio" name="q20" value="A">
+                    A. Formal operational
+                </label>
+
+                <label>
+                    <input type="radio" name="q20" value="B">
+                    B. Concrete operational
+                </label>
+
+                <label>
+                    <input type="radio" name="q20" value="C">
+                    C. Preoperational
+                </label>
+
+                <label>
+                    <input type="radio" name="q20" value="D">
+                    Sensorimotor
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>21. The sensorimotor stage is primarily associated with:</strong>
+
+                <label>
+                    <input type="radio" name="q21" value="A">
+                    A. Learning through senses and actions
+                </label>
+
+                <label>
+                    <input type="radio" name="q21" value="B">
+                    B. Abstract reasoning
+                </label>
+
+                <label>
+                    <input type="radio" name="q21" value="C">
+                    C. Formal logic
+                </label>
+
+                <label>
+                    <input type="radio" name="q21" value="D">
+                    D. Advanced moral reasoning
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>22. A child pretending that a box is a car is demonstrating:</strong>
+
+                <label>
+                    <input type="radio" name="q22" value="A">
+                    A. Symbolic thinking
+                </label>
+
+                <label>
+                    <input type="radio" name="q22" value="B">
+                    B. Object permanence
+                </label>
+
+                <label>
+                    <input type="radio" name="q22" value="C">
+                    C. Reflexive behavior
+                </label>
+
+                <label>
+                    <input type="radio" name="q22" value="D">
+                    D. Attachment
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>23. What is scaffolding?</strong>
+
+                <label>
+                    <input type="radio" name="q23" value="A">
+                    A. Punishing a child for mistakes
+                </label>
+
+                <label>
+                    <input type="radio" name="q23" value="B">
+                    B. Temporary support that helps a learner accomplish a task
+                </label>
+
+                <label>
+                    <input type="radio" name="q23" value="C">
+                    C. Preventing children from exploring
+                </label>
+
+                <label>
+                    <input type="radio" name="q23" value="D">
+                    D. Giving children the answers immediately
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>24. Which approach is most appropriate for young children?</strong>
+
+                <label>
+                    <input type="radio" name="q24" value="A">
+                    A. Learning through developmentally appropriate experiences
+                </label>
+
+                <label>
+                    <input type="radio" name="q24" value="B">
+                    B. Memorizing long lectures
+                </label>
+
+                <label>
+                    <input type="radio" name="q24" value="C">
+                    C. Avoiding play
+                </label>
+
+                <label>
+                    <input type="radio" name="q24" value="D">
+                    D. Giving identical tasks regardless of developmental level
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>25. Why is play important in early childhood?</strong>
+
+                <label>
+                    <input type="radio" name="q25" value="A">
+                    A. It only provides entertainment
+                </label>
+
+                <label>
+                    <input type="radio" name="q25" value="B">
+                    B. It supports multiple areas of development
+                </label>
+
+                <label>
+                    <input type="radio" name="q25" value="C">
+                    C. It replaces all teaching
+                </label>
+
+                <label>
+                    <input type="radio" name="q25" value="D">
+                    D. It prevents social interaction
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>26. Which caregiver behavior best supports secure attachment?</strong>
+
+                <label>
+                    <input type="radio" name="q26" value="A">
+                    A. Consistent and responsive caregiving
+                </label>
+
+                <label>
+                    <input type="radio" name="q26" value="B">
+                    B. Ignoring the child's needs
+                </label>
+
+                <label>
+                    <input type="radio" name="q26" value="C">
+                    C. Frequently changing routines without reason
+                </label>
+
+                <label>
+                    <input type="radio" name="q26" value="D">
+                    D. Preventing emotional expression
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>27. Which statement about developmental milestones is most accurate?</strong>
+
+                <label>
+                    <input type="radio" name="q27" value="A">
+                    A. Every child reaches every milestone on exactly the same day.
+                </label>
+
+                <label>
+                    <input type="radio" name="q27" value="B">
+                    B. Milestones are useful guides, but children develop at different rates.
+                </label>
+
+                <label>
+                    <input type="radio" name="q27" value="C">
+                    B. Milestones are not useful at all.
+                </label>
+
+                <label>
+                    <input type="radio" name="q27" value="D">
+                    D. Only physical development matters.
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>28. Which activity best supports fine-motor development?</strong>
+
+                <label>
+                    <input type="radio" name="q28" value="A">
+                    A. Running outdoors
+                </label>
+
+                <label>
+                    <input type="radio" name="q28" value="B">
+                    B. Jumping
+                </label>
+
+                <label>
+                    <input type="radio" name="q28" value="C">
+                    C. Drawing and manipulating small safe objects
+                </label>
+
+                <label>
+                    <input type="radio" name="q28" value="D">
+                    D. Climbing stairs
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>29. Which practice allows children to explore and discover?</strong>
+
+                <label>
+                    <input type="radio" name="q29" value="A">
+                    A. Guided exploration
+                </label>
+
+                <label>
+                    <input type="radio" name="q29" value="B">
+                    B. Constant memorization
+                </label>
+
+                <label>
+                    <input type="radio" name="q29" value="C">
+                    C. Passive listening only
+                </label>
+
+                <label>
+                    <input type="radio" name="q29" value="D">
+                    D. Avoiding hands-on activities
+                </label>
+            </div>
+
+
+            <div class="quiz-question">
+                <strong>30. Which statement best describes child development?</strong>
+
+                <label>
+                    <input type="radio" name="q30" value="A">
+                    A. Development occurs only physically.
+                </label>
+
+                <label>
+                    <input type="radio" name="q30" value="B">
+                    B. Development occurs in interconnected areas and at different rates.
+                </label>
+
+                <label>
+                    <input type="radio" name="q30" value="C">
+                    Development stops during early childhood.
+                </label>
+
+                <label>
+                    <input type="radio" name="q30" value="D">
+                    D. All children develop identically.
+                </label>
+            </div>
+
+            <button type="button" onclick="checkQuiz()">
+                🎯 Submit Quiz
+            </button>
+
+            <div class="result" id="quizResult"></div>
+
+        </form>
+
+    </section>
 
 </div>
 
 <footer>
-  Made for Jewel's LET preparation 📚🧸<br>
-  One lesson at a time. You can learn this. 🌱
+    <p>🌷 Keep studying, Jewel! One lesson at a time. 📚🧸</p>
+
+    <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        ⬆️ Back to Top
+    </button>
 </footer>
+
 
 <script>
 
-const lessons = {
+function toggleLesson(number){
 
-1: {
-title:"🧬 Lesson 1: Fertilization & Prenatal Development",
-html:`
-<p><strong>Human development begins before birth.</strong> Before a baby is born, development passes through several important stages.</p>
+    const lesson = document.getElementById("lesson" + number);
 
-<h3>1. Fertilization</h3>
-<p>Fertilization happens when a <strong>sperm cell</strong> unites with an <strong>ovum (egg cell)</strong>.</p>
+    lesson.classList.toggle("show");
 
-<div class="fact">
-<strong>Remember:</strong><br>
-Sperm + Ovum = Zygote
-</div>
-
-<h3>2. Zygote</h3>
-<p>The <strong>zygote</strong> is the fertilized egg. It begins dividing into more cells as it travels toward the uterus.</p>
-
-<h3>3. Embryo</h3>
-<p>During the embryonic stage, major body structures and organs begin to form.</p>
-
-<h3>4. Fetus</h3>
-<p>After approximately the eighth week, the developing human is called a <strong>fetus</strong>. Growth and maturation continue until birth.</p>
-
-<h3>🌱 The Three Prenatal Periods</h3>
-
-<div class="timeline">
-<div><strong>Germinal</strong>Fertilization–2 weeks<br>Cell division and implantation</div>
-<div><strong>Embryonic</strong>2–8 weeks<br>Major organs begin forming</div>
-<div><strong>Fetal</strong>9 weeks–birth<br>Growth and maturation</div>
-</div>
-
-<div class="memory">
-<strong>Memory Trick:</strong><br>
-Germinal = Getting started<br>
-Embryonic = Equipment/organs forming<br>
-Fetal = Further growth
-</div>
-
-<h3>Important Terms</h3>
-<ul>
-<li><strong>Ovulation:</strong> Release of an egg from the ovary.</li>
-<li><strong>Implantation:</strong> Attachment of the developing organism to the uterine lining.</li>
-<li><strong>Gestation:</strong> The period of pregnancy.</li>
-<li><strong>Placenta:</strong> Organ that provides nutrients and oxygen and removes wastes between mother and developing baby.</li>
-<li><strong>Umbilical cord:</strong> Connects the fetus to the placenta.</li>
-</ul>
-`
-},
-
-2: {
-title:"🤰 Lesson 2: Prenatal Influences",
-html:`
-<p>Prenatal development can be affected by both <strong>heredity</strong> and <strong>environment</strong>.</p>
-
-<h3>Heredity</h3>
-<p>Heredity refers to characteristics passed from parents to children through genes.</p>
-
-<h3>Environment</h3>
-<p>Environmental factors include nutrition, health, stress, exposure to harmful substances, and prenatal care.</p>
-
-<h3>Teratogens</h3>
-<p>A <strong>teratogen</strong> is an environmental agent that can negatively affect prenatal development.</p>
-
-<ul>
-<li>Alcohol</li>
-<li>Certain drugs</li>
-<li>Some infections</li>
-<li>Radiation</li>
-<li>Severe malnutrition</li>
-<li>Certain toxic chemicals</li>
-</ul>
-
-<div class="warning">
-<strong>LET Reminder:</strong><br>
-The embryonic period is especially sensitive because major organs are forming.
-</div>
-
-<h3>Maternal Factors</h3>
-<ul>
-<li>Proper nutrition</li>
-<li>Regular prenatal checkups</li>
-<li>Avoidance of harmful substances</li>
-<li>Management of illness</li>
-<li>Emotional and physical well-being</li>
-</ul>
-
-<div class="memory">
-<strong>Remember:</strong><br>
-Nature = Heredity<br>
-Nurture = Environment
-</div>
-`
-},
-
-3: {
-title:"👶 Lesson 3: Birth & Newborn Development",
-html:`
-<h3>Newborn Period</h3>
-<p>The newborn period generally refers to the first few weeks after birth.</p>
-
-<h3>Common Newborn Reflexes</h3>
-<ul>
-<li><strong>Rooting reflex:</strong> Baby turns toward a touch near the mouth.</li>
-<li><strong>Sucking reflex:</strong> Baby automatically sucks.</li>
-<li><strong>Moro reflex:</strong> Startle response, often involving spreading the arms.</li>
-<li><strong>Grasping reflex:</strong> Baby closes fingers around an object placed in the palm.</li>
-<li><strong>Stepping reflex:</strong> Baby makes stepping movements when held upright.</li>
-</ul>
-
-<h3>APGAR</h3>
-<p>APGAR is a quick assessment of a newborn's condition after birth.</p>
-
-<ul>
-<li><strong>A</strong> – Appearance</li>
-<li><strong>P</strong> – Pulse</li>
-<li><strong>G</strong> – Grimace</li>
-<li><strong>A</strong> – Activity</li>
-<li><strong>R</strong> – Respiration</li>
-</ul>
-
-<div class="memory">
-<strong>Memory Trick:</strong><br>
-APGAR = Appearance, Pulse, Grimace, Activity, Respiration
-</div>
-
-<h3>Early Development</h3>
-<p>Newborns depend on caregivers for feeding, warmth, protection, and emotional security.</p>
-`
-},
-
-4: {
-title:"🍼 Lesson 4: Infancy & Toddlerhood",
-html:`
-<h3>Infancy</h3>
-<p>Infancy is a period of rapid physical and brain development.</p>
-
-<h3>Important Infant Developments</h3>
-<ul>
-<li>Smiling socially</li>
-<li>Rolling over</li>
-<li>Sitting</li>
-<li>Crawling</li>
-<li>Standing and walking</li>
-<li>Babbling</li>
-<li>Recognizing familiar caregivers</li>
-<li>Developing object permanence</li>
-</ul>
-
-<h3>Object Permanence</h3>
-<p>The understanding that an object continues to exist even when it cannot be seen.</p>
-
-<h3>Toddlerhood</h3>
-<p>Toddlers become more independent and want to do things by themselves.</p>
-
-<div class="fact">
-<strong>Erikson:</strong><br>
-Toddlerhood = Autonomy vs. Shame and Doubt
-</div>
-
-<h3>Typical Toddler Characteristics</h3>
-<ul>
-<li>Strong desire for independence</li>
-<li>Frequent use of “No!”</li>
-<li>Rapid language growth</li>
-<li>Parallel play</li>
-<li>Improved walking and running</li>
-<li>Beginning toilet training readiness</li>
-</ul>
-
-<div class="memory">
-<strong>Remember:</strong><br>
-Toddler = “I do it myself!”
-</div>
-`
-},
-
-5: {
-title:"🧸 Lesson 5: Preschool Development",
-html:`
-<h3>Preschool Age</h3>
-<p>Preschoolers are generally around <strong>3–6 years old</strong>.</p>
-
-<h3>Physical Development</h3>
-<ul>
-<li>Improved balance</li>
-<li>Running and jumping</li>
-<li>Drawing simple shapes</li>
-<li>Using scissors</li>
-<li>Building with blocks</li>
-</ul>
-
-<h3>Cognitive Development</h3>
-<p>According to Piaget, preschoolers are mostly in the <strong>preoperational stage</strong>.</p>
-
-Characteristics include:
-<ul>
-<li>Symbolic thinking</li>
-<li>Egocentrism</li>
-<li>Imagination</li>
-<li>Difficulty understanding conservation</li>
-<li>Animism</li>
-</ul>
-
-<h3>Social-Emotional Development</h3>
-<p>According to Erikson, preschoolers are in:</p>
-
-<div class="fact">
-<strong>Initiative vs. Guilt</strong>
-</div>
-
-<p>They want to explore, ask questions, make choices, and initiate activities.</p>
-
-<h3>Best Learning Approach</h3>
-<ul>
-<li>Play-based learning</li>
-<li>Storytelling</li>
-<li>Singing</li>
-<li>Art activities</li>
-<li>Dramatic play</li>
-<li>Hands-on exploration</li>
-</ul>
-`
-},
-
-6: {
-title:"🧠 Lesson 6: Developmental Theorists",
-html:`
-<h3>Jean Piaget</h3>
-<p>Focused on <strong>cognitive development</strong>.</p>
-
-<ul>
-<li><strong>Sensorimotor:</strong> Birth–2 years</li>
-<li><strong>Preoperational:</strong> 2–7 years</li>
-<li><strong>Concrete Operational:</strong> 7–11 years</li>
-<li><strong>Formal Operational:</strong> 12 years onward</li>
-</ul>
-
-<h3>Erik Erikson</h3>
-<p>Focused on <strong>psychosocial development</strong>.</p>
-
-<ul>
-<li>Trust vs. Mistrust – Infancy</li>
-<li>Autonomy vs. Shame and Doubt – Toddlerhood</li>
-<li>Initiative vs. Guilt – Preschool</li>
-<li>Industry vs. Inferiority – School Age</li>
-<li>Identity vs. Role Confusion – Adolescence</li>
-</ul>
-
-<h3>Lev Vygotsky</h3>
-<p>Focused on the importance of <strong>social interaction and culture</strong>.</p>
-
-<ul>
-<li>Zone of Proximal Development</li>
-<li>Scaffolding</li>
-<li>Learning with guidance from others</li>
-</ul>
-
-<h3>Sigmund Freud</h3>
-<p>Focused on psychosexual development.</p>
-
-<h3>Lawrence Kohlberg</h3>
-<p>Focused on moral development.</p>
-
-<h3>Urie Bronfenbrenner</h3>
-<p>Focused on how different environmental systems influence development.</p>
-
-<div class="memory">
-<strong>Quick Memory:</strong><br>
-Piaget = Thinking<br>
-Erikson = Social-emotional crisis<br>
-Vygotsky = Social learning<br>
-Kohlberg = Morality<br>
-Bronfenbrenner = Environment
-</div>
-`
-},
-
-7: {
-title:"🎨 Lesson 7: Learning Through Play",
-html:`
-<h3>Play-Based Learning</h3>
-<p>Young children learn best when they actively explore, manipulate, pretend, communicate, and interact.</p>
-
-<h3>Types of Play</h3>
-<ul>
-<li><strong>Solitary play:</strong> Child plays alone.</li>
-<li><strong>Parallel play:</strong> Children play beside one another but do not interact much.</li>
-<li><strong>Associative play:</strong> Children interact but may not share a common goal.</li>
-<li><strong>Cooperative play:</strong> Children work together toward a shared goal.</li>
-</ul>
-
-<h3>Developmentally Appropriate Practice</h3>
-<p>DAP considers:</p>
-<ul>
-<li>Age appropriateness</li>
-<li>Individual appropriateness</li>
-<li>Cultural appropriateness</li>
-</ul>
-
-<h3>Child-Centered Learning</h3>
-<p>The teacher acts as a facilitator who prepares materials, observes children, asks questions, and supports exploration.</p>
-
-<h3>Assessment in ECE</h3>
-<ul>
-<li>Observation</li>
-<li>Anecdotal records</li>
-<li>Portfolios</li>
-<li>Checklists</li>
-<li>Conversations with children</li>
-</ul>
-
-<div class="fact">
-<strong>Important:</strong><br>
-Assessment should help teachers understand and support children's development—not simply rank children.
-</div>
-`
-},
-
-8: {
-title:"🌟 Lesson 8: Developmental Milestones",
-html:`
-<h3>What are Developmental Milestones?</h3>
-<p>Milestones are skills or behaviors commonly achieved within a certain age range.</p>
-
-<h3>Four Major Developmental Domains</h3>
-
-<ul>
-<li><strong>Physical:</strong> Body growth and motor skills</li>
-<li><strong>Cognitive:</strong> Thinking, memory, problem-solving</li>
-<li><strong>Language:</strong> Understanding and using communication</li>
-<li><strong>Social-emotional:</strong> Relationships, emotions, self-regulation</li>
-</ul>
-
-<h3>Examples of Milestones</h3>
-
-<div class="timeline">
-<div><strong>Infant</strong>Smiles, babbles, rolls, sits</div>
-<div><strong>Toddler</strong>Walks, says words, imitates, asserts independence</div>
-<div><strong>Preschooler</strong>Uses imagination, asks questions, plays with others</div>
-</div>
-
-<h3>Important Reminder</h3>
-<p>Children do not all develop at exactly the same rate. Teachers should observe individual differences and provide appropriate support.</p>
-
-<div class="memory">
-<strong>LET Tip:</strong><br>
-Development is continuous, multidimensional, and influenced by both heredity and environment.
-</div>
-`
 }
 
-};
 
-let completed = JSON.parse(localStorage.getItem("eceCompleted")) || [];
+function completeLesson(number){
 
-function openLesson(num){
-  document.getElementById("lessonArea").style.display="block";
+    let completed =
+        JSON.parse(localStorage.getItem("eceCompletedLessons") || "[]");
 
-  document.getElementById("lessonContent").innerHTML = `
-    <button class="back-btn" onclick="closeLesson()">← Back to Lessons</button>
-    ${lessons[num].html}
-    <br>
-    <button class="complete-btn" onclick="markComplete(${num})">
-      ✅ Mark Lesson as Completed
-    </button>
-  `;
+    if(!completed.includes(number)){
+        completed.push(number);
+    }
 
-  document.getElementById("lessonArea").scrollIntoView({behavior:"smooth"});
+    localStorage.setItem(
+        "eceCompletedLessons",
+        JSON.stringify(completed)
+    );
+
+    updateProgress();
+
+    const button =
+        document.querySelector(
+            "#lesson" + number + " .complete-btn"
+        );
+
+    button.textContent = "✅ Completed!";
+    button.classList.add("completed");
+
 }
 
-function closeLesson(){
-  document.getElementById("lessonArea").style.display="none";
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function markComplete(num){
-  if(!completed.includes(num)){
-    completed.push(num);
-    localStorage.setItem("eceCompleted",JSON.stringify(completed));
-  }
-
-  updateProgress();
-
-  document.getElementById("lessonContent").insertAdjacentHTML(
-    "beforeend",
-    `<div class="fact">🌟 Great job! Lesson ${num} is marked as completed!</div>`
-  );
-}
 
 function updateProgress(){
-  document.getElementById("progressBar").style.width =
-    (completed.length/8*100)+"%";
 
-  document.getElementById("progressText").innerText =
-    completed.length+" of 8 lessons completed";
+    let completed =
+        JSON.parse(localStorage.getItem("eceCompletedLessons") || "[]");
 
-  completed.forEach(num=>{
-    let card=document.getElementById("card"+num);
-    if(card){
-      card.classList.add("completed");
-    }
-  });
+    const count = completed.length;
+
+    document.getElementById("progressText").textContent =
+        count + " of 8 lessons completed";
+
+    document.getElementById("progressFill").style.width =
+        ((count / 8) * 100) + "%";
+
+    completed.forEach(number => {
+
+        const button =
+            document.querySelector(
+                "#lesson" + number + " .complete-btn"
+            );
+
+        if(button){
+            button.textContent = "✅ Completed!";
+            button.classList.add("completed");
+        }
+
+    });
+
 }
 
-function openQuiz(){
-  document.getElementById("quizSection").style.display="block";
-  document.getElementById("quizSection").scrollIntoView({behavior:"smooth"});
-}
 
 function checkQuiz(){
 
-const answers={
-q1:"B",
-q2:"C",
-q3:"A",
-q4:"B",
-q5:"C",
-q6:"A",
-q7:"B",
-q8:"B",
-q9:"B",
-q10:"A",
-q11:"C",
-q12:"B",
-q13:"B",
-q14:"A",
-q15:"B",
-q16:"C",
-q17:"C",
-q18:"B",
-q19:"A",
-q20:"A",
-q21:"B",
-q22:"A",
-q23:"B",
-q24:"A",
-q25:"A",
-q26:"B",
-q27:"B",
-q28:"B",
-q29:"B",
-q30:"A"
-};
+    const answers = {
 
-let score=0;
+        q1:"B",
+        q2:"A",
+        q3:"B",
+        q4:"B",
+        q5:"C",
+        q6:"A",
+        q7:"B",
+        q8:"B",
+        q9:"B",
+        q10:"A",
+        q11:"A",
+        q12:"B",
+        q13:"A",
+        q14:"C",
+        q15:"C",
+        q16:"B",
+        q17:"A",
+        q18:"C",
+        q19:"B",
+        q20:"D",
+        q21:"A",
+        q22:"A",
+        q23:"B",
+        q24:"A",
+        q25:"B",
+        q26:"A",
+        q27:"B",
+        q28:"C",
+        q29:"A",
+        q30:"B"
 
-for(let q in answers){
-  let selected=document.querySelector(
-    `input[name="${q}"]:checked`
-  );
+    };
 
-  if(selected && selected.value===answers[q]){
-    score++;
-  }
+
+    let score = 0;
+
+    for(let i = 1; i <= 30; i++){
+
+        const selected =
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+        if(selected && selected.value === answers["q" + i]){
+            score++;
+        }
+
+    }
+
+
+    const percentage =
+        Math.round((score / 30) * 100);
+
+    const result =
+        document.getElementById("quizResult");
+
+    result.style.display = "block";
+
+    result.innerHTML =
+        "🎉 You got " +
+        score +
+        " / 30 (" +
+        percentage +
+        "%)!<br><br>" +
+        getQuizMessage(percentage);
+
+    result.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
 }
 
-let message="";
 
-if(score>=27){
-  message="🌟 Excellent! Very strong performance!";
-}else if(score>=23){
-  message="👏 Great job! Keep reviewing the missed concepts.";
-}else if(score>=18){
-  message="📚 Good start! Study the lessons again and retry.";
-}else{
-  message="🌱 Don't worry! This is practice. Review the lessons and try again.";
+function getQuizMessage(percent){
+
+    if(percent >= 90){
+        return "🌟 Excellent work! Keep reviewing and practicing.";
+    }
+
+    if(percent >= 80){
+        return "👏 Great job! Review the questions you missed.";
+    }
+
+    if(percent >= 70){
+        return "📚 Good effort! A little more review will help.";
+    }
+
+    if(percent >= 60){
+        return "🌷 Keep going! Review the lessons and try again.";
+    }
+
+    return "🧸 Don't worry! Study the lessons first, then try the quiz again.";
+
 }
 
-document.getElementById("result").innerHTML=
-`Your Score: ${score}/30<br>${message}`;
-
-document.getElementById("result").scrollIntoView({behavior:"smooth"});
-}
 
 updateProgress();
 
