@@ -14,63 +14,52 @@
 
 body{
     margin:0;
-    font-family:"Trebuchet MS", Arial, sans-serif;
-    background:linear-gradient(135deg,#fff8f0,#f3f8ff,#f8f1ff);
-    color:#333;
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    background:linear-gradient(135deg,#fff8ee,#eef9ff,#f4fff2);
+    color:#263238;
 }
 
 header{
-    background:linear-gradient(135deg,#8ec5fc,#e0c3fc);
-    padding:35px 20px;
-    text-align:center;
+    background:linear-gradient(135deg,#7b61ff,#5bbcff);
     color:white;
-    box-shadow:0 4px 15px rgba(0,0,0,.12);
+    text-align:center;
+    padding:35px 20px;
 }
 
 header h1{
     margin:0 0 10px;
-    font-size:clamp(28px,6vw,48px);
+    font-size:clamp(28px,6vw,46px);
 }
 
 header p{
-    margin:5px auto;
+    margin:0 auto;
     max-width:800px;
-    font-size:17px;
-    line-height:1.6;
+    line-height:1.7;
 }
 
 .container{
-    width:min(1100px,94%);
-    margin:25px auto 50px;
+    max-width:1100px;
+    margin:auto;
+    padding:25px 15px 60px;
 }
-
-/* =========================
-   PROGRESS
-========================= */
 
 .progress-box{
     background:white;
     border-radius:22px;
-    padding:25px;
+    padding:22px;
     margin-bottom:25px;
-    box-shadow:0 6px 20px rgba(0,0,0,.08);
-    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
-.progress-box h2{
-    margin-top:0;
-}
-
-.progress-text{
-    font-size:20px;
+.progress-title{
+    font-size:22px;
     font-weight:bold;
-    margin:12px 0;
+    margin-bottom:12px;
 }
 
 .progress-bar{
-    width:100%;
-    height:22px;
-    background:#eee;
+    height:18px;
+    background:#e8e8e8;
     border-radius:20px;
     overflow:hidden;
 }
@@ -78,364 +67,312 @@ header p{
 .progress-fill{
     height:100%;
     width:0%;
-    background:linear-gradient(90deg,#7cc6fe,#c77dff);
-    transition:width .5s ease;
+    background:linear-gradient(90deg,#62d68a,#55b8ff);
+    transition:.4s;
 }
 
-/* =========================
-   NAV BUTTONS
-========================= */
-
-.top-nav{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    justify-content:center;
-    margin-bottom:25px;
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:12px;
+    margin-top:15px;
 }
 
-.nav-btn{
-    border:none;
-    padding:12px 18px;
-    border-radius:30px;
-    cursor:pointer;
-    font-weight:bold;
-    background:white;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-    transition:.2s;
+.stat{
+    background:#f7faff;
+    border-radius:15px;
+    padding:15px;
+    text-align:center;
 }
 
-.nav-btn:hover{
-    transform:translateY(-2px);
+.stat strong{
+    display:block;
+    font-size:25px;
 }
 
-/* =========================
-   LESSON CARDS
-========================= */
+.lesson-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:18px;
+}
 
 .lesson-card{
     background:white;
     border-radius:22px;
-    margin-bottom:18px;
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
-    overflow:hidden;
-}
-
-.lesson-header{
     padding:22px;
-    cursor:pointer;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.2s;
+    border:3px solid transparent;
 }
 
-.lesson-header h3{
-    margin:0;
+.lesson-card:hover{
+    transform:translateY(-3px);
+}
+
+.lesson-card.completed{
+    border-color:#62d68a;
+}
+
+.lesson-number{
+    font-size:14px;
+    color:#777;
+    font-weight:bold;
+}
+
+.lesson-card h2{
     font-size:21px;
+    margin:8px 0;
 }
 
-.lesson-status{
-    font-size:22px;
+.lesson-card p{
+    line-height:1.6;
+    color:#555;
 }
 
-.lesson-content{
+button{
+    border:0;
+    border-radius:13px;
+    padding:12px 16px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:15px;
+    margin:4px;
+}
+
+.primary{
+    background:#6757d9;
+    color:white;
+}
+
+.secondary{
+    background:#eaf4ff;
+    color:#28527a;
+}
+
+.success{
+    background:#65c982;
+    color:white;
+}
+
+.danger{
+    background:#ef6b73;
+    color:white;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.lesson-area{
     display:none;
-    padding:0 25px 25px;
-    line-height:1.7;
+    background:white;
+    border-radius:25px;
+    padding:25px;
+    margin-top:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,.1);
 }
 
-.lesson-content.open{
+.lesson-area.active{
     display:block;
 }
 
-.lesson-content h4{
-    color:#7654a3;
-    margin-bottom:5px;
+.lesson-area h2{
+    color:#5144b5;
+    font-size:30px;
 }
 
-.lesson-content ul{
-    padding-left:25px;
+.lesson-area h3{
+    margin-top:30px;
+    color:#345;
 }
 
-.example{
-    background:#fff7df;
-    border-left:5px solid #f5c542;
-    padding:12px 16px;
+.lesson-area p,
+.lesson-area li{
+    line-height:1.75;
+}
+
+.lesson-area ul{
+    padding-left:24px;
+}
+
+.info{
+    background:#f3f8ff;
+    border-left:5px solid #5b9cff;
+    padding:15px;
     border-radius:10px;
-    margin:12px 0;
-}
-
-.classroom{
-    background:#eef8ff;
-    border-left:5px solid #66b3ff;
-    padding:12px 16px;
-    border-radius:10px;
-    margin:12px 0;
-}
-
-.let-clue{
-    background:#f4edff;
-    border-left:5px solid #a56de2;
-    padding:12px 16px;
-    border-radius:10px;
-    margin:12px 0;
+    margin:15px 0;
 }
 
 .memory{
-    background:#eaffea;
-    border-left:5px solid #63c174;
-    padding:12px 16px;
+    background:#fff7d6;
+    border-left:5px solid #f2c94c;
+    padding:15px;
     border-radius:10px;
-    margin:12px 0;
+    margin:15px 0;
 }
 
-.complete-btn{
-    border:none;
-    background:#72c472;
-    color:white;
-    padding:11px 18px;
-    border-radius:25px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-top:15px;
+.let-clue{
+    background:#f3eaff;
+    border-left:5px solid #8c63d9;
+    padding:15px;
+    border-radius:10px;
+    margin:15px 0;
 }
 
-.complete-btn.completed{
-    background:#555;
+.theory-card{
+    background:#fafafa;
+    border:1px solid #ddd;
+    border-radius:15px;
+    padding:18px;
+    margin:15px 0;
 }
 
-/* =========================
-   QUIZ
-========================= */
-
-.quiz-section{
-    background:white;
-    border-radius:22px;
-    padding:25px;
-    margin-top:30px;
-    box-shadow:0 6px 20px rgba(0,0,0,.08);
+.table-wrap{
+    overflow-x:auto;
 }
 
-.quiz-section h2{
-    text-align:center;
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:15px 0;
+    min-width:650px;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:left;
+    vertical-align:top;
+}
+
+th{
+    background:#eeeaff;
+}
+
+.quiz{
+    margin-top:35px;
+    padding-top:20px;
+    border-top:4px dashed #ddd;
 }
 
 .question{
-    border:1px solid #eee;
-    border-radius:15px;
-    padding:18px;
-    margin:18px 0;
-    background:#fcfcfc;
+    background:#f9fbff;
+    border-radius:17px;
+    padding:20px;
+    margin:20px 0;
+    border:1px solid #e2e8f0;
 }
 
-.question p{
-    font-weight:bold;
-    line-height:1.6;
+.question h4{
+    margin-top:0;
+    font-size:18px;
 }
 
 .option{
     display:block;
-    padding:10px;
-    margin:7px 0;
-    border-radius:10px;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.option:hover{
-    background:#f2f2f2;
-}
-
-.option input{
-    margin-right:8px;
-}
-
-.correct{
-    background:#dff7df !important;
-    border:2px solid #64bd64;
-}
-
-.wrong{
-    background:#ffe0e0 !important;
-    border:2px solid #e66;
-}
-
-.no-answer{
-    background:#fff3cd !important;
-    border:2px solid #e0b83f;
-}
-
-.explanation{
-    margin-top:12px;
-    padding:15px;
-    border-radius:12px;
-    background:#f5f5ff;
-    line-height:1.7;
-}
-
-.choice-explanation{
-    margin-top:8px;
-    padding:8px 10px;
-    border-radius:8px;
-}
-
-.choice-correct{
-    background:#e6f8e6;
-}
-
-.choice-wrong{
-    background:#fff0f0;
-}
-
-.quiz-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:12px;
-    margin-top:25px;
-}
-
-.primary-btn,
-.secondary-btn{
-    border:none;
-    padding:13px 22px;
-    border-radius:30px;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:15px;
-}
-
-.primary-btn{
-    background:#8064a2;
-    color:white;
-}
-
-.secondary-btn{
-    background:#eee;
+    width:100%;
+    text-align:left;
+    margin:8px 0;
+    background:white;
+    border:2px solid #ddd;
     color:#333;
 }
 
-.score-result{
+.option.correct{
+    border-color:#45b96b;
+    background:#e9fff0;
+}
+
+.option.wrong{
+    border-color:#e45d68;
+    background:#fff0f2;
+}
+
+.explanation{
     display:none;
+    margin-top:15px;
+    padding:15px;
+    border-radius:12px;
+    background:#f7f7f7;
+}
+
+.explanation.show{
+    display:block;
+}
+
+.choice-explanation{
+    margin:8px 0;
+    padding:10px;
+    border-radius:8px;
+}
+
+.choice-explanation.correct-choice{
+    background:#e7f9ed;
+}
+
+.choice-explanation.wrong-choice{
+    background:#fff1f2;
+}
+
+.quiz-result{
+    display:none;
+    background:#eefcf3;
+    border:3px solid #62c982;
+    border-radius:20px;
+    padding:22px;
     text-align:center;
     margin:25px 0;
-    padding:25px;
-    border-radius:18px;
-    background:#f6f0ff;
 }
 
-.score-number{
-    font-size:38px;
+.quiz-result.show{
+    display:block;
+}
+
+.score-big{
+    font-size:42px;
     font-weight:bold;
-    color:#7654a3;
+    color:#3b9d5a;
 }
 
-/* =========================
-   SCORE TRACKER
-========================= */
-
-.scores-section{
-    background:white;
-    border-radius:22px;
-    padding:25px;
-    margin-top:30px;
-    box-shadow:0 6px 20px rgba(0,0,0,.08);
-}
-
-.scores-section h2{
-    text-align:center;
-}
-
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-    margin:20px 0;
-}
-
-.stat-card{
-    background:#f8f4ff;
-    border-radius:17px;
+.history{
+    margin-top:25px;
+    background:#fafafa;
     padding:20px;
-    text-align:center;
+    border-radius:18px;
 }
 
-.stat-card strong{
-    display:block;
-    font-size:28px;
-    color:#7654a3;
-    margin-top:8px;
-}
-
-.score-table-wrapper{
-    overflow-x:auto;
-}
-
-.score-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:15px;
-}
-
-.score-table th,
-.score-table td{
+.history-item{
+    background:white;
     padding:12px;
-    border-bottom:1px solid #eee;
-    text-align:center;
+    border-radius:10px;
+    margin:8px 0;
 }
 
-.score-table th{
-    background:#f4edff;
+.hidden{
+    display:none!important;
 }
 
-.score-good{
-    color:#269b35;
-    font-weight:bold;
+.top-buttons{
+    margin-bottom:20px;
 }
 
-.score-review{
-    color:#c48700;
-    font-weight:bold;
+.small-note{
+    color:#666;
+    font-size:14px;
 }
-
-.no-scores{
-    text-align:center;
-    padding:30px;
-    color:#777;
-}
-
-.clear-scores{
-    display:block;
-    margin:20px auto 0;
-    border:none;
-    background:#eee;
-    padding:11px 18px;
-    border-radius:25px;
-    cursor:pointer;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media(max-width:600px){
-    .lesson-header{
+    .container{
+        padding:15px 10px 40px;
+    }
+
+    .lesson-area{
         padding:18px;
     }
 
-    .lesson-content{
-        padding:0 18px 20px;
-    }
-
-    .quiz-section,
-    .scores-section,
-    .progress-box{
-        padding:18px;
-    }
-
-    .score-table{
-        font-size:13px;
+    button{
+        width:100%;
+        margin:5px 0;
     }
 }
 </style>
@@ -446,1956 +383,2627 @@ header p{
 <header>
     <h1>📚 Jewel's ECE LET Study Hub 🧸</h1>
     <p>
-        Your personal Early Childhood Education reviewer.
-        Study the lesson, understand the concept, take the quiz,
-        check your mistakes, and track your progress! 🌱✨
+        Your complete Early Childhood Education Major reviewer.
+        Study one lesson at a time, take the quiz after every lesson,
+        understand your mistakes, and keep track of your progress.
     </p>
 </header>
 
 <div class="container">
 
-<!-- =========================
-     NAVIGATION
-========================= -->
-
-<div class="top-nav">
-    <button class="nav-btn" onclick="scrollToSection('lessons')">📖 Lessons</button>
-    <button class="nav-btn" onclick="scrollToSection('quiz')">📝 Quiz</button>
-    <button class="nav-btn" onclick="scrollToSection('scores')">📊 My Scores</button>
-</div>
-
-<!-- =========================
-     PROGRESS
-========================= -->
-
 <section class="progress-box">
-    <h2>📈 My Study Progress</h2>
 
-    <div class="progress-text" id="progressText">
-        0 of 8 lessons completed
+    <div class="progress-title">
+        🧸 ECE Major Progress
     </div>
+
+    <div id="progressText">0 of 20 lessons completed</div>
 
     <div class="progress-bar">
         <div class="progress-fill" id="progressFill"></div>
     </div>
 
-    <p id="progressMessage">
-        Let's start learning! 🌱
-    </p>
-</section>
-
-<!-- =========================
-     LESSONS
-========================= -->
-
-<section id="lessons">
-
-    <!-- LESSON 1 -->
-
-    <div class="lesson-card">
-        <div class="lesson-header" onclick="toggleLesson(1)">
-            <h3>🧬 Lesson 1 — Fertilization & Prenatal Development</h3>
-            <span class="lesson-status" id="status1">📖</span>
+    <div class="stats">
+        <div class="stat">
+            <strong id="completedCount">0</strong>
+            Lessons Completed
         </div>
 
-        <div class="lesson-content" id="lesson1">
-
-            <h4>📌 What is prenatal development?</h4>
-            <p>
-                Prenatal development refers to the development of a baby
-                from fertilization until birth.
-            </p>
-
-            <h4>🧬 Fertilization</h4>
-            <p>
-                Fertilization happens when a sperm cell joins with an ovum
-                (egg cell). This produces a <strong>zygote</strong>.
-            </p>
-
-            <div class="example">
-                <strong>Easy example:</strong>
-                Sperm + ovum → zygote.
-            </div>
-
-            <h4>🪜 Main prenatal periods</h4>
-
-            <ul>
-                <li>
-                    <strong>Germinal Period</strong> — begins at fertilization
-                    and includes the early cell divisions and implantation.
-                </li>
-                <li>
-                    <strong>Embryonic Period</strong> — approximately the
-                    third through eighth week after fertilization; major
-                    structures begin developing.
-                </li>
-                <li>
-                    <strong>Fetal Period</strong> — begins around the ninth
-                    week after fertilization and continues until birth.
-                </li>
-            </ul>
-
-            <div class="example">
-                <strong>Example:</strong><br>
-                Fertilization → zygote → embryo → fetus → birth.
-            </div>
-
-            <h4>🌱 Implantation</h4>
-            <p>
-                Implantation is when the developing organism attaches to
-                the lining of the uterus.
-            </p>
-
-            <div class="classroom">
-                <strong>🏫 Classroom connection:</strong>
-                A teacher may explain prenatal development using a simple
-                timeline or picture sequence showing how development
-                progresses before birth.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 LET clues:</strong><br>
-                Sperm + ovum = <strong>fertilization</strong><br>
-                Fertilization product = <strong>zygote</strong><br>
-                Early development = <strong>germinal</strong><br>
-                Major structures developing = <strong>embryonic</strong><br>
-                Growth and maturation before birth = <strong>fetal</strong>
-            </div>
-
-            <div class="memory">
-                <strong>🧠 Memory aid:</strong><br>
-                <strong>Z-E-F</strong> → Zygote → Embryo → Fetus.
-            </div>
-
-            <button class="complete-btn" id="complete1"
-                onclick="completeLesson(1)">
-                ✅ Mark Lesson Complete
-            </button>
-        </div>
-    </div>
-
-
-    <!-- LESSON 2 -->
-
-    <div class="lesson-card">
-        <div class="lesson-header" onclick="toggleLesson(2)">
-            <h3>🤰 Lesson 2 — Prenatal Influences</h3>
-            <span class="lesson-status" id="status2">📖</span>
+        <div class="stat">
+            <strong id="quizCount">0</strong>
+            Quizzes Taken
         </div>
 
-        <div class="lesson-content" id="lesson2">
-
-            <h4>📌 What affects prenatal development?</h4>
-
-            <p>
-                Prenatal development can be influenced by both
-                <strong>genetic</strong> and <strong>environmental</strong>
-                factors.
-            </p>
-
-            <h4>⚠️ Teratogens</h4>
-
-            <p>
-                A <strong>teratogen</strong> is an environmental substance,
-                condition, or factor that can negatively affect prenatal
-                development.
-            </p>
-
-            <div class="example">
-                <strong>Easy example:</strong>
-                Certain harmful substances, infections, or environmental
-                exposures can interfere with prenatal development.
-            </div>
-
-            <h4>🥗 Maternal nutrition</h4>
-            <p>
-                Adequate nutrition supports healthy prenatal growth and
-                development.
-            </p>
-
-            <h4>❤️ Maternal health</h4>
-            <p>
-                A mother's health and medical conditions can influence
-                prenatal development.
-            </p>
-
-            <h4>⏰ Critical periods</h4>
-            <p>
-                Some stages of prenatal development are especially sensitive
-                because important organs and structures are developing.
-            </p>
-
-            <div class="classroom">
-                <strong>🏫 Classroom connection:</strong>
-                Early childhood educators should understand that children's
-                development can be affected by biological and environmental
-                factors and should avoid blaming families for developmental
-                differences.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 LET clue:</strong>
-                If the question describes a harmful environmental influence
-                during pregnancy, think <strong>teratogen</strong>.
-            </div>
-
-            <div class="memory">
-                <strong>🧠 Memory aid:</strong>
-                <strong>Teratogen = prenatal danger.</strong>
-            </div>
-
-            <button class="complete-btn" id="complete2"
-                onclick="completeLesson(2)">
-                ✅ Mark Lesson Complete
-            </button>
-        </div>
-    </div>
-
-
-    <!-- LESSON 3 -->
-
-    <div class="lesson-card">
-        <div class="lesson-header" onclick="toggleLesson(3)">
-            <h3>👶 Lesson 3 — Birth & Newborn Development</h3>
-            <span class="lesson-status" id="status3">📖</span>
+        <div class="stat">
+            <strong id="highestScore">—</strong>
+            Highest Score
         </div>
 
-        <div class="lesson-content" id="lesson3">
-
-            <h4>📌 Newborn period</h4>
-            <p>
-                The newborn period refers to the earliest period of life
-                after birth.
-            </p>
-
-            <h4>👄 Rooting Reflex</h4>
-            <p>
-                When the baby's cheek or mouth area is touched, the baby
-                turns toward the stimulus and may open the mouth.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A baby's cheek is gently touched and the baby turns toward
-                the touch looking for a source of feeding.
-            </div>
-
-            <h4>🍼 Sucking Reflex</h4>
-            <p>
-                A newborn naturally sucks when something touches the mouth.
-            </p>
-
-            <h4>😲 Moro Reflex</h4>
-            <p>
-                A sudden stimulus can cause the baby to extend the arms,
-                followed by bringing them inward.
-            </p>
-
-            <h4>✋ Grasping Reflex</h4>
-            <p>
-                A baby may close the fingers when the palm is touched.
-            </p>
-
-            <div class="classroom">
-                <strong>🏫 Classroom connection:</strong>
-                Infant caregivers should respond appropriately to infants'
-                signals and provide safe, responsive care.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 LET clues:</strong><br>
-                Turns toward touch near mouth → <strong>rooting</strong><br>
-                Sucks → <strong>sucking</strong><br>
-                Startles and extends arms → <strong>Moro</strong><br>
-                Closes fingers around touch → <strong>grasping</strong>
-            </div>
-
-            <button class="complete-btn" id="complete3"
-                onclick="completeLesson(3)">
-                ✅ Mark Lesson Complete
-            </button>
-        </div>
-    </div>
-
-
-    <!-- LESSON 4 -->
-
-    <div class="lesson-card">
-        <div class="lesson-header" onclick="toggleLesson(4)">
-            <h3>🍼 Lesson 4 — Infancy & Toddlerhood</h3>
-            <span class="lesson-status" id="status4">📖</span>
-        </div>
-
-        <div class="lesson-content" id="lesson4">
-
-            <h4>🏃 Physical development</h4>
-
-            <p>
-                Infants and toddlers gradually gain control of their bodies
-                and develop gross- and fine-motor skills.
-            </p>
-
-            <div class="example">
-                <strong>Typical sequence:</strong><br>
-                Head control → sitting → crawling → standing → walking.
-            </div>
-
-            <h4>🧠 Cognitive development</h4>
-
-            <p>
-                Infants learn through sensory experiences and physical
-                interaction with their environment.
-            </p>
-
-            <h4>👀 Object permanence</h4>
-
-            <p>
-                Object permanence is the understanding that an object
-                continues to exist even when it cannot currently be seen.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A baby looks for a toy after an adult hides it under a
-                blanket.
-            </div>
-
-            <h4>🗣️ Language development</h4>
-
-            <p>
-                Language develops from early sounds and gestures toward
-                meaningful words and increasing vocabulary.
-            </p>
-
-            <p>
-                Crying → cooing → babbling → gestures → first words →
-                vocabulary growth.
-            </p>
-
-            <h4>❤️ Social-emotional development</h4>
-
-            <p>
-                Consistent and responsive caregiving supports emotional
-                security and relationships.
-            </p>
-
-            <div class="classroom">
-                <strong>🏫 Classroom connection:</strong>
-                Teachers can provide safe opportunities for infants and
-                toddlers to explore, communicate, move, and interact with
-                responsive adults.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 LET clue:</strong>
-                "The child knows the toy is still there even though it is
-                hidden" → <strong>object permanence</strong>.
-            </div>
-
-            <button class="complete-btn" id="complete4"
-                onclick="completeLesson(4)">
-                ✅ Mark Lesson Complete
-            </button>
-        </div>
-    </div>
-
-
-    <!-- LESSON 5 -->
-
-    <div class="lesson-card">
-        <div class="lesson-header" onclick="toggleLesson(5)">
-            <h3>🧸 Lesson 5 — Preschool Development</h3>
-            <span class="lesson-status" id="status5">📖</span>
-        </div>
-
-        <div class="lesson-content" id="lesson5">
-
-            <h4>🏃 Physical development</h4>
-            <p>
-                Preschool children generally become more coordinated and
-                develop greater balance, strength, and fine-motor control.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A preschooler uses scissors, draws shapes, climbs,
-                runs, and jumps.
-            </div>
-
-            <h4>🧠 Cognitive development</h4>
-            <p>
-                Preschoolers are curious, imaginative, increasingly
-                capable of using symbols, and interested in understanding
-                how things work.
-            </p>
-
-            <h4>🎭 Pretend play</h4>
-            <p>
-                Children may use objects, actions, or roles to represent
-                something else.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A child uses a block as a pretend phone.
-            </div>
-
-            <h4>🗣️ Language development</h4>
-            <p>
-                Vocabulary, sentence length, storytelling, and conversational
-                abilities develop rapidly during the preschool years.
-            </p>
-
-            <h4>❤️ Social development</h4>
-            <p>
-                Children begin developing friendships, cooperation,
-                self-control, and understanding of social rules.
-            </p>
-
-            <div class="classroom">
-                <strong>🏫 Classroom connection:</strong>
-                Provide opportunities for pretend play, conversation,
-                cooperative activities, movement, art, and exploration.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 LET clue:</strong>
-                Do not expect every preschooler to develop at exactly the
-                same speed. Individual differences are normal.
-            </div>
-
-            <button class="complete-btn" id="complete5"
-                onclick="completeLesson(5)">
-                ✅ Mark Lesson Complete
-            </button>
-        </div>
-    </div>
-
-
-    <!-- LESSON 6 -->
-
-    <div class="lesson-card">
-        <div class="lesson-header" onclick="toggleLesson(6)">
-            <h3>🧠 Lesson 6 — Developmental Theorists</h3>
-            <span class="lesson-status" id="status6">📖</span>
-        </div>
-
-        <div class="lesson-content" id="lesson6">
-
-            <h4>🧠 Jean Piaget — Cognitive Development</h4>
-
-            <p>
-                Piaget focused on how children actively construct knowledge
-                and how their thinking changes as they develop.
-            </p>
-
-            <h4>1️⃣ Sensorimotor</h4>
-            <p>
-                Birth to about 2 years. Children learn mainly through
-                senses and physical actions.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A baby shakes a rattle and learns that shaking it produces
-                a sound.
-            </div>
-
-            <h4>2️⃣ Preoperational</h4>
-            <p>
-                About 2–7 years. Children develop symbolic thinking but
-                their thinking is not yet fully logical.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A child pretends a banana is a telephone.
-            </div>
-
-            <h4>3️⃣ Concrete Operational</h4>
-            <p>
-                About 7–11 years. Children become more capable of logical
-                thinking about concrete objects and events.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A child understands that the amount of water stays the same
-                even when it is poured into a differently shaped glass.
-            </div>
-
-            <h4>4️⃣ Formal Operational</h4>
-            <p>
-                About 11 years and beyond. Abstract and hypothetical
-                reasoning becomes more developed.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A teenager considers several possible outcomes of a
-                hypothetical situation.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 Piaget LET clues:</strong><br>
-                Thinking/cognition → <strong>Piaget</strong><br>
-                Object permanence → <strong>Sensorimotor</strong><br>
-                Symbolic/pretend thinking → <strong>Preoperational</strong><br>
-                Conservation → <strong>Concrete operational</strong><br>
-                Abstract/hypothetical reasoning → <strong>Formal operational</strong>
-            </div>
-
-            <div class="memory">
-                <strong>🧠 Memory:</strong>
-                <strong>S-P-C-F</strong><br>
-                Sensorimotor → Preoperational → Concrete → Formal
-            </div>
-
-            <hr>
-
-            <h4>❤️ Erik Erikson — Psychosocial Development</h4>
-
-            <p>
-                Erikson focused on psychosocial development and the major
-                conflicts or challenges people encounter throughout life.
-            </p>
-
-            <h4>1. Trust vs. Mistrust</h4>
-            <p>
-                Infancy. Children develop trust when caregivers respond
-                consistently to their needs.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A baby learns that crying brings a caregiver who provides
-                comfort and care.
-            </div>
-
-            <h4>2. Autonomy vs. Shame & Doubt</h4>
-            <p>
-                Toddlerhood. Children want to do things independently.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A toddler says, "I do it!" while trying to feed or dress
-                themselves.
-            </div>
-
-            <h4>3. Initiative vs. Guilt</h4>
-            <p>
-                Preschool years. Children develop initiative by planning,
-                creating, pretending, and taking action.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A preschooler creates a pretend restaurant and assigns
-                roles to classmates.
-            </div>
-
-            <h4>4. Industry vs. Inferiority</h4>
-            <p>
-                School age. Children develop a sense of competence through
-                learning and accomplishing tasks.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A child practices writing and feels proud after completing
-                a difficult assignment.
-            </div>
-
-            <h4>5. Identity vs. Role Confusion</h4>
-            <p>
-                Adolescence. Young people explore values, interests,
-                beliefs, and possible future roles.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A teenager explores different careers and interests.
-            </div>
-
-            <h4>6. Intimacy vs. Isolation</h4>
-            <p>
-                Young adulthood. Developing meaningful relationships is
-                an important task.
-            </p>
-
-            <h4>7. Generativity vs. Stagnation</h4>
-            <p>
-                Adulthood. Adults may contribute to others and the next
-                generation.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                An adult mentors younger people.
-            </div>
-
-            <h4>8. Integrity vs. Despair</h4>
-            <p>
-                Later adulthood. People reflect on their lives and whether
-                they view their life as meaningful.
-            </p>
-
-            <div class="let-clue">
-                <strong>🔑 Erikson LET clues:</strong><br>
-                Baby → Trust<br>
-                Toddler → Autonomy<br>
-                Preschool → Initiative<br>
-                School age → Industry<br>
-                Adolescent → Identity
-            </div>
-
-            <div class="memory">
-                <strong>🧠 Easy memory:</strong><br>
-                <strong>T-A-I-I-I-I-G-I</strong><br>
-                Trust → Autonomy → Initiative → Industry → Identity →
-                Intimacy → Generativity → Integrity
-            </div>
-
-            <hr>
-
-            <h4>👩‍🏫 Lev Vygotsky — Sociocultural Theory</h4>
-
-            <p>
-                Vygotsky emphasized that children's learning is strongly
-                influenced by social interaction, culture, language, and
-                guidance from others.
-            </p>
-
-            <h4>🤝 Social Interaction</h4>
-            <p>
-                Children learn through interaction with teachers, adults,
-                and peers.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A child learns a new word while talking with a teacher.
-            </div>
-
-            <h4>📍 Zone of Proximal Development (ZPD)</h4>
-            <p>
-                The ZPD is the range between what a learner can do
-                independently and what the learner can do with appropriate
-                assistance.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A child cannot complete a puzzle alone but can finish it
-                when the teacher gives helpful guidance.
-            </div>
-
-            <h4>🪜 Scaffolding</h4>
-            <p>
-                Scaffolding means providing temporary support that helps
-                a learner accomplish a task and gradually reducing that
-                support as the learner becomes more capable.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A teacher gives hints while a child learns to write their
-                name, then gradually gives fewer hints.
-            </div>
-
-            <h4>⭐ More Knowledgeable Other (MKO)</h4>
-            <p>
-                The MKO is someone who has more knowledge or skill in a
-                particular task and can help the learner.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A teacher or more-skilled peer helps a child learn a new
-                activity.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 Vygotsky clues:</strong><br>
-                Social/cultural learning → <strong>Vygotsky</strong><br>
-                Can do with help but not alone → <strong>ZPD</strong><br>
-                Temporary support → <strong>Scaffolding</strong><br>
-                More knowledgeable helper → <strong>MKO</strong>
-            </div>
-
-            <hr>
-
-            <h4>❤️ John Bowlby — Attachment</h4>
-
-            <p>
-                Bowlby emphasized the importance of attachment between
-                children and caregivers.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A baby seeks comfort from a familiar caregiver when
-                distressed.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 LET clue:</strong>
-                Attachment relationship → <strong>Bowlby</strong>
-            </div>
-
-            <hr>
-
-            <h4>⚖️ Lawrence Kohlberg — Moral Development</h4>
-
-            <p>
-                Kohlberg focused on how moral reasoning develops.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A child may initially follow rules because of consequences,
-                while more advanced reasoning considers broader principles.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 LET clue:</strong>
-                Moral reasoning → <strong>Kohlberg</strong>
-            </div>
-
-            <hr>
-
-            <h4>🌍 Urie Bronfenbrenner — Ecological Systems</h4>
-
-            <p>
-                Bronfenbrenner emphasized that development occurs within
-                interconnected environmental systems.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A child's development may be influenced by family,
-                school, community, culture, and broader social conditions.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 LET clue:</strong>
-                Development influenced by layers of environment →
-                <strong>Bronfenbrenner</strong>.
-            </div>
-
-            <button class="complete-btn" id="complete6"
-                onclick="completeLesson(6)">
-                ✅ Mark Lesson Complete
-            </button>
-        </div>
-    </div>
-
-
-    <!-- LESSON 7 -->
-
-    <div class="lesson-card">
-        <div class="lesson-header" onclick="toggleLesson(7)">
-            <h3>🎨 Lesson 7 — Learning Through Play</h3>
-            <span class="lesson-status" id="status7">📖</span>
-        </div>
-
-        <div class="lesson-content" id="lesson7">
-
-            <h4>📌 Why is play important?</h4>
-
-            <p>
-                Play provides children with opportunities to explore,
-                practice skills, communicate, solve problems, express
-                ideas, and interact with others.
-            </p>
-
-            <h4>🧩 Types of social play</h4>
-
-            <ul>
-                <li>
-                    <strong>Solitary play</strong> — child plays alone.
-                </li>
-                <li>
-                    <strong>Parallel play</strong> — children play beside
-                    each other but do not yet meaningfully interact.
-                </li>
-                <li>
-                    <strong>Associative play</strong> — children interact
-                    and may share materials but have limited common goals.
-                </li>
-                <li>
-                    <strong>Cooperative play</strong> — children play
-                    together toward a shared goal.
-                </li>
-            </ul>
-
-            <div class="example">
-                <strong>Example:</strong><br>
-                Two children sitting beside each other using separate
-                blocks → <strong>parallel play</strong>.<br><br>
-
-                Four children building one pretend house together →
-                <strong>cooperative play</strong>.
-            </div>
-
-            <h4>🎯 What can play develop?</h4>
-
-            <ul>
-                <li>Problem-solving</li>
-                <li>Language</li>
-                <li>Creativity</li>
-                <li>Social skills</li>
-                <li>Physical skills</li>
-                <li>Emotional expression</li>
-            </ul>
-
-            <div class="classroom">
-                <strong>🏫 Teacher role:</strong>
-                Provide safe, interesting materials and observe, guide,
-                question, model, and support children's play without
-                unnecessarily taking control of it.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 LET clue:</strong>
-                In ECE, play is not simply "free time." It can be an
-                important context for learning and development.
-            </div>
-
-            <button class="complete-btn" id="complete7"
-                onclick="completeLesson(7)">
-                ✅ Mark Lesson Complete
-            </button>
-        </div>
-    </div>
-
-
-    <!-- LESSON 8 -->
-
-    <div class="lesson-card">
-        <div class="lesson-header" onclick="toggleLesson(8)">
-            <h3>📈 Lesson 8 — Developmental Milestones</h3>
-            <span class="lesson-status" id="status8">📖</span>
-        </div>
-
-        <div class="lesson-content" id="lesson8">
-
-            <h4>📌 What are developmental milestones?</h4>
-
-            <p>
-                Developmental milestones are skills or behaviors that
-                children commonly develop as they grow.
-            </p>
-
-            <h4>1️⃣ Physical / Motor</h4>
-            <p>
-                Includes gross-motor and fine-motor development.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                Running is a gross-motor skill. Using crayons to make marks
-                involves fine-motor development.
-            </div>
-
-            <h4>2️⃣ Cognitive</h4>
-            <p>
-                Involves thinking, learning, memory, reasoning, and
-                problem-solving.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A child figures out how to fit a puzzle piece into the
-                correct space.
-            </div>
-
-            <h4>3️⃣ Language / Communication</h4>
-            <p>
-                Includes understanding and expressing language.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A child follows a simple instruction and later uses words
-                to communicate needs.
-            </div>
-
-            <h4>4️⃣ Social-Emotional</h4>
-            <p>
-                Includes relationships, emotional expression,
-                self-regulation, and social interaction.
-            </p>
-
-            <div class="example">
-                <strong>Example:</strong>
-                A child begins waiting for a turn and comforting a peer.
-            </div>
-
-            <div class="classroom">
-                <strong>🏫 Classroom connection:</strong>
-                Teachers observe children's development across multiple
-                domains and provide appropriate experiences rather than
-                expecting every child to develop at exactly the same rate.
-            </div>
-
-            <div class="let-clue">
-                <strong>🔑 LET strategy:</strong><br>
-                First identify the domain described in the question:
-                physical, cognitive, language, or social-emotional.
-                Then determine the developmental concept.
-            </div>
-
-            <div class="memory">
-                <strong>🧠 Memory:</strong>
-                <strong>P-C-L-S</strong><br>
-                Physical → Cognitive → Language → Social-emotional
-            </div>
-
-            <button class="complete-btn" id="complete8"
-                onclick="completeLesson(8)">
-                ✅ Mark Lesson Complete
-            </button>
+        <div class="stat">
+            <strong id="averageScore">—</strong>
+            Average
         </div>
     </div>
 
 </section>
 
+<section class="lesson-grid" id="lessonGrid"></section>
 
-<!-- =========================
-     QUIZ
-========================= -->
+<section id="lessonArea" class="lesson-area"></section>
 
-<section class="quiz-section" id="quiz">
+<section class="history">
+    <h2>📊 My Quiz History</h2>
+    <div id="historyList">
+        <p class="small-note">No quizzes taken yet.</p>
+    </div>
 
-<h2>📝 ECE Practice Quiz — 30 Questions</h2>
-
-<p style="text-align:center;">
-    Study the lessons first, then test yourself!
-    Your score will automatically be saved. 💕
-</p>
-
-<div id="quizContainer"></div>
-
-<div class="quiz-buttons">
-    <button class="primary-btn" onclick="checkQuiz()">
-        🎯 Check My Answers
+    <button class="danger" onclick="clearHistory()">
+        🗑️ Clear Quiz History
     </button>
-
-    <button class="secondary-btn" onclick="resetQuiz()">
-        🔄 Retry Quiz
-    </button>
-</div>
-
-<div class="score-result" id="scoreResult">
-    <div>Your Score</div>
-    <div class="score-number" id="scoreNumber">0/30</div>
-    <div id="scorePercent"></div>
-    <div id="scoreMessage"></div>
-</div>
-
-</section>
-
-
-<!-- =========================
-     MY SCORES
-========================= -->
-
-<section class="scores-section" id="scores">
-
-<h2>📊 My Scores</h2>
-
-<p style="text-align:center;">
-    Your quiz results are saved automatically in this browser. 💕
-</p>
-
-<div class="stats-grid">
-
-    <div class="stat-card">
-        📝 Quizzes Taken
-        <strong id="quizCount">0</strong>
-    </div>
-
-    <div class="stat-card">
-        📈 Average Score
-        <strong id="averageScore">0%</strong>
-    </div>
-
-    <div class="stat-card">
-        🏆 Highest Score
-        <strong id="highestScore">0%</strong>
-    </div>
-
-    <div class="stat-card">
-        📚 Lessons Complete
-        <strong id="lessonsComplete">0/8</strong>
-    </div>
-
-</div>
-
-<div class="score-table-wrapper">
-<table class="score-table">
-
-<thead>
-<tr>
-    <th>#</th>
-    <th>Date</th>
-    <th>Score</th>
-    <th>Percentage</th>
-    <th>Status</th>
-</tr>
-</thead>
-
-<tbody id="scoreHistory"></tbody>
-
-</table>
-</div>
-
-<div id="noScores" class="no-scores">
-    📝 You haven't taken the quiz yet.<br>
-    Finish your first quiz and your score will appear here!
-</div>
-
-<button class="clear-scores" onclick="clearScoreHistory()">
-    🗑️ Clear Saved Quiz Scores
-</button>
-
 </section>
 
 </div>
-
 
 <script>
 
 /* =========================================================
-   LESSON PROGRESS
+   ECE LESSON DATA
 ========================================================= */
 
-const TOTAL_LESSONS = 8;
-
-let completedLessons =
-    JSON.parse(localStorage.getItem("eceCompletedLessons")) || [];
-
-
-function toggleLesson(number){
-
-    const lesson = document.getElementById("lesson" + number);
-
-    lesson.classList.toggle("open");
-}
-
-
-function completeLesson(number){
-
-    if(!completedLessons.includes(number)){
-        completedLessons.push(number);
-    }
-
-    localStorage.setItem(
-        "eceCompletedLessons",
-        JSON.stringify(completedLessons)
-    );
-
-    updateProgress();
-}
-
-
-function updateProgress(){
-
-    const count = completedLessons.length;
-
-    const percent =
-        Math.round((count / TOTAL_LESSONS) * 100);
-
-    document.getElementById("progressText").textContent =
-        `${count} of ${TOTAL_LESSONS} lessons completed`;
-
-    document.getElementById("progressFill").style.width =
-        percent + "%";
-
-    document.getElementById("lessonsComplete").textContent =
-        `${count}/${TOTAL_LESSONS}`;
-
-    let message = "";
-
-    if(count === 0){
-        message = "Let's start learning! 🌱";
-    }
-    else if(count < TOTAL_LESSONS){
-        message = "You're making progress! Keep going! 💪📚";
-    }
-    else{
-        message = "🎉 You completed all 8 lessons! Amazing work! 🥹📚";
-    }
-
-    document.getElementById("progressMessage").textContent =
-        message;
-
-    for(let i = 1; i <= TOTAL_LESSONS; i++){
-
-        const status =
-            document.getElementById("status" + i);
-
-        const button =
-            document.getElementById("complete" + i);
-
-        if(completedLessons.includes(i)){
-
-            status.textContent = "✅";
-
-            button.textContent =
-                "✅ Lesson Completed";
-
-            button.classList.add("completed");
-
-        }else{
-
-            status.textContent = "📖";
-
-            button.textContent =
-                "✅ Mark Lesson Complete";
-
-            button.classList.remove("completed");
-        }
-    }
-}
-
-
-/* =========================================================
-   QUIZ DATA
-========================================================= */
-
-const quizData = [
+const lessons = [
 
 {
-question:"What is produced when a sperm cell joins with an ovum?",
-choices:[
-"Embryo",
-"Zygote",
-"Fetus",
-"Placenta"
-],
-answer:1,
-explanation:"The union of sperm and ovum during fertilization produces a zygote."
+id:1,
+title:"🧒 Child Growth & Development",
+content:`
+
+<h2>🧒 Lesson 1 — Child Growth & Development</h2>
+
+<h3>1. Growth vs. Development</h3>
+
+<div class="theory-card">
+<strong>Growth</strong>
+<p>Growth refers mainly to measurable physical changes such as height, weight, body size, and physical structure.</p>
+<p><strong>Example:</strong> A child grows from 90 cm to 98 cm.</p>
+</div>
+
+<div class="theory-card">
+<strong>Development</strong>
+<p>Development refers to progressive changes in abilities and functioning, including physical, cognitive, language, social, emotional, and moral development.</p>
+<p><strong>Example:</strong> A toddler begins using two-word phrases and learns to follow simple instructions.</p>
+</div>
+
+<h3>2. Major Domains of Development</h3>
+
+<ul>
+<li><strong>Physical/Motor:</strong> body growth, gross motor and fine motor skills.</li>
+<li><strong>Cognitive:</strong> thinking, memory, attention, reasoning and problem-solving.</li>
+<li><strong>Language:</strong> understanding and producing communication.</li>
+<li><strong>Social:</strong> relationships and interaction with others.</li>
+<li><strong>Emotional:</strong> understanding and regulating feelings.</li>
+<li><strong>Moral:</strong> developing understanding of right, wrong, rules and values.</li>
+</ul>
+
+<h3>3. Principles of Development</h3>
+
+<ul>
+<li>Development is continuous.</li>
+<li>Development follows an orderly sequence.</li>
+<li>Children develop at different rates.</li>
+<li>Development moves from simple to more complex abilities.</li>
+<li>Different domains are interconnected.</li>
+<li>Both heredity and environment influence development.</li>
+</ul>
+
+<div class="info">
+<strong>Example:</strong> A child may have advanced physical skills but still be developing language skills. This does not automatically mean the child is "behind" in every area.
+</div>
+
+<h3>4. Nature and Nurture</h3>
+
+<p><strong>Nature</strong> refers to hereditary/genetic influences.</p>
+<p><strong>Nurture</strong> refers to environmental influences such as family, nutrition, experiences, education and culture.</p>
+
+<div class="memory">
+<strong>🧠 Memory Aid:</strong><br>
+Nature = what the child brings.<br>
+Nurture = what the environment provides.
+</div>
+
+<h3>5. Teacher's Role</h3>
+
+<ul>
+<li>Observe individual development.</li>
+<li>Provide developmentally appropriate experiences.</li>
+<li>Respect individual differences.</li>
+<li>Communicate concerns appropriately.</li>
+<li>Work with families and professionals when needed.</li>
+</ul>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> When a question says children develop at different rates, think <strong>individual differences</strong>.
+</div>
+
+`
 },
 
 {
-question:"Which prenatal period occurs first?",
-choices:[
-"Fetal",
-"Embryonic",
-"Germinal",
-"Newborn"
-],
-answer:2,
-explanation:"The germinal period begins at fertilization and occurs before the embryonic and fetal periods."
+id:2,
+title:"🧠 Developmental Theories",
+content:`
+
+<h2>🧠 Lesson 2 — Developmental Theories</h2>
+
+<h3>Jean Piaget — Cognitive Development</h3>
+
+<div class="theory-card">
+<strong>1. Sensorimotor — birth to about 2 years</strong>
+<p>Children learn through senses and physical actions.</p>
+<p><strong>Example:</strong> A baby shakes a rattle and learns that shaking produces sound.</p>
+<p><strong>LET clue:</strong> object permanence, sensory exploration, actions.</p>
+</div>
+
+<div class="theory-card">
+<strong>2. Preoperational — about 2–7 years</strong>
+<p>Children use symbols and language but reasoning is not yet fully logical.</p>
+<p><strong>Example:</strong> A child pretends a banana is a telephone.</p>
+<p><strong>LET clue:</strong> pretend play, egocentrism, symbolic thinking.</p>
+</div>
+
+<div class="theory-card">
+<strong>3. Concrete Operational — about 7–11 years</strong>
+<p>Children become capable of logical thinking about concrete objects and situations.</p>
+<p><strong>Example:</strong> A child understands that the amount of water remains the same when poured into a differently shaped glass.</p>
+<p><strong>LET clue:</strong> conservation, classification, logical thinking with concrete objects.</p>
+</div>
+
+<div class="theory-card">
+<strong>4. Formal Operational — about 11+ years</strong>
+<p>Abstract and hypothetical reasoning becomes possible.</p>
+<p><strong>Example:</strong> A learner considers what might happen if a rule were changed.</p>
+<p><strong>LET clue:</strong> abstract thinking, hypotheses, possibilities.</p>
+</div>
+
+<h3>Erik Erikson — Psychosocial Development</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Stage</th><th>Central Conflict</th><th>Example</th></tr>
+<tr><td>Infancy</td><td>Trust vs. Mistrust</td><td>Caregiver consistently responds to baby's needs.</td></tr>
+<tr><td>Early Childhood</td><td>Autonomy vs. Shame/Doubt</td><td>Toddler wants to dress or feed self.</td></tr>
+<tr><td>Preschool</td><td>Initiative vs. Guilt</td><td>Child creates games and ideas.</td></tr>
+<tr><td>School Age</td><td>Industry vs. Inferiority</td><td>Child develops competence through school tasks.</td></tr>
+<tr><td>Adolescence</td><td>Identity vs. Role Confusion</td><td>Young person explores values and future roles.</td></tr>
+<tr><td>Young Adulthood</td><td>Intimacy vs. Isolation</td><td>Adult forms meaningful relationships.</td></tr>
+<tr><td>Middle Adulthood</td><td>Generativity vs. Stagnation</td><td>Adult guides or contributes to the next generation.</td></tr>
+<tr><td>Later Adulthood</td><td>Integrity vs. Despair</td><td>Person reflects on life with acceptance or regret.</td></tr>
+</table>
+</div>
+
+<h3>Lev Vygotsky — Sociocultural Theory</h3>
+
+<div class="theory-card">
+<strong>Social Interaction</strong>
+<p>Children develop knowledge through interaction with other people and their cultural environment.</p>
+</div>
+
+<div class="theory-card">
+<strong>Zone of Proximal Development (ZPD)</strong>
+<p>The area between what a learner can do independently and what the learner can accomplish with assistance.</p>
+<p><strong>Example:</strong> A child cannot complete a puzzle alone but can complete it with a teacher's hints.</p>
+</div>
+
+<div class="theory-card">
+<strong>Scaffolding</strong>
+<p>Temporary support is provided until the learner becomes more capable.</p>
+<p><strong>Example:</strong> The teacher gives hints while a child learns to write their name, then gradually removes the hints.</p>
+</div>
+
+<div class="theory-card">
+<strong>More Knowledgeable Other (MKO)</strong>
+<p>A person with greater knowledge or skill who helps the learner.</p>
+<p><strong>Example:</strong> Teacher, parent, older sibling or more-skilled peer.</p>
+</div>
+
+<h3>John Bowlby — Attachment</h3>
+
+<p>Attachment theory emphasizes the importance of close emotional relationships between children and caregivers.</p>
+
+<p><strong>Secure attachment:</strong> the child uses a trusted caregiver as a source of comfort and security.</p>
+
+<h3>Mary Ainsworth</h3>
+
+<p>Ainsworth's work on the <strong>Strange Situation</strong> helped identify patterns of attachment, including secure and insecure patterns.</p>
+
+<h3>Lawrence Kohlberg — Moral Development</h3>
+
+<p>Kohlberg studied how moral reasoning develops. His framework includes three broad levels:</p>
+
+<ul>
+<li><strong>Preconventional:</strong> consequences and personal benefit are important.</li>
+<li><strong>Conventional:</strong> rules, approval and social expectations become important.</li>
+<li><strong>Postconventional:</strong> reasoning can involve principles and broader ethical considerations.</li>
+</ul>
+
+<h3>Albert Bandura — Social Learning Theory</h3>
+
+<p>Children can learn by observing and imitating models.</p>
+
+<p><strong>Example:</strong> A child watches a teacher calmly solve a disagreement and later imitates the behavior.</p>
+
+<div class="memory">
+<strong>🧠 Theory Memory:</strong><br>
+Piaget = Thinking<br>
+Erikson = Psychosocial stages<br>
+Vygotsky = Social learning + ZPD<br>
+Bowlby = Attachment<br>
+Ainsworth = Attachment patterns<br>
+Kohlberg = Moral reasoning<br>
+Bandura = Observation/modeling
+</div>
+
+`
 },
 
 {
-question:"During which period do major body structures begin developing?",
-choices:[
-"Embryonic period",
-"Germinal period",
-"Newborn period",
-"Toddler period"
-],
-answer:0,
-explanation:"The embryonic period is a major period of early structural development."
+id:3,
+title:"🌱 Developmentally Appropriate Practice (DAP)",
+content:`
+
+<h2>🌱 Lesson 3 — Developmentally Appropriate Practice</h2>
+
+<p><strong>Developmentally Appropriate Practice (DAP)</strong> means teaching in ways that are appropriate for children's development, individual characteristics and context.</p>
+
+<h3>The Three Core Considerations</h3>
+
+<div class="theory-card">
+<strong>1. Age Appropriateness</strong>
+<p>Activities should fit what is generally appropriate for the child's developmental stage.</p>
+<p><strong>Example:</strong> Young children learn counting using objects they can touch and move.</p>
+</div>
+
+<div class="theory-card">
+<strong>2. Individual Appropriateness</strong>
+<p>Teachers consider each child's abilities, interests, strengths, needs and experiences.</p>
+<p><strong>Example:</strong> Two children of the same age may receive different levels of support for writing.</p>
+</div>
+
+<div class="theory-card">
+<strong>3. Contextual/Cultural Appropriateness</strong>
+<p>Teaching should respect the child's family, culture, language, community and lived experiences.</p>
+<p><strong>Example:</strong> Including familiar family and community experiences in classroom discussions.</p>
+</div>
+
+<h3>DAP in the Classroom</h3>
+
+<ul>
+<li>Use hands-on experiences.</li>
+<li>Use play as a learning context.</li>
+<li>Set realistic expectations.</li>
+<li>Provide choices.</li>
+<li>Differentiate support.</li>
+<li>Respect children's interests.</li>
+<li>Avoid inappropriate pressure.</li>
+</ul>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> If a teacher considers <strong>age + individual child + context/culture</strong>, think DAP.
+</div>
+
+<div class="memory">
+<strong>🧠 Memory:</strong> DAP = <strong>Age + Individual + Context</strong>.
+</div>
+
+`
 },
 
 {
-question:"What is a teratogen?",
-choices:[
-"A type of developmental milestone",
-"A harmful environmental influence during prenatal development",
-"A newborn reflex",
-"A type of attachment"
-],
-answer:1,
-explanation:"A teratogen is an environmental factor that can negatively affect prenatal development."
+id:4,
+title:"🎮 Play-Based Learning",
+content:`
+
+<h2>🎮 Lesson 4 — Play-Based Learning</h2>
+
+<h3>Why Is Play Important?</h3>
+
+<ul>
+<li>Supports physical development.</li>
+<li>Develops language.</li>
+<li>Builds social skills.</li>
+<li>Supports emotional expression.</li>
+<li>Develops creativity.</li>
+<li>Encourages problem-solving.</li>
+<li>Supports self-regulation.</li>
+<li>Provides meaningful learning experiences.</li>
+</ul>
+
+<h3>Important Thinkers</h3>
+
+<div class="theory-card">
+<strong>Friedrich Froebel</strong>
+<p>Known for developing the kindergarten concept and emphasizing children's self-activity, play and learning through experiences.</p>
+<p><strong>LET clue:</strong> kindergarten + play.</p>
+</div>
+
+<div class="theory-card">
+<strong>Jean Piaget</strong>
+<p>Connected play with cognitive development. Play changes as children's thinking develops.</p>
+<p><strong>LET clue:</strong> cognitive development + symbolic play.</p>
+</div>
+
+<div class="theory-card">
+<strong>Lev Vygotsky</strong>
+<p>Emphasized the social and cultural nature of learning and the role of pretend play in developing self-regulation and higher mental processes.</p>
+<p><strong>LET clue:</strong> social interaction + pretend play + scaffolding.</p>
+</div>
+
+<div class="theory-card">
+<strong>Mildred Parten</strong>
+<p>Studied children's social participation in play.</p>
+</div>
+
+<div class="theory-card">
+<strong>Erik Erikson</strong>
+<p>Play can provide children opportunities for self-expression and psychosocial development.</p>
+</div>
+
+<div class="theory-card">
+<strong>Maria Montessori</strong>
+<p>Emphasized purposeful, hands-on activity, independence and a prepared environment. Montessori work should not simply be confused with unrestricted free play.</p>
+</div>
+
+<h3>Parten's Social Participation Categories</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Type</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>Unoccupied</td><td>Child is not clearly engaged in play.</td><td>Child wanders and watches objects without sustained play.</td></tr>
+<tr><td>Solitary</td><td>Child plays alone.</td><td>Child builds with blocks independently.</td></tr>
+<tr><td>Onlooker</td><td>Child watches others play but does not join.</td><td>Child watches classmates build a tower.</td></tr>
+<tr><td>Parallel</td><td>Children play beside each other with little direct interaction.</td><td>Two children each build their own block tower.</td></tr>
+<tr><td>Associative</td><td>Children interact and share materials but do not have a common organized goal.</td><td>Children talk and exchange crayons while making separate drawings.</td></tr>
+<tr><td>Cooperative</td><td>Children organize play around a shared goal.</td><td>Children work together to build a pretend grocery store.</td></tr>
+</table>
+</div>
+
+<h3>Forms of Play</h3>
+
+<div class="theory-card">
+<strong>Functional/Practice Play</strong>
+<p>Repetitive physical actions that explore what objects or bodies can do.</p>
+<p><strong>Example:</strong> Rolling a ball repeatedly.</p>
+</div>
+
+<div class="theory-card">
+<strong>Constructive Play</strong>
+<p>Children create or build something.</p>
+<p><strong>Example:</strong> Building a house with blocks.</p>
+</div>
+
+<div class="theory-card">
+<strong>Symbolic/Pretend Play</strong>
+<p>Children use one object, action or idea to represent another.</p>
+<p><strong>Example:</strong> Pretending a box is a car.</p>
+</div>
+
+<div class="theory-card">
+<strong>Dramatic/Sociodramatic Play</strong>
+<p>Children act out roles and situations, often with other children.</p>
+<p><strong>Example:</strong> Children pretend to be doctors, nurses and patients.</p>
+</div>
+
+<div class="theory-card">
+<strong>Games With Rules</strong>
+<p>Children participate in activities governed by agreed rules.</p>
+<p><strong>Example:</strong> Playing a simple board game while following turn-taking rules.</p>
+</div>
+
+<h3>Free Play vs Guided Play</h3>
+
+<p><strong>Free play:</strong> children have substantial control over what and how they play.</p>
+
+<p><strong>Guided play:</strong> children remain active participants while the teacher intentionally prepares the environment or provides support toward learning goals.</p>
+
+<h3>Teacher's Role</h3>
+
+<ul>
+<li>Observe children's interests.</li>
+<li>Provide safe and varied materials.</li>
+<li>Ask open-ended questions.</li>
+<li>Model when appropriate.</li>
+<li>Scaffold learning.</li>
+<li>Avoid taking over children's play.</li>
+<li>Support inclusion.</li>
+</ul>
+
+<div class="memory">
+<strong>🧠 Play Theorist Memory:</strong><br>
+Froebel = Kindergarten + Play<br>
+Piaget = Cognitive Play<br>
+Vygotsky = Social Pretend Play<br>
+Parten = Social Participation<br>
+Erikson = Psychosocial Expression<br>
+Montessori = Purposeful Hands-on Activity
+</div>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> If children have a shared goal and organize roles together → <strong>Cooperative Play</strong>.<br><br>
+If children are beside each other but mostly doing their own activities → <strong>Parallel Play</strong>.
+</div>
+
+`
 },
 
 {
-question:"A newborn turns toward a touch near the cheek or mouth. Which reflex is this?",
-choices:[
-"Moro",
-"Grasping",
-"Rooting",
-"Babinski"
-],
-answer:2,
-explanation:"The rooting reflex helps a newborn turn toward a stimulus near the mouth and locate a source of feeding."
+id:5,
+title:"📚 Early Childhood Curriculum",
+content:`
+
+<h2>📚 Lesson 5 — Early Childhood Curriculum</h2>
+
+<h3>What Is Curriculum?</h3>
+
+<p>Curriculum is the planned and meaningful set of learning experiences, goals, content, activities, interactions and assessment opportunities provided to learners.</p>
+
+<h3>Child-Centered Curriculum</h3>
+
+<p>The child's interests, developmental needs, abilities and experiences are considered when planning.</p>
+
+<h3>Integrated Curriculum</h3>
+
+<p>Learning areas are connected rather than taught as completely isolated subjects.</p>
+
+<p><strong>Example:</strong> A lesson about plants includes science observation, counting leaves, drawing, vocabulary and storytelling.</p>
+
+<h3>Thematic Curriculum</h3>
+
+<p>Several learning experiences are organized around a common theme.</p>
+
+<p><strong>Example:</strong> "Community Helpers" can involve stories, dramatic play, counting, art and vocabulary.</p>
+
+<h3>Emergent Curriculum</h3>
+
+<p>Learning experiences develop from children's interests, questions and observations.</p>
+
+<h3>Spiral Progression</h3>
+
+<p>Important ideas can be revisited over time with increasing complexity.</p>
+
+<h3>Planning Sequence</h3>
+
+<ol>
+<li>Identify children's needs/interests.</li>
+<li>Set learning objectives.</li>
+<li>Select appropriate experiences and materials.</li>
+<li>Implement activities.</li>
+<li>Observe and assess.</li>
+<li>Reflect and modify future planning.</li>
+</ol>
+
+<h3>Routines and Transitions</h3>
+
+<p>Routines provide predictability. Transitions help children move smoothly from one activity to another.</p>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> A strong ECE curriculum is usually <strong>child-centered, developmentally appropriate, meaningful and integrated</strong>.
+</div>
+
+`
 },
 
 {
-question:"A newborn automatically sucks when something touches the mouth. What reflex is demonstrated?",
-choices:[
-"Sucking",
-"Rooting",
-"Moro",
-"Grasping"
-],
-answer:0,
-explanation:"The sucking reflex is the newborn's automatic sucking response."
+id:6,
+title:"🏫 Learning Environments",
+content:`
+
+<h2>🏫 Lesson 6 — Learning Environments</h2>
+
+<h3>Characteristics of a Good ECE Environment</h3>
+
+<ul>
+<li>Safe</li>
+<li>Clean</li>
+<li>Accessible</li>
+<li>Child-sized where appropriate</li>
+<li>Interesting but not overwhelming</li>
+<li>Well organized</li>
+<li>Inclusive</li>
+<li>Culturally responsive</li>
+<li>Emotionally supportive</li>
+</ul>
+
+<h3>Learning Centers</h3>
+
+<ul>
+<li>Reading/literacy center</li>
+<li>Blocks/construction center</li>
+<li>Dramatic play center</li>
+<li>Art center</li>
+<li>Science/discovery center</li>
+<li>Manipulatives/math center</li>
+</ul>
+
+<h3>Physical Environment</h3>
+
+<p>Materials should be reachable and arranged so children can make choices safely.</p>
+
+<h3>Emotional Environment</h3>
+
+<p>Children should feel accepted, respected and secure.</p>
+
+<h3>Teacher's Role</h3>
+
+<p>The teacher organizes the environment to encourage exploration, independence, interaction and learning.</p>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> A classroom environment should not simply be "beautiful." It should support <strong>safety, accessibility, independence and learning</strong>.
+</div>
+
+`
 },
 
 {
-question:"A baby looks for a toy after it is hidden under a blanket. This demonstrates:",
-choices:[
-"Conservation",
-"Object permanence",
-"Formal reasoning",
-"Identity"
-],
-answer:1,
-explanation:"Object permanence means understanding that an object continues to exist even when it cannot be seen."
+id:7,
+title:"📖 Language & Literacy",
+content:`
+
+<h2>📖 Lesson 7 — Language & Literacy</h2>
+
+<h3>Receptive vs Expressive Language</h3>
+
+<div class="theory-card">
+<strong>Receptive Language</strong>
+<p>Understanding language.</p>
+<p><strong>Example:</strong> Child follows "Put the ball in the box."</p>
+</div>
+
+<div class="theory-card">
+<strong>Expressive Language</strong>
+<p>Using language to communicate.</p>
+<p><strong>Example:</strong> Child says "More juice."</p>
+</div>
+
+<h3>Emergent Literacy</h3>
+
+<p>Literacy development begins before formal reading and writing. Young children develop skills through talking, listening, books, print, drawing and meaningful communication.</p>
+
+<h3>Important Early Literacy Skills</h3>
+
+<ul>
+<li>Listening</li>
+<li>Vocabulary</li>
+<li>Story comprehension</li>
+<li>Print awareness</li>
+<li>Book handling</li>
+<li>Phonological awareness</li>
+<li>Letter knowledge</li>
+<li>Letter-sound awareness</li>
+<li>Scribbling and early writing</li>
+</ul>
+
+<h3>Phonological Awareness</h3>
+
+<p>Awareness of the sound structure of spoken language.</p>
+
+<p><strong>Example:</strong> Recognizing that "cat" and "car" begin with the same sound.</p>
+
+<h3>Phonemic Awareness</h3>
+
+<p>A more specific ability to identify and manipulate individual sounds, or phonemes, in spoken words.</p>
+
+<h3>Teacher Strategies</h3>
+
+<ul>
+<li>Read aloud regularly.</li>
+<li>Talk with children.</li>
+<li>Ask open-ended questions.</li>
+<li>Introduce rich vocabulary.</li>
+<li>Use songs and rhymes.</li>
+<li>Encourage storytelling.</li>
+<li>Provide writing materials.</li>
+<li>Respect home languages.</li>
+</ul>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> If the child understands what someone says → <strong>receptive</strong>.<br>
+If the child communicates an idea → <strong>expressive</strong>.
+</div>
+
+`
 },
 
 {
-question:"Which theorist is most associated with cognitive development?",
-choices:[
-"Erikson",
-"Piaget",
-"Bowlby",
-"Skinner"
-],
-answer:1,
-explanation:"Jean Piaget developed a theory describing changes in children's cognitive development."
+id:8,
+title:"🔢 Early Mathematics & Numeracy",
+content:`
+
+<h2>🔢 Lesson 8 — Early Mathematics & Numeracy</h2>
+
+<h3>Number Recognition</h3>
+<p>Recognizing written numerals.</p>
+
+<h3>Counting</h3>
+<p>Reciting number words in sequence.</p>
+
+<h3>One-to-One Correspondence</h3>
+<p>Matching one number word to one object.</p>
+<p><strong>Example:</strong> Touching each of five blocks once while saying 1, 2, 3, 4, 5.</p>
+
+<h3>Cardinality</h3>
+<p>Understanding that the final number said when counting a group tells how many objects are in the group.</p>
+
+<h3>Classification</h3>
+<p>Grouping objects according to characteristics.</p>
+
+<p><strong>Example:</strong> Sorting buttons by color.</p>
+
+<h3>Seriation</h3>
+<p>Arranging objects according to an ordered characteristic.</p>
+
+<p><strong>Example:</strong> Arranging sticks from shortest to longest.</p>
+
+<h3>Patterns</h3>
+<p>Recognizing and creating repeated sequences.</p>
+
+<p><strong>Example:</strong> Red-blue-red-blue.</p>
+
+<h3>Shapes and Spatial Concepts</h3>
+
+<p>Children learn about shapes, position, size, direction and relationships such as above, below, beside, inside and outside.</p>
+
+<h3>Measurement</h3>
+
+<p>Children can compare length, height, weight, capacity and other measurable attributes using meaningful experiences.</p>
+
+<h3>Best Practice</h3>
+
+<ul>
+<li>Use concrete objects.</li>
+<li>Use games and songs.</li>
+<li>Let children manipulate materials.</li>
+<li>Connect mathematics to daily routines.</li>
+<li>Use mathematical vocabulary.</li>
+</ul>
+
+<div class="memory">
+<strong>🧠 Memory:</strong> Early math should be <strong>concrete → meaningful → hands-on → gradually abstract</strong>.
+</div>
+
+`
 },
 
 {
-question:"A toddler wants to do things independently and says, 'I do it!' Which Erikson stage is most relevant?",
-choices:[
-"Trust vs. Mistrust",
-"Autonomy vs. Shame and Doubt",
-"Initiative vs. Guilt",
-"Industry vs. Inferiority"
-],
-answer:1,
-explanation:"Erikson associated toddlerhood with autonomy versus shame and doubt."
+id:9,
+title:"🔬 Science & Discovery",
+content:`
+
+<h2>🔬 Lesson 9 — Science & Discovery</h2>
+
+<h3>Science in Early Childhood</h3>
+
+<p>ECE science is about helping children observe, ask questions, explore, predict, test ideas and communicate what they discover.</p>
+
+<h3>Scientific Thinking Skills</h3>
+
+<ul>
+<li>Observation</li>
+<li>Questioning</li>
+<li>Classification</li>
+<li>Prediction</li>
+<li>Experimentation</li>
+<li>Comparison</li>
+<li>Communication</li>
+</ul>
+
+<h3>Example Investigation</h3>
+
+<p>Children wonder which objects will float.</p>
+
+<ol>
+<li>Observe objects.</li>
+<li>Make predictions.</li>
+<li>Place objects in water.</li>
+<li>Observe results.</li>
+<li>Compare predictions with results.</li>
+</ol>
+
+<h3>Teacher's Role</h3>
+
+<p>Do not immediately provide every answer. Encourage children to investigate safely.</p>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> "What do you think will happen?" = <strong>prediction</strong>.<br>
+"What did you notice?" = <strong>observation</strong>.
+</div>
+
+`
 },
 
 {
-question:"Which theorist emphasized sociocultural learning?",
-choices:[
-"Piaget",
-"Vygotsky",
-"Kohlberg",
-"Bowlby"
-],
-answer:1,
-explanation:"Vygotsky emphasized social interaction, culture, language, and guided learning."
+id:10,
+title:"🎨 Creative Arts, Music & Movement",
+content:`
+
+<h2>🎨 Lesson 10 — Creative Arts, Music & Movement</h2>
+
+<h3>Process Art</h3>
+
+<p>Process art emphasizes children's exploration, decisions and creative experience rather than requiring every child to produce the same final product.</p>
+
+<h3>Why Open-Ended Art?</h3>
+
+<ul>
+<li>Encourages creativity.</li>
+<li>Supports self-expression.</li>
+<li>Develops fine motor skills.</li>
+<li>Allows individual differences.</li>
+<li>Encourages decision-making.</li>
+</ul>
+
+<h3>Music</h3>
+
+<p>Music activities can develop listening, rhythm, memory, language and social participation.</p>
+
+<h3>Movement</h3>
+
+<p>Movement supports gross motor development, body awareness, coordination and expression.</p>
+
+<h3>Drama</h3>
+
+<p>Dramatic activities allow children to communicate ideas, explore roles and develop language and social skills.</p>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> If the teacher gives every child the same model and requires identical outputs, this is less open-ended than a process-oriented art experience.
+</div>
+
+`
 },
 
 {
-question:"Which theorist is strongly associated with attachment?",
-choices:[
-"Bowlby",
-"Piaget",
-"Kohlberg",
-"Bronfenbrenner"
-],
-answer:0,
-explanation:"John Bowlby emphasized attachment relationships between children and caregivers."
+id:11,
+title:"👩‍🏫 Teaching Strategies",
+content:`
+
+<h2>👩‍🏫 Lesson 11 — Teaching Strategies</h2>
+
+<h3>Child-Centered Teaching</h3>
+
+<p>Learning experiences respond to children's developmental needs, interests and active participation.</p>
+
+<h3>Inquiry-Based Learning</h3>
+
+<p>Children investigate questions and develop understanding through exploration.</p>
+
+<h3>Experiential Learning</h3>
+
+<p>Children learn through direct experiences.</p>
+
+<h3>Cooperative Learning</h3>
+
+<p>Children work and learn with others toward meaningful goals.</p>
+
+<h3>Modeling</h3>
+
+<p>The teacher demonstrates a behavior or skill for children to observe.</p>
+
+<h3>Scaffolding</h3>
+
+<p>The teacher provides temporary support and gradually reduces it as the learner gains independence.</p>
+
+<h3>Open-Ended Questions</h3>
+
+<p>Questions that encourage explanation, reasoning and multiple possible responses.</p>
+
+<p><strong>Example:</strong> "What do you think will happen next?"</p>
+
+<h3>Differentiation</h3>
+
+<p>Adjusting instruction, materials, support or expectations to respond to learner differences.</p>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> "Temporary support that is gradually removed" → <strong>scaffolding</strong>.
+</div>
+
+`
 },
 
 {
-question:"Which theorist focused on moral reasoning?",
-choices:[
-"Erikson",
-"Kohlberg",
-"Vygotsky",
-"Bowlby"
-],
-answer:1,
-explanation:"Lawrence Kohlberg studied the development of moral reasoning."
+id:12,
+title:"📝 Assessment in ECE",
+content:`
+
+<h2>📝 Lesson 12 — Assessment in ECE</h2>
+
+<h3>Purpose of Assessment</h3>
+
+<ul>
+<li>Understand children's development.</li>
+<li>Plan instruction.</li>
+<li>Identify strengths and needs.</li>
+<li>Monitor progress.</li>
+<li>Communicate with families.</li>
+</ul>
+
+<h3>Formative Assessment</h3>
+
+<p>Assessment used during learning to guide teaching and support improvement.</p>
+
+<p><strong>Example:</strong> Teacher observes children during a counting activity and adjusts tomorrow's lesson.</p>
+
+<h3>Summative Assessment</h3>
+
+<p>Assessment used to summarize learning or achievement after a period of instruction.</p>
+
+<h3>Diagnostic Assessment</h3>
+
+<p>Assessment used to identify strengths, needs or difficulties to inform instruction.</p>
+
+<h3>Authentic Assessment</h3>
+
+<p>Assessment through meaningful real-life or classroom activities.</p>
+
+<p><strong>Example:</strong> Observing a child's language during storytelling.</p>
+
+<h3>Assessment Principles</h3>
+
+<ul>
+<li>Use multiple sources of evidence.</li>
+<li>Consider context.</li>
+<li>Respect confidentiality.</li>
+<li>Avoid unfair labeling.</li>
+<li>Use results to support children.</li>
+</ul>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> Assessment should be used to <strong>improve teaching and support children</strong>, not merely to label them.
+</div>
+
+`
 },
 
 {
-question:"Which theorist described development as occurring within interconnected environmental systems?",
-choices:[
-"Bronfenbrenner",
-"Piaget",
-"Erikson",
-"Skinner"
-],
-answer:0,
-explanation:"Bronfenbrenner's ecological perspective emphasizes multiple environmental systems influencing development."
+id:13,
+title:"👀 Observation & Documentation",
+content:`
+
+<h2>👀 Lesson 13 — Observation & Documentation</h2>
+
+<h3>Anecdotal Record</h3>
+
+<p>A brief written description of a significant observed event or behavior.</p>
+
+<h3>Running Record</h3>
+
+<p>A detailed continuous record of behavior during a particular period.</p>
+
+<h3>Checklist</h3>
+
+<p>A list of behaviors or skills used to indicate whether they are observed.</p>
+
+<h3>Rating Scale</h3>
+
+<p>Rates the degree or frequency of a behavior or characteristic.</p>
+
+<h3>Time Sampling</h3>
+
+<p>Observing and recording behavior at predetermined time intervals.</p>
+
+<h3>Event Sampling</h3>
+
+<p>Recording each occurrence of a specific behavior or event.</p>
+
+<h3>Objective Observation</h3>
+
+<p>Records what was actually seen or heard without adding unsupported judgments.</p>
+
+<div class="info">
+<strong>Objective:</strong> "Maria pushed the block away and said, 'No.'"<br><br>
+<strong>Subjective:</strong> "Maria was being difficult."
+</div>
+
+<h3>Documentation</h3>
+
+<p>Documentation can include observations, photographs, work samples, portfolios and learning records used to understand children's learning and development.</p>
+
+<h3>Confidentiality</h3>
+
+<p>Children's information should be protected and shared responsibly.</p>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> If the question asks for a factual description without judgment → <strong>objective observation</strong>.
+</div>
+
+`
 },
 
 {
-question:"Two children sit beside each other and play with their own blocks without meaningful interaction. What type of play is this?",
-choices:[
-"Cooperative play",
-"Associative play",
-"Parallel play",
-"Competitive play"
-],
-answer:2,
-explanation:"Parallel play occurs when children play alongside one another without substantial shared interaction."
+id:14,
+title:"❤️ Social-Emotional Development",
+content:`
+
+<h2>❤️ Lesson 14 — Social-Emotional Development</h2>
+
+<h3>Self-Concept</h3>
+
+<p>A child's understanding of who they are.</p>
+
+<h3>Self-Esteem</h3>
+
+<p>A child's sense of self-worth or value.</p>
+
+<h3>Self-Regulation</h3>
+
+<p>The ability to manage attention, emotions and behavior in ways appropriate to the situation.</p>
+
+<h3>Empathy</h3>
+
+<p>Understanding or responding to another person's feelings.</p>
+
+<h3>Attachment</h3>
+
+<p>Emotional bonds between children and caregivers.</p>
+
+<h3>Friendship and Cooperation</h3>
+
+<p>Children gradually learn to share, negotiate, cooperate, communicate and solve conflicts.</p>
+
+<h3>Teacher Strategies</h3>
+
+<ul>
+<li>Build predictable routines.</li>
+<li>Model emotional regulation.</li>
+<li>Teach feeling words.</li>
+<li>Help children solve conflicts.</li>
+<li>Use positive guidance.</li>
+<li>Build secure relationships.</li>
+</ul>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> A teacher who helps a child name feelings and choose a calming strategy is supporting <strong>emotional regulation</strong>.
+</div>
+
+`
 },
 
 {
-question:"Children work together to build one pretend house and assign roles to each other. What type of play is this?",
-choices:[
-"Solitary play",
-"Parallel play",
-"Cooperative play",
-"Sensorimotor play"
-],
-answer:2,
-explanation:"Cooperative play involves children working together toward a shared activity or goal."
+id:15,
+title:"🥗 Health, Nutrition & Safety",
+content:`
+
+<h2>🥗 Lesson 15 — Health, Nutrition & Safety</h2>
+
+<h3>Health</h3>
+
+<p>ECE programs should promote hygiene, healthy routines, physical activity, rest and general well-being.</p>
+
+<h3>Nutrition</h3>
+
+<p>Children need nutritious foods and adequate hydration to support growth and learning.</p>
+
+<h3>Hygiene</h3>
+
+<ul>
+<li>Handwashing</li>
+<li>Clean materials</li>
+<li>Safe food practices</li>
+<li>Clean drinking water</li>
+</ul>
+
+<h3>Safety</h3>
+
+<ul>
+<li>Active supervision</li>
+<li>Safe equipment</li>
+<li>Age-appropriate materials</li>
+<li>Emergency preparedness</li>
+<li>Hazard prevention</li>
+<li>Safe indoor and outdoor spaces</li>
+</ul>
+
+<h3>Child Protection</h3>
+
+<p>Teachers have a responsibility to protect children from abuse, neglect, exploitation and unsafe situations according to applicable policies and laws.</p>
+
+<h3>Nutrition and Development</h3>
+
+<p>Nutrition is connected with children's physical growth, energy and ability to participate in learning.</p>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> In safety questions, think <strong>prevention + supervision + child protection</strong>.
+</div>
+
+`
 },
 
 {
-question:"A child solves a puzzle by thinking about how pieces fit together. Which domain is most directly involved?",
-choices:[
-"Cognitive",
-"Physical",
-"Social-emotional",
-"Language"
-],
-answer:0,
-explanation:"Problem-solving and thinking are cognitive processes."
+id:16,
+title:"♿ Inclusive Early Childhood Education",
+content:`
+
+<h2>♿ Lesson 16 — Inclusive Early Childhood Education</h2>
+
+<h3>What Is Inclusion?</h3>
+
+<p>Inclusion means ensuring that children with different abilities, backgrounds and needs can meaningfully participate in learning and classroom life.</p>
+
+<h3>Differentiation</h3>
+
+<p>Adjusting teaching or activities to respond to learner differences.</p>
+
+<h3>Accommodation</h3>
+
+<p>Changing access or support without necessarily changing the essential learning goal.</p>
+
+<p><strong>Example:</strong> Allowing a child who has difficulty holding a pencil to use an adapted writing tool.</p>
+
+<h3>Universal Design for Learning (UDL)</h3>
+
+<p>Planning learning experiences from the beginning with multiple ways for learners to engage, access information and demonstrate learning.</p>
+
+<h3>Inclusive Classroom</h3>
+
+<ul>
+<li>Accessible materials</li>
+<li>Flexible participation</li>
+<li>Peer interaction</li>
+<li>Respect for differences</li>
+<li>Family collaboration</li>
+<li>Individualized support when needed</li>
+</ul>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> Inclusion is not simply putting a child in the classroom. The child should have <strong>meaningful participation and access</strong>.
+</div>
+
+`
 },
 
 {
-question:"A child learns to calm down after becoming frustrated. Which domain is most directly involved?",
-choices:[
-"Physical",
-"Social-emotional",
-"Language",
-"Prenatal"
-],
-answer:1,
-explanation:"Managing emotions and self-regulation are part of social-emotional development."
+id:17,
+title:"👨‍👩‍👧 Family & Community",
+content:`
+
+<h2>👨‍👩‍👧 Lesson 17 — Family & Community</h2>
+
+<h3>Family as a Partner</h3>
+
+<p>Families have valuable knowledge about their children's experiences, strengths, culture and needs.</p>
+
+<h3>Family Engagement</h3>
+
+<ul>
+<li>Two-way communication</li>
+<li>Respectful relationships</li>
+<li>Shared decision-making</li>
+<li>Home-school connections</li>
+<li>Family participation</li>
+</ul>
+
+<h3>Cultural Responsiveness</h3>
+
+<p>Teachers should respect children's cultural backgrounds, languages, family structures and community experiences.</p>
+
+<h3>Community Resources</h3>
+
+<p>Schools and ECE programs can connect families with appropriate community resources and services.</p>
+
+<h3>Communication</h3>
+
+<p>Communication should be respectful, professional, clear and confidential.</p>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> Strong family involvement is a <strong>partnership</strong>, not the teacher simply telling parents what to do.
+</div>
+
+`
 },
 
 {
-question:"A child increasingly uses words and sentences to communicate ideas. Which domain is this?",
-choices:[
-"Cognitive",
-"Physical",
-"Language",
-"Social-emotional"
-],
-answer:2,
-explanation:"Using words and sentences involves language and communication development."
+id:18,
+title:"🇵🇭 Philippine ECE",
+content:`
+
+<h2>🇵🇭 Lesson 18 — Philippine ECE</h2>
+
+<h3>Early Childhood Care and Development (ECCD)</h3>
+
+<p>ECCD focuses on the holistic development of young children and recognizes the importance of health, nutrition, early learning, family and community support.</p>
+
+<h3>Kindergarten Education</h3>
+
+<p>Kindergarten provides an important foundation for children's transition into formal basic education.</p>
+
+<h3>Philippine ECE Principles to Remember</h3>
+
+<ul>
+<li>Child-centered learning</li>
+<li>Developmentally appropriate experiences</li>
+<li>Play and active learning</li>
+<li>Family and community involvement</li>
+<li>Holistic development</li>
+<li>Inclusive education</li>
+</ul>
+
+<div class="info">
+<strong>⚠️ LET Reminder:</strong>
+Questions about Philippine laws, policies, official programs and curriculum documents should always be studied using the current official DepEd/ECCD/legal sources because policies can be updated.
+</div>
+
+<h3>Teacher's Role</h3>
+
+<p>The early childhood teacher supports children's development, creates safe learning environments, works with families and uses developmentally appropriate practices.</p>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> Philippine ECE questions often connect early learning with <strong>holistic development, child-centered practice, family/community and developmentally appropriate learning</strong>.
+</div>
+
+`
 },
 
 {
-question:"Running, jumping, and climbing are primarily examples of:",
-choices:[
-"Gross-motor development",
-"Language development",
-"Cognitive development",
-"Moral development"
-],
-answer:0,
-explanation:"Gross-motor skills involve large muscles and whole-body movements."
+id:19,
+title:"🏡 Montessori, Reggio Emilia & Other Approaches",
+content:`
+
+<h2>🏡 Lesson 19 — Montessori, Reggio Emilia & Other Approaches</h2>
+
+<h3>Maria Montessori</h3>
+
+<ul>
+<li>Prepared environment</li>
+<li>Self-directed learning</li>
+<li>Independence</li>
+<li>Purposeful hands-on materials</li>
+<li>Practical life activities</li>
+<li>Sensorial experiences</li>
+<li>Teacher as guide</li>
+</ul>
+
+<p><strong>Example:</strong> A child independently practices pouring water using appropriately prepared materials.</p>
+
+<h3>Reggio Emilia</h3>
+
+<ul>
+<li>Children viewed as capable learners.</li>
+<li>Environment is often described as a "third teacher."</li>
+<li>Documentation is important.</li>
+<li>Projects may emerge from children's interests.</li>
+<li>Families and community can participate.</li>
+<li>Children communicate through many forms, often described as the "hundred languages."</li>
+</ul>
+
+<h3>Friedrich Froebel</h3>
+
+<p>Associated with the kindergarten concept and learning through children's activity and play.</p>
+
+<h3>HighScope</h3>
+
+<p>Known for active participatory learning and the plan-do-review process.</p>
+
+<h3>Waldorf Education</h3>
+
+<p>Often emphasizes imagination, rhythm, artistic experiences and natural materials, particularly in early childhood.</p>
+
+<h3>Bank Street</h3>
+
+<p>Associated with developmental-interaction approaches emphasizing the whole child and learning through meaningful experiences.</p>
+
+<div class="table-wrap">
+<table>
+<tr><th>Approach</th><th>Key Idea</th></tr>
+<tr><td>Montessori</td><td>Prepared environment + independence + purposeful materials</td></tr>
+<tr><td>Reggio Emilia</td><td>Environment + projects + documentation + children's many forms of expression</td></tr>
+<tr><td>Froebel</td><td>Kindergarten + play + self-activity</td></tr>
+<tr><td>HighScope</td><td>Active learning + plan-do-review</td></tr>
+<tr><td>Waldorf</td><td>Imagination + rhythm + artistic/natural experiences</td></tr>
+<tr><td>Bank Street</td><td>Whole-child developmental-interaction approach</td></tr>
+</table>
+</div>
+
+<div class="memory">
+<strong>🧠 Memory:</strong><br>
+Montessori = Independence<br>
+Reggio = Documentation + Environment<br>
+Froebel = Kindergarten<br>
+HighScope = Plan-Do-Review
+</div>
+
+`
 },
 
 {
-question:"What is the correct order of Piaget's stages?",
-choices:[
-"Preoperational → Sensorimotor → Formal → Concrete",
-"Sensorimotor → Preoperational → Concrete → Formal",
-"Concrete → Sensorimotor → Preoperational → Formal",
-"Formal → Concrete → Preoperational → Sensorimotor"
-],
-answer:1,
-explanation:"Piaget's sequence is Sensorimotor, Preoperational, Concrete Operational, and Formal Operational."
-},
+id:20,
+title:"🌍 Contemporary Issues in ECE",
+content:`
 
-{
-question:"Object permanence is most strongly associated with which Piaget stage?",
-choices:[
-"Sensorimotor",
-"Preoperational",
-"Concrete operational",
-"Formal operational"
-],
-answer:0,
-explanation:"Object permanence develops during the sensorimotor period."
-},
+<h2>🌍 Lesson 20 — Contemporary Issues in ECE</h2>
 
-{
-question:"A preschool child uses a banana as a pretend telephone. This is an example of:",
-choices:[
-"Symbolic thinking",
-"Formal reasoning",
-"Conservation",
-"Reflexive behavior"
-],
-answer:0,
-explanation:"Using one object to represent another demonstrates symbolic thinking, characteristic of the preoperational period."
-},
+<h3>Technology and Screen Use</h3>
 
-{
-question:"A teacher gives hints to help a child complete a difficult puzzle and gradually reduces the hints. This is:",
-choices:[
-"Scaffolding",
-"Object permanence",
-"Conditioning",
-"Attachment"
-],
-answer:0,
-explanation:"Scaffolding is temporary support that is gradually reduced as the learner becomes more capable."
-},
+<p>Technology should be used thoughtfully and should not automatically replace hands-on exploration, social interaction, physical activity or meaningful play.</p>
 
-{
-question:"Which practice is most developmentally appropriate?",
-choices:[
-"Expecting every child to perform at exactly the same level",
-"Providing age-appropriate and individually appropriate experiences",
-"Giving all children identical difficult worksheets",
-"Preventing children from choosing activities"
-],
-answer:1,
-explanation:"Developmentally appropriate practice considers children's age, individual development, abilities, experiences, and context."
-},
+<h3>Digital Citizenship and Online Safety</h3>
 
-{
-question:"Why is play important in early childhood?",
-choices:[
-"It only provides entertainment",
-"It supports learning and development in multiple areas",
-"It should replace every form of teaching",
-"It prevents children from interacting with adults"
-],
-answer:1,
-explanation:"Play can support cognitive, language, physical, social, emotional, and problem-solving development."
-},
+<p>Children need age-appropriate protection and guidance when digital tools are used.</p>
 
-{
-question:"A baby seeks comfort from a familiar caregiver when distressed. Which concept is most relevant?",
-choices:[
-"Secure attachment",
-"Formal operations",
-"Conservation",
-"Scaffolding"
-],
-answer:0,
-explanation:"Seeking comfort from a trusted caregiver is consistent with attachment behavior."
-},
+<h3>Environmental Education</h3>
 
-{
-question:"Which statement about developmental milestones is most accurate?",
-choices:[
-"Every child must reach every milestone at exactly the same age",
-"Children develop at different rates",
-"Milestones only involve physical development",
-"Milestones are unrelated to observation"
-],
-answer:1,
-explanation:"Development varies among children. Milestones are useful guides, not rigid deadlines for every child."
-},
+<p>Young children can learn through gardening, nature observation, recycling and caring for their surroundings.</p>
 
-{
-question:"Using crayons, buttons, and scissors primarily involves:",
-choices:[
-"Fine-motor development",
-"Gross-motor development",
-"Prenatal development",
-"Attachment"
-],
-answer:0,
-explanation:"Fine-motor skills involve smaller muscle movements and hand coordination."
-},
+<h3>Equity and Access</h3>
 
-{
-question:"A teacher asks children questions, observes their ideas, and lets them explore materials before giving the answer. This is closest to:",
-choices:[
-"Guided exploration",
-"Punishment",
-"Passive learning",
-"Memorization only"
-],
-answer:0,
-explanation:"Guided exploration allows children to actively investigate while the teacher supports learning."
-},
+<p>ECE should address barriers that prevent children from accessing meaningful learning opportunities.</p>
 
-{
-question:"Which statement best describes child development?",
-choices:[
-"Development occurs in completely separate areas",
-"Only physical growth matters",
-"Developmental domains are interconnected",
-"All children develop identically"
-],
-answer:2,
-explanation:"Physical, cognitive, language, social, and emotional development influence one another."
+<h3>Multicultural Education</h3>
+
+<p>Classrooms should respect different cultures, languages, families and identities while avoiding stereotypes.</p>
+
+<h3>Trauma-Informed Practice</h3>
+
+<p>Teachers should prioritize safety, predictable routines, supportive relationships and sensitivity to children's experiences.</p>
+
+<h3>School Readiness</h3>
+
+<p>School readiness should be viewed broadly, including children's physical, social-emotional, language, cognitive and self-regulation abilities rather than only academic skills.</p>
+
+<h3>Early Intervention</h3>
+
+<p>Early identification and appropriate support can help address developmental concerns as early as possible.</p>
+
+<h3>Remote and Blended Learning</h3>
+
+<p>When technology is necessary, teachers should consider accessibility, family circumstances, interaction, screen balance and meaningful learning.</p>
+
+<div class="let-clue">
+<strong>🎯 LET Clue:</strong> Contemporary ECE generally emphasizes <strong>equity, inclusion, child well-being, meaningful technology use, family partnership and holistic development</strong>.
+</div>
+
+`
 }
 
 ];
 
 
 /* =========================================================
-   BUILD QUIZ
+   QUIZ DATA
 ========================================================= */
 
-function buildQuiz(){
+const quizzes = {
 
-    const container =
-        document.getElementById("quizContainer");
+1:[
+{
+q:"A child grows taller and gains weight over several months. Which term best describes these measurable physical changes?",
+options:["Development","Growth","Socialization","Maturation"],
+answer:1,
+why:[
+"Development is broader and includes changes in many areas of functioning.",
+"Growth specifically refers to measurable physical changes such as height and weight.",
+"Socialization concerns learning behaviors and relationships within society.",
+"Maturation refers to biological unfolding and increasing readiness, not simply measurable size changes."
+]
+},
+{
+q:"A teacher notices that one child is excellent at drawing but still developing expressive language. What principle does this best illustrate?",
+options:["All children develop at exactly the same rate","Developmental domains are interconnected but can progress at different rates","Development stops after preschool","Physical development determines all other development"],
+answer:1,
+why:[
+"Children do not develop at exactly the same rate.",
+"Different developmental domains may progress differently while remaining interconnected.",
+"Development continues throughout life.",
+"Physical development does not determine every other area of development."
+]
+},
+{
+q:"A teacher considers a child's family experiences and cultural background when planning activities. Which factor is being considered?",
+options:["Nurture/environment","Genetic inheritance only","Physical growth only","Reflex development"],
+answer:0,
+why:[
+"Family, culture and experiences are environmental influences and therefore part of nurture.",
+"Genetic inheritance concerns hereditary influences rather than family experiences alone.",
+"Physical growth concerns measurable bodily changes.",
+"Reflex development concerns automatic responses, especially in early life."
+]
+}
+],
 
-    container.innerHTML = "";
+2:[
+{
+q:"A child pretends that a cardboard box is a spaceship. According to Piaget, this behavior is especially associated with which stage?",
+options:["Sensorimotor","Preoperational","Concrete operational","Formal operational"],
+answer:1,
+why:[
+"Sensorimotor children learn mainly through sensory and motor actions.",
+"Preoperational children use symbols and pretend objects can represent other things.",
+"Concrete operational thinking involves more logical reasoning about concrete situations.",
+"Formal operational thinking involves abstract and hypothetical reasoning."
+]
+},
+{
+q:"A teacher gives hints to a child who cannot complete a puzzle alone, then gradually removes the hints. Which Vygotskian concept is demonstrated?",
+options:["Attachment","Scaffolding","Conservation","Classical conditioning"],
+answer:1,
+why:[
+"Attachment concerns emotional bonds with caregivers.",
+"Scaffolding is temporary support that is gradually reduced as competence increases.",
+"Conservation is a Piagetian cognitive concept.",
+"Classical conditioning is associated with learning through stimulus associations."
+]
+},
+{
+q:"A toddler insists, 'I do it myself!' Which Erikson stage is most relevant?",
+options:["Trust vs. Mistrust","Autonomy vs. Shame and Doubt","Industry vs. Inferiority","Identity vs. Role Confusion"],
+answer:1,
+why:[
+"Trust vs. Mistrust is the major psychosocial conflict of infancy.",
+"Autonomy vs. Shame and Doubt centers on developing independence and self-control in early childhood.",
+"Industry vs. Inferiority is associated with school-age competence.",
+"Identity vs. Role Confusion is associated primarily with adolescence."
+]
+}
+],
 
-    quizData.forEach((q,index)=>{
+3:[
+{
+q:"A teacher chooses an activity that is appropriate for most children of the age group but also adjusts the materials for one child who needs additional support. What principle is being demonstrated?",
+options:["DAP","Punishment","Rote learning","Standardization"],
+answer:0,
+why:[
+"DAP considers both developmental expectations and individual differences.",
+"Punishment is a behavior-management concept, not a principle of developmentally appropriate teaching.",
+"Rote learning means memorizing information and does not explain the adjustment.",
+"Standardization would emphasize sameness rather than individual needs."
+]
+},
+{
+q:"Which is NOT one of the three major DAP considerations?",
+options:["Age appropriateness","Individual appropriateness","Contextual/cultural appropriateness","Making every child complete identical work"],
+answer:3,
+why:[
+"Age appropriateness is a major DAP consideration.",
+"Individual appropriateness is a major DAP consideration.",
+"Contextual/cultural appropriateness is a major DAP consideration.",
+"Requiring identical work for every child is not a core DAP principle."
+]
+},
+{
+q:"A teacher asks about children's home languages before planning a language activity. Why is this appropriate?",
+options:["It considers children's context and experiences","It prevents children from learning English","It eliminates individual differences","It makes all children develop at the same rate"],
+answer:0,
+why:[
+"Considering home languages respects children's cultural and linguistic context.",
+"Respecting a home language does not prevent children from learning another language.",
+"It recognizes rather than eliminates individual differences.",
+"It does not make developmental rates identical."
+]
+}
+],
 
-        const questionDiv =
-            document.createElement("div");
+4:[
+{
+q:"Two children sit beside each other. Both build separate towers and rarely interact. Which type of play is this?",
+options:["Cooperative","Associative","Parallel","Onlooker"],
+answer:2,
+why:[
+"Cooperative play involves a shared goal or organized common activity.",
+"Associative play includes interaction and sharing but not necessarily a common organized goal.",
+"Parallel play occurs when children play beside one another with limited direct interaction.",
+"Onlooker play involves watching others play rather than independently engaging in play."
+]
+},
+{
+q:"Children work together to create a pretend restaurant and assign roles such as cook, customer and cashier. Which type of social play is demonstrated?",
+options:["Solitary","Parallel","Cooperative","Unoccupied"],
+answer:2,
+why:[
+"Solitary play involves playing alone.",
+"Parallel play involves nearby but mostly separate play.",
+"Cooperative play involves organized interaction around a shared goal.",
+"Unoccupied behavior is not sustained organized play."
+]
+},
+{
+q:"Which theorist is strongly associated with the kindergarten concept?",
+options:["Friedrich Froebel","Sigmund Freud","Lawrence Kohlberg","B. F. Skinner"],
+answer:0,
+why:[
+"Friedrich Froebel is strongly associated with the development of the kindergarten concept.",
+"Freud is associated with psychoanalytic theory.",
+"Kohlberg is associated with moral reasoning.",
+"Skinner is associated with operant conditioning."
+]
+}
+],
 
-        questionDiv.className = "question";
+5:[
+{
+q:"A teacher connects a plant theme with science, counting, drawing, vocabulary and storytelling. What curriculum principle is demonstrated?",
+options:["Integrated curriculum","Isolated instruction","Punishment","Standardized testing"],
+answer:0,
+why:[
+"Integrated curriculum connects learning areas around meaningful experiences.",
+"Isolated instruction separates learning areas rather than connecting them.",
+"Punishment is unrelated to curriculum integration.",
+"Standardized testing is an assessment approach, not the curriculum principle described."
+]
+},
+{
+q:"Children become interested in insects, so the teacher develops several activities based on their questions. Which curriculum approach is most evident?",
+options:["Emergent curriculum","Fixed curriculum","Hidden punishment","Pure lecture"],
+answer:0,
+why:[
+"Emergent curriculum develops from children's interests, questions and experiences.",
+"A completely fixed curriculum would not primarily emerge from children's current interests.",
+"Punishment is unrelated.",
+"Lecture does not describe the curriculum planning process."
+]
+},
+{
+q:"What should generally come after observing children's needs and interests when planning?",
+options:["Set appropriate learning objectives","Ignore the information","Immediately punish children","Remove all choices"],
+answer:0,
+why:[
+"Observation and understanding children's needs should inform appropriate objectives.",
+"Ignoring information defeats the purpose of observation.",
+"Punishment is not a planning step.",
+"Removing choices is inconsistent with child-centered ECE."
+]
+}
+],
 
-        let html = `
-            <p>${index+1}. ${q.question}</p>
+6:[
+{
+q:"Which classroom arrangement best promotes children's independence?",
+options:["Materials locked away from children","Clearly organized accessible materials","Teacher keeps every material on the desk","Children may never choose activities"],
+answer:1,
+why:[
+"Locked materials limit independent access.",
+"Accessible and organized materials encourage appropriate independence and choice.",
+"Keeping all materials with the teacher reduces children's opportunities to explore.",
+"Preventing choices does not promote independence."
+]
+},
+{
+q:"A child feels emotionally safe because the teacher responds warmly and consistently. What part of the learning environment is especially important?",
+options:["Emotional environment","Wall decoration only","Desk arrangement only","Testing environment"],
+answer:0,
+why:[
+"A warm and consistent teacher-child relationship contributes to an emotionally supportive environment.",
+"Wall decoration alone does not create emotional security.",
+"Furniture arrangement is part of the physical environment.",
+"Testing environment does not describe the relationship described."
+]
+},
+{
+q:"Which is most important when selecting classroom materials?",
+options:["They are expensive","They are safe, accessible and appropriate","They are all identical","They are difficult for children to reach"],
+answer:1,
+why:[
+"Price does not determine developmental appropriateness.",
+"Safe, accessible and appropriate materials support effective ECE environments.",
+"Identical materials are not always necessary.",
+"Difficult-to-reach materials reduce accessibility."
+]
+}
+],
+
+7:[
+{
+q:"A child follows the instruction, 'Put the red block beside the box,' but says very little. Which language ability is being demonstrated?",
+options:["Expressive language","Receptive language","Phonemic awareness","Writing"],
+answer:1,
+why:[
+"Expressive language involves producing language.",
+"Receptive language involves understanding language, which the child demonstrates by following the instruction.",
+"Phonemic awareness concerns awareness of sounds.",
+"Writing is not what the behavior directly demonstrates."
+]
+},
+{
+q:"Which activity best supports emergent literacy?",
+options:["Daily shared reading and storytelling","Only copying worksheets","Avoiding conversations","Keeping books inaccessible"],
+answer:0,
+why:[
+"Shared reading and storytelling support vocabulary, comprehension, print awareness and communication.",
+"Worksheets alone do not provide the rich range of emergent literacy experiences.",
+"Avoiding conversations reduces language opportunities.",
+"Inaccessible books prevent children from independently exploring print."
+]
+},
+{
+q:"A teacher asks children to identify the beginning sound in 'sun.' What skill is being supported?",
+options:["Phonemic/phonological awareness","Gross motor development","Cardinality","Attachment"],
+answer:0,
+why:[
+"Identifying sounds in spoken words supports phonological/phonemic awareness.",
+"Gross motor development concerns large-body movement.",
+"Cardinality concerns understanding how many objects are in a counted set.",
+"Attachment concerns emotional relationships."
+]
+}
+],
+
+8:[
+{
+q:"A child touches each block once while saying one number word for each block. What skill is demonstrated?",
+options:["One-to-one correspondence","Seriation","Dramatic play","Attachment"],
+answer:0,
+why:[
+"One-to-one correspondence means matching one number word with one object.",
+"Seriation involves ordering objects according to a characteristic.",
+"Dramatic play involves pretending and role-playing.",
+"Attachment concerns emotional bonds."
+]
+},
+{
+q:"A child says 1, 2, 3, 4, 5 and understands that '5' tells how many objects are in the group. What concept is this?",
+options:["Cardinality","Parallel play","Scaffolding","Print awareness"],
+answer:0,
+why:[
+"Cardinality means understanding that the final counting word represents the total number of objects.",
+"Parallel play concerns social participation in play.",
+"Scaffolding is temporary instructional support.",
+"Print awareness concerns understanding written language and print."
+]
+},
+{
+q:"Children arrange sticks from shortest to longest. What mathematical concept is being developed?",
+options:["Seriation","Phonemic awareness","Attachment","Pretend play"],
+answer:0,
+why:[
+"Seriation is arranging objects in an ordered sequence according to an attribute.",
+"Phonemic awareness concerns sounds in spoken language.",
+"Attachment concerns emotional relationships.",
+"Pretend play involves symbolic or dramatic representation."
+]
+}
+],
+
+9:[
+{
+q:"A teacher asks children, 'What do you think will happen if we put this stone in water?' Which scientific skill is being encouraged?",
+options:["Prediction","Punishment","Copying","Memorization"],
+answer:0,
+why:[
+"A prediction is an expectation about what may happen.",
+"Punishment is unrelated to scientific inquiry.",
+"Copying is not the scientific skill described.",
+"Memorization alone does not involve predicting an outcome."
+]
+},
+{
+q:"Children examine leaves and describe their colors, shapes and textures. What scientific process are they practicing?",
+options:["Observation","Summative testing","Punishment","Role confusion"],
+answer:0,
+why:[
+"Observation involves carefully noticing and describing characteristics.",
+"Summative testing is an assessment concept.",
+"Punishment is unrelated.",
+"Role confusion is an Eriksonian concept."
+]
+},
+{
+q:"What should an ECE teacher generally do when children ask a science question?",
+options:["Encourage safe investigation","Always give the answer immediately","Tell them questions are unnecessary","Prevent hands-on exploration"],
+answer:0,
+why:[
+"Encouraging safe investigation supports inquiry and scientific thinking.",
+"Immediately giving every answer can reduce opportunities for investigation.",
+"Questions are important to scientific inquiry.",
+"Hands-on exploration is valuable when it can be done safely."
+]
+}
+],
+
+10:[
+{
+q:"Every child receives the same picture and must color it exactly like the teacher's model. Which alternative is more consistent with process-oriented art?",
+options:["Allowing children to choose materials and create their own designs","Requiring identical colors","Correcting every child's drawing","Displaying only perfect copies"],
+answer:0,
+why:[
+"Open-ended choice supports process-oriented art and individual expression.",
+"Identical colors reduce creative choice.",
+"Constant correction can interfere with expression.",
+"Displaying only copies emphasizes product conformity rather than process."
+]
+},
+{
+q:"Which activity best supports gross motor development?",
+options:["Running, jumping and balancing","Tracing tiny letters only","Sorting buttons only","Listening silently"],
+answer:0,
+why:[
+"Running, jumping and balancing use large muscle groups and gross motor skills.",
+"Tracing primarily involves fine motor control.",
+"Sorting buttons mainly supports cognitive and fine-motor skills.",
+"Listening is primarily a language/cognitive activity."
+]
+},
+{
+q:"Why are songs and rhythm activities valuable in ECE?",
+options:["They can support language, memory, listening and social participation","They prevent all other learning","They are only entertainment","They eliminate the need for conversation"],
+answer:0,
+why:[
+"Songs and rhythm can support several developmental and learning areas.",
+"They do not prevent other forms of learning.",
+"They can be enjoyable while also supporting development.",
+"They complement rather than eliminate conversation."
+]
+}
+],
+
+11:[
+{
+q:"A teacher demonstrates how to fold paper before asking children to try. Which strategy is this?",
+options:["Modeling","Event sampling","Cardinality","Attachment"],
+answer:0,
+why:[
+"Modeling means demonstrating a behavior or skill for learners to observe.",
+"Event sampling is an observation method.",
+"Cardinality is an early mathematics concept.",
+"Attachment concerns emotional relationships."
+]
+},
+{
+q:"A teacher asks, 'What else could we build with these blocks?' What type of question is this?",
+options:["Open-ended question","Yes/no question","Punitive question","Closed recall only"],
+answer:0,
+why:[
+"Open-ended questions encourage multiple ideas and explanations.",
+"A yes/no question normally has a limited response.",
+"It is not a punitive question.",
+"It does not ask for one predetermined fact only."
+]
+},
+{
+q:"A teacher gives a child a hint, then gradually reduces help. What strategy is this?",
+options:["Scaffolding","Punishment","Summative assessment","Isolation"],
+answer:0,
+why:[
+"Scaffolding provides temporary support that is gradually removed.",
+"Punishment is not the strategy described.",
+"Summative assessment summarizes learning rather than providing temporary instructional support.",
+"Isolation is not appropriate scaffolding."
+]
+}
+],
+
+12:[
+{
+q:"A teacher observes children during a lesson and uses the information to plan the next activity. What type of assessment is this?",
+options:["Formative","Summative only","Punitive","Random"],
+answer:0,
+why:[
+"Formative assessment is used during learning to guide instruction.",
+"Summative assessment generally summarizes learning after a period of instruction.",
+"Assessment should not be punitive.",
+"The assessment is intentional rather than random."
+]
+},
+{
+q:"Which is an example of authentic assessment?",
+options:["Observing a child tell a story during a meaningful classroom activity","Only giving an unrelated standardized worksheet","Punishing a child for mistakes","Ignoring classroom behavior"],
+answer:0,
+why:[
+"Authentic assessment uses meaningful real-world or classroom activities as evidence.",
+"A worksheet alone may not capture authentic performance in context.",
+"Punishment is not assessment.",
+"Ignoring behavior provides no assessment evidence."
+]
+},
+{
+q:"Why should teachers use multiple sources of assessment information?",
+options:["To develop a more complete understanding of the child","To make assessment confusing","To label children permanently","To avoid observing children"],
+answer:0,
+why:[
+"Multiple sources can provide a broader and more reliable picture of learning and development.",
+"The purpose is not to make assessment confusing.",
+"Assessment should not be used to permanently label children.",
+"Observation is one useful source of evidence."
+]
+}
+],
+
+13:[
+{
+q:"Which observation is most objective?",
+options:["Lina was rude today.","Lina pushed the chair away and said, 'No.'","Lina is lazy.","Lina was acting badly."],
+answer:1,
+why:[
+"This is an interpretation rather than a factual description.",
+"This records observable behavior and exact words without adding judgment.",
+"This is a judgment about the child's character.",
+"This is a subjective interpretation."
+]
+},
+{
+q:"A teacher records every time a child leaves the activity area. Which observation method fits best?",
+options:["Event sampling","Time sampling","Portfolio","Rating scale"],
+answer:0,
+why:[
+"Event sampling records each occurrence of a specified behavior.",
+"Time sampling records behavior at predetermined intervals.",
+"A portfolio is a collection of work and documentation over time.",
+"A rating scale rates a behavior or characteristic along a scale."
+]
+},
+{
+q:"A teacher records behavior every five minutes during free play. What is this?",
+options:["Time sampling","Event sampling","Anecdotal record only","Attachment"],
+answer:0,
+why:[
+"Time sampling uses predetermined time intervals.",
+"Event sampling focuses on occurrences of a specified event.",
+"An anecdotal record is a brief narrative of a significant event.",
+"Attachment concerns emotional relationships."
+]
+}
+],
+
+14:[
+{
+q:"A child says, 'I am angry. I need a quiet place.' Which skill is being demonstrated?",
+options:["Emotional self-regulation","Cardinality","Seriation","Print awareness"],
+answer:0,
+why:[
+"Recognizing a feeling and using a strategy to manage it demonstrates emotional self-regulation.",
+"Cardinality is an early mathematics concept.",
+"Seriation involves ordering objects.",
+"Print awareness concerns written language."
+]
+},
+{
+q:"A teacher helps children use words to solve a disagreement over a toy. What is the teacher supporting?",
+options:["Social competence and conflict resolution","Physical growth only","Phonemic awareness only","Formal operational thinking"],
+answer:0,
+why:[
+"Using communication to solve peer conflict supports social competence and conflict resolution.",
+"Physical growth is not the primary skill described.",
+"Phonemic awareness concerns sounds in language.",
+"Formal operational thinking is an advanced cognitive stage."
+]
+},
+{
+q:"Which teacher response best supports social-emotional development?",
+options:["'Tell me how you feel and let's think about what we can do.'","'Stop feeling that way.'","'You are bad for being angry.'","'Do not talk about feelings.'"],
+answer:0,
+why:[
+"This acknowledges the child's emotion and supports problem-solving.",
+"Suppressing feelings does not teach regulation.",
+"Labeling the child as bad can harm self-concept.",
+"Avoiding feelings prevents emotional literacy."
+]
+}
+],
+
+15:[
+{
+q:"Which is most important for preventing classroom accidents?",
+options:["Active supervision and hazard prevention","Decorating the walls","Giving children unlimited access to unsafe materials","Ignoring small hazards"],
+answer:0,
+why:[
+"Active supervision and prevention directly reduce safety risks.",
+"Decoration does not by itself prevent accidents.",
+"Unsafe access increases risk.",
+"Ignoring hazards increases risk."
+]
+},
+{
+q:"Which practice supports healthy hygiene?",
+options:["Regular handwashing","Sharing unclean utensils","Ignoring spills","Storing food unsafely"],
+answer:0,
+why:[
+"Handwashing is an important hygiene practice.",
+"Sharing unclean utensils can spread germs.",
+"Ignoring spills can create health and safety risks.",
+"Unsafe food storage can create health risks."
+]
+},
+{
+q:"When a teacher has a concern about possible child abuse or neglect, what should the teacher do?",
+options:["Follow appropriate child-protection procedures and reporting requirements","Ignore it","Investigate privately without following procedures","Post the child's information online"],
+answer:0,
+why:[
+"Teachers should follow applicable child-protection procedures and reporting requirements.",
+"Ignoring concerns may leave a child unsafe.",
+"Teachers should follow established procedures rather than conducting inappropriate private investigations.",
+"Sharing confidential child information online is inappropriate."
+]
+}
+],
+
+16:[
+{
+q:"A teacher provides an adapted pencil grip so a child can participate in the same writing activity. What is this an example of?",
+options:["Accommodation","Punishment","Exclusion","Summative assessment"],
+answer:0,
+why:[
+"An accommodation changes access or support so the learner can participate.",
+"Punishment is unrelated.",
+"Providing an adapted tool promotes participation rather than exclusion.",
+"Summative assessment summarizes learning."
+]
+},
+{
+q:"Which practice best represents inclusion?",
+options:["Ensuring every child can meaningfully participate","Keeping children with disabilities separate from peers","Giving no support to anyone","Allowing participation only when children work identically"],
+answer:0,
+why:[
+"Inclusion focuses on meaningful access and participation.",
+"Separating children unnecessarily is not inclusive.",
+"Appropriate support may be necessary.",
+"Identical participation is not the same as equitable participation."
+]
+},
+{
+q:"UDL encourages teachers to plan from the beginning with multiple ways for learners to engage and demonstrate learning. What is the main idea?",
+options:["Design learning to be accessible to diverse learners","Use one method for everyone","Wait until children fail before planning","Avoid accommodations"],
+answer:0,
+why:[
+"UDL emphasizes proactive design for learner variability.",
+"Using only one method may create unnecessary barriers.",
+"UDL is proactive rather than waiting for failure.",
+"UDL does not mean avoiding support."
+]
+}
+],
+
+17:[
+{
+q:"Which approach best describes a strong family-school partnership?",
+options:["Two-way communication and shared participation","Teacher makes every decision alone","Family is never consulted","Teacher tells families what to do without listening"],
+answer:0,
+why:[
+"Partnership involves communication, respect and shared participation.",
+"Family partnership is not teacher-only decision making.",
+"Families should be included appropriately.",
+"Effective communication includes listening."
+]
+},
+{
+q:"A teacher learns about a family's cultural practices and respectfully incorporates relevant experiences into classroom learning. What principle is demonstrated?",
+options:["Cultural responsiveness","Exclusion","Standardization","Punishment"],
+answer:0,
+why:[
+"Cultural responsiveness means respecting and incorporating children's cultural contexts appropriately.",
+"Exclusion would do the opposite.",
+"Standardization emphasizes sameness rather than cultural responsiveness.",
+"Punishment is unrelated."
+]
+},
+{
+q:"Why should teachers protect family information?",
+options:["Confidentiality protects privacy and professional trust","Because families should never communicate with teachers","Because documentation is unnecessary","Because teachers should avoid families"],
+answer:0,
+why:[
+"Confidentiality protects privacy and supports professional trust.",
+"Families should communicate with teachers appropriately.",
+"Documentation can be valuable when handled responsibly.",
+"Teachers should build partnerships with families."
+]
+}
+],
+
+18:[
+{
+q:"Which principle is strongly associated with quality early childhood education?",
+options:["Holistic development","Academic pressure only","Ignoring family involvement","One-size-fits-all instruction"],
+answer:0,
+why:[
+"Holistic development considers multiple developmental domains.",
+"ECE should not focus only on academic pressure.",
+"Family involvement is important.",
+"Children have individual needs and differences."
+]
+},
+{
+q:"Why should Philippine ECE teachers verify current laws and official policies before relying on them for LET preparation?",
+options:["Policies and official guidance can be updated","Laws never change","Official sources are unnecessary","Teachers should rely only on social media"],
+answer:0,
+why:[
+"Current official policies and documents can change and should be checked against authoritative sources.",
+"Laws and policies can be amended or replaced.",
+"Official sources are important for accurate preparation.",
+"Social media alone is not a reliable legal source."
+]
+},
+{
+q:"Which approach is most consistent with child-centered ECE?",
+options:["Children actively participate in meaningful learning experiences","Teacher talks for the entire lesson","Children have no choices","All children must produce identical work"],
+answer:0,
+why:[
+"Child-centered learning involves active, meaningful participation.",
+"Teacher-only talk limits active participation.",
+"No choices reduce agency.",
+"Identical products are not necessary for child-centered learning."
+]
+}
+],
+
+19:[
+{
+q:"A classroom is carefully prepared with accessible materials that children can use independently. Which approach is strongly associated with this?",
+options:["Montessori","Classical conditioning","Kohlberg","Behaviorism only"],
+answer:0,
+why:[
+"Montessori emphasizes the prepared environment and independence.",
+"Classical conditioning concerns learning through associations.",
+"Kohlberg concerns moral reasoning.",
+"Behaviorism concerns behavior and environmental consequences."
+]
+},
+{
+q:"A teacher documents children's project work and displays evidence of their thinking. Which approach is strongly associated with this practice?",
+options:["Reggio Emilia","Operant conditioning","Formal operational stage","Attachment theory"],
+answer:0,
+why:[
+"Documentation is a major feature associated with Reggio Emilia practice.",
+"Operant conditioning concerns consequences and behavior.",
+"Formal operational thinking is a Piagetian stage.",
+"Attachment theory concerns emotional bonds."
+]
+},
+{
+q:"Which approach is strongly associated with the plan-do-review process?",
+options:["HighScope","Montessori only","Freud","Kohlberg"],
+answer:0,
+why:[
+"HighScope is associated with active participatory learning and plan-do-review.",
+"Montessori has different core practices and is not defined by plan-do-review.",
+"Freud is associated with psychoanalytic theory.",
+"Kohlberg is associated with moral development."
+]
+}
+],
+
+20:[
+{
+q:"Which is the most appropriate approach to technology in ECE?",
+options:["Use technology thoughtfully while preserving meaningful play, interaction and hands-on learning","Replace all play with screens","Give unlimited screen use","Avoid all teacher interaction"],
+answer:0,
+why:[
+"Thoughtful technology use should complement rather than replace developmentally important experiences.",
+"Replacing all play with screens is not developmentally appropriate.",
+"Unlimited screen use is not a sound general principle.",
+"Teacher interaction remains important."
+]
+},
+{
+q:"A teacher ensures children from different cultural backgrounds see their families represented respectfully in classroom materials. What issue is being addressed?",
+options:["Equity and multicultural responsiveness","Seriation","Cardinality","Classical conditioning"],
+answer:0,
+why:[
+"This supports cultural inclusion, representation and equity.",
+"Seriation is an ordering concept.",
+"Cardinality is an early mathematics concept.",
+"Classical conditioning concerns learned associations."
+]
+},
+{
+q:"A teacher creates predictable routines and prioritizes safety and supportive relationships for children who may have experienced difficult events. What approach is reflected?",
+options:["Trauma-informed practice","Punitive discipline","Pure memorization","Standardized instruction only"],
+answer:0,
+why:[
+"Trauma-informed practice emphasizes safety, predictability and supportive relationships.",
+"Punitive discipline is not the principle described.",
+"Memorization does not address emotional safety.",
+"Standardized instruction alone does not address trauma-related needs."
+]
+}
+]
+
+};
+
+
+/* =========================================================
+   STORAGE
+========================================================= */
+
+const COMPLETED_KEY="eceCompletedLessons";
+const SCORE_KEY="eceQuizScores";
+
+let completedLessons=JSON.parse(
+    localStorage.getItem(COMPLETED_KEY) || "[]"
+);
+
+let scoreHistory=JSON.parse(
+    localStorage.getItem(SCORE_KEY) || "[]"
+);
+
+let currentLesson=null;
+let currentAnswers={};
+
+
+/* =========================================================
+   RENDER LESSON CARDS
+========================================================= */
+
+function renderLessons(){
+
+    const grid=document.getElementById("lessonGrid");
+
+    grid.innerHTML="";
+
+    lessons.forEach(lesson=>{
+
+        const completed=completedLessons.includes(lesson.id);
+
+        const card=document.createElement("div");
+
+        card.className="lesson-card"+(completed?" completed":"");
+
+        card.innerHTML=`
+            <div class="lesson-number">
+                LESSON ${lesson.id} OF ${lessons.length}
+            </div>
+
+            <h2>${lesson.title}</h2>
+
+            <p>
+                Study this lesson carefully, then take its
+                lesson quiz.
+            </p>
+
+            <button class="primary"
+                onclick="openLesson(${lesson.id})">
+                📖 Open Lesson
+            </button>
+
+            <button class="success"
+                onclick="toggleComplete(${lesson.id})">
+                ${completed?"✅ Completed":"☑️ Mark Lesson Complete"}
+            </button>
+
+            <button class="secondary"
+                onclick="openQuiz(${lesson.id})">
+                📝 Take Quiz
+            </button>
         `;
 
-        q.choices.forEach((choice,choiceIndex)=>{
+        grid.appendChild(card);
+    });
 
-            html += `
-                <label
-                    class="option"
-                    id="option-${index}-${choiceIndex}"
-                >
-                    <input
-                        type="radio"
-                        name="q${index}"
-                        value="${choiceIndex}"
-                    >
-                    ${String.fromCharCode(65+choiceIndex)}.
-                    ${choice}
-                </label>
-            `;
-        });
+    updateProgress();
+}
 
-        html += `
-            <div
-                class="explanation"
-                id="explanation-${index}"
-                style="display:none;"
-            ></div>
-        `;
 
-        questionDiv.innerHTML = html;
+/* =========================================================
+   OPEN LESSON
+========================================================= */
 
-        container.appendChild(questionDiv);
+function openLesson(id){
+
+    const lesson=lessons.find(x=>x.id===id);
+
+    if(!lesson) return;
+
+    currentLesson=id;
+
+    const area=document.getElementById("lessonArea");
+
+    area.innerHTML=`
+        <div class="top-buttons">
+
+            <button class="secondary"
+                onclick="closeLesson()">
+                ← Back to Lessons
+            </button>
+
+            <button class="success"
+                onclick="toggleComplete(${id})">
+                ${completedLessons.includes(id)
+                    ?"✅ Lesson Completed"
+                    :"☑️ Mark Lesson Complete"}
+            </button>
+
+            <button class="primary"
+                onclick="openQuiz(${id})">
+                📝 Take Lesson ${id} Quiz
+            </button>
+
+        </div>
+
+        ${lesson.content}
+
+        <div class="quiz">
+            <h2>📝 Ready to Check Your Understanding?</h2>
+
+            <p>
+                Finish studying first, then take the quiz.
+                Your score will be saved automatically.
+            </p>
+
+            <button class="primary"
+                onclick="openQuiz(${id})">
+                🎯 Start Lesson ${id} Quiz
+            </button>
+        </div>
+    `;
+
+    area.classList.add("active");
+
+    area.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
     });
 }
 
 
 /* =========================================================
-   CHECK QUIZ
+   CLOSE LESSON
 ========================================================= */
 
-function checkQuiz(){
+function closeLesson(){
 
-    let score = 0;
+    document.getElementById("lessonArea")
+        .classList.remove("active");
 
-    quizData.forEach((q,index)=>{
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
 
-        const selected =
-            document.querySelector(
-                `input[name="q${index}"]:checked`
-            );
 
-        const explanationBox =
-            document.getElementById(
-                `explanation-${index}`
-            );
+/* =========================================================
+   COMPLETE LESSON
+========================================================= */
 
-        q.choices.forEach((choice,choiceIndex)=>{
+function toggleComplete(id){
 
-            const option =
-                document.getElementById(
-                    `option-${index}-${choiceIndex}`
-                );
+    if(completedLessons.includes(id)){
 
-            option.classList.remove(
-                "correct",
-                "wrong",
-                "no-answer"
-            );
-        });
+        completedLessons=
+            completedLessons.filter(x=>x!==id);
 
-        if(!selected){
+    }else{
 
-            q.choices.forEach((choice,choiceIndex)=>{
+        completedLessons.push(id);
 
-                const option =
-                    document.getElementById(
-                        `option-${index}-${choiceIndex}`
-                    );
+    }
 
-                if(choiceIndex === q.answer){
-                    option.classList.add("correct");
-                }
-            });
+    localStorage.setItem(
+        COMPLETED_KEY,
+        JSON.stringify(completedLessons)
+    );
 
-            explanationBox.innerHTML = `
-                <strong>⚠️ No answer selected.</strong><br><br>
+    renderLessons();
 
-                <strong>Correct answer:</strong>
-                ${String.fromCharCode(65+q.answer)}.
-                ${q.choices[q.answer]}<br><br>
+    if(currentLesson===id){
+        openLesson(id);
+    }
+}
 
-                💡 ${q.explanation}
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+function openQuiz(id){
+
+    const quiz=quizzes[id];
+
+    if(!quiz){
+        alert("This lesson's quiz is being prepared.");
+        return;
+    }
+
+    currentLesson=id;
+    currentAnswers={};
+
+    const area=document.getElementById("lessonArea");
+
+    let html=`
+        <div class="top-buttons">
+            <button class="secondary"
+                onclick="openLesson(${id})">
+                ← Back to Lesson
+            </button>
+        </div>
+
+        <h2>📝 Lesson ${id} Quiz</h2>
+
+        <p>
+            Choose the best answer for each question.
+            After you answer, you will see why every choice
+            is correct or incorrect.
+        </p>
+
+        <div id="quizResult" class="quiz-result"></div>
+    `;
+
+    quiz.forEach((item,index)=>{
+
+        html+=`
+            <div class="question" id="question-${index}">
+
+                <h4>
+                    ${index+1}. ${item.q}
+                </h4>
+
+                <div>
+        `;
+
+        item.options.forEach((option,choiceIndex)=>{
+
+            html+=`
+                <button
+                    class="option"
+                    id="option-${index}-${choiceIndex}"
+                    onclick="answerQuestion(
+                        ${index},
+                        ${choiceIndex},
+                        ${id}
+                    )">
+
+                    ${String.fromCharCode(65+choiceIndex)}.
+                    ${option}
+
+                </button>
             `;
 
-            explanationBox.style.display = "block";
+        });
 
-            return;
-        }
+        html+=`
+                </div>
 
-        const selectedIndex =
-            Number(selected.value);
+                <div
+                    class="explanation"
+                    id="explanation-${index}">
+                </div>
 
-        if(selectedIndex === q.answer){
+            </div>
+        `;
 
-            score++;
+    });
 
-            document
-                .getElementById(
-                    `option-${index}-${selectedIndex}`
-                )
-                .classList.add("correct");
+    html+=`
+        <button class="primary"
+            onclick="finishQuiz(${id})">
+            🎯 Finish Quiz & See My Score
+        </button>
+
+        <button class="secondary"
+            onclick="openLesson(${id})">
+            📖 Study Lesson Again
+        </button>
+    `;
+
+    area.innerHTML=html;
+
+    area.classList.add("active");
+
+    area.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+}
+
+
+/* =========================================================
+   ANSWER QUESTION
+========================================================= */
+
+function answerQuestion(questionIndex,choiceIndex,lessonId){
+
+    const quiz=quizzes[lessonId];
+
+    currentAnswers[questionIndex]=choiceIndex;
+
+    const item=quiz[questionIndex];
+
+    item.options.forEach((_,i)=>{
+
+        const button=
+            document.getElementById(
+                `option-${questionIndex}-${i}`
+            );
+
+        button.classList.remove("correct","wrong");
+
+    });
+
+    const selectedButton=
+        document.getElementById(
+            `option-${questionIndex}-${choiceIndex}`
+        );
+
+    if(choiceIndex===item.answer){
+
+        selectedButton.classList.add("correct");
+
+    }else{
+
+        selectedButton.classList.add("wrong");
+
+        document.getElementById(
+            `option-${questionIndex}-${item.answer}`
+        ).classList.add("correct");
+
+    }
+
+    const explanation=
+        document.getElementById(
+            `explanation-${questionIndex}`
+        );
+
+    let explanationHTML="<strong>💡 Explanation</strong>";
+
+    item.options.forEach((option,i)=>{
+
+        const letter=
+            String.fromCharCode(65+i);
+
+        if(i===item.answer){
+
+            explanationHTML+=`
+                <div class="choice-explanation correct-choice">
+                    <strong>✅ ${letter}. ${option}</strong><br>
+                    ${item.why[i]}
+                </div>
+            `;
 
         }else{
 
-            document
-                .getElementById(
-                    `option-${index}-${selectedIndex}`
-                )
-                .classList.add("wrong");
-
-            document
-                .getElementById(
-                    `option-${index}-${q.answer}`
-                )
-                .classList.add("correct");
-        }
-
-        let explanationHTML = `
-            <strong>
-                ${selectedIndex === q.answer
-                    ? "✅ Correct!"
-                    : "❌ Not quite."
-                }
-            </strong>
-            <br><br>
-
-            <strong>Correct answer:</strong>
-            ${String.fromCharCode(65+q.answer)}.
-            ${q.choices[q.answer]}
-            <br><br>
-
-            <strong>💡 Why?</strong><br>
-            ${q.explanation}
-            <br><br>
-
-            <strong>📚 Why the other choices are wrong:</strong>
-        `;
-
-        q.choices.forEach((choice,choiceIndex)=>{
-
-            if(choiceIndex === q.answer){
-                explanationHTML += `
-                    <div class="choice-explanation choice-correct">
-                        ✅ <strong>${String.fromCharCode(65+choiceIndex)}.
-                        ${choice}</strong> —
-                        This is the correct answer.
-                    </div>
-                `;
-            }else{
-
-                explanationHTML += `
-                    <div class="choice-explanation choice-wrong">
-                        ❌ <strong>${String.fromCharCode(65+choiceIndex)}.
-                        ${choice}</strong> —
-                        This does not match the concept described
-                        in the question.
-                    </div>
-                `;
-            }
-        });
-
-        explanationBox.innerHTML =
-            explanationHTML;
-
-        explanationBox.style.display =
-            "block";
-    });
-
-
-    const percentage =
-        Math.round((score / quizData.length) * 100);
-
-    document.getElementById("scoreNumber").textContent =
-        `${score}/${quizData.length}`;
-
-    document.getElementById("scorePercent").textContent =
-        `${percentage}%`;
-
-    document.getElementById("scoreMessage").textContent =
-        getScoreMessage(percentage);
-
-    document.getElementById("scoreResult").style.display =
-        "block";
-
-
-    saveQuizScore(
-        score,
-        quizData.length,
-        percentage
-    );
-
-
-    document.getElementById("scoreResult")
-        .scrollIntoView({
-            behavior:"smooth",
-            block:"center"
-        });
-}
-
-
-/* =========================================================
-   SCORE MESSAGE
-========================================================= */
-
-function getScoreMessage(percent){
-
-    if(percent >= 90){
-        return "🏆 Excellent! You really understand this topic!";
-    }
-
-    if(percent >= 80){
-        return "🌟 Great job! Keep reviewing and strengthening your knowledge.";
-    }
-
-    if(percent >= 70){
-        return "💪 Good work! Review the questions you missed.";
-    }
-
-    if(percent >= 60){
-        return "📚 You're getting there! Study the lessons again and retry.";
-    }
-
-    return "🌱 Keep going! Don't be discouraged. Study the concepts and try again.";
-}
-
-
-/* =========================================================
-   SAVE SCORE
-========================================================= */
-
-function saveQuizScore(score,total,percentage){
-
-    let history =
-        JSON.parse(
-            localStorage.getItem("eceQuizScores")
-        ) || [];
-
-    const now = new Date();
-
-    const date =
-        now.toLocaleDateString(
-            undefined,
-            {
-                year:"numeric",
-                month:"short",
-                day:"numeric"
-            }
-        );
-
-    history.push({
-        score:score,
-        total:total,
-        percentage:percentage,
-        date:date
-    });
-
-    localStorage.setItem(
-        "eceQuizScores",
-        JSON.stringify(history)
-    );
-
-    updateScoreTracker();
-}
-
-
-/* =========================================================
-   SCORE TRACKER
-========================================================= */
-
-function updateScoreTracker(){
-
-    const history =
-        JSON.parse(
-            localStorage.getItem("eceQuizScores")
-        ) || [];
-
-    document.getElementById("quizCount").textContent =
-        history.length;
-
-    if(history.length === 0){
-
-        document.getElementById("averageScore")
-            .textContent = "0%";
-
-        document.getElementById("highestScore")
-            .textContent = "0%";
-
-        document.getElementById("scoreHistory")
-            .innerHTML = "";
-
-        document.getElementById("noScores")
-            .style.display = "block";
-
-        return;
-    }
-
-    document.getElementById("noScores")
-        .style.display = "none";
-
-
-    const average =
-        Math.round(
-            history.reduce(
-                (sum,item)=>sum + item.percentage,
-                0
-            ) / history.length
-        );
-
-    const highest =
-        Math.max(
-            ...history.map(
-                item=>item.percentage
-            )
-        );
-
-    document.getElementById("averageScore")
-        .textContent = average + "%";
-
-    document.getElementById("highestScore")
-        .textContent = highest + "%";
-
-
-    const table =
-        document.getElementById("scoreHistory");
-
-    table.innerHTML = "";
-
-    history
-        .slice()
-        .reverse()
-        .forEach((item,index)=>{
-
-            let status = "";
-
-            if(item.percentage >= 80){
-                status =
-                    `<span class="score-good">🌟 Strong</span>`;
-            }
-            else if(item.percentage >= 70){
-                status =
-                    `<span class="score-review">📚 Review</span>`;
-            }
-            else{
-                status =
-                    `<span class="score-review">🔄 Study Again</span>`;
-            }
-
-            const row =
-                document.createElement("tr");
-
-            row.innerHTML = `
-                <td>${history.length-index}</td>
-                <td>${item.date}</td>
-                <td>${item.score}/${item.total}</td>
-                <td><strong>${item.percentage}%</strong></td>
-                <td>${status}</td>
+            explanationHTML+=`
+                <div class="choice-explanation wrong-choice">
+                    <strong>❌ ${letter}. ${option}</strong><br>
+                    ${item.why[i]}
+                </div>
             `;
 
-            table.appendChild(row);
-        });
+        }
+
+    });
+
+    explanation.innerHTML=explanationHTML;
+
+    explanation.classList.add("show");
 }
 
 
 /* =========================================================
-   CLEAR SCORE HISTORY
+   FINISH QUIZ
 ========================================================= */
 
-function clearScoreHistory(){
+function finishQuiz(id){
 
-    const confirmDelete =
-        confirm(
-            "Are you sure you want to delete all saved quiz scores?"
+    const quiz=quizzes[id];
+
+    let answered=Object.keys(currentAnswers).length;
+
+    if(answered<quiz.length){
+
+        alert(
+            `You answered ${answered} of ${quiz.length} questions. `+
+            `Please answer all questions first. ❤️`
         );
 
-    if(!confirmDelete){
         return;
     }
 
-    localStorage.removeItem("eceQuizScores");
+    let score=0;
 
-    updateScoreTracker();
+    quiz.forEach((item,index)=>{
+
+        if(currentAnswers[index]===item.answer){
+            score++;
+        }
+
+    });
+
+    const percentage=
+        Math.round((score/quiz.length)*100);
+
+    let status;
+
+    if(percentage>=90){
+        status="Excellent! 🌟";
+    }else if(percentage>=80){
+        status="Great job! 🎉";
+    }else if(percentage>=75){
+        status="Good work! Keep reviewing. 💪";
+    }else{
+        status="Keep studying and try again. ❤️";
+    }
+
+    const record={
+        lesson:id,
+        score:score,
+        total:quiz.length,
+        percentage:percentage,
+        status:status,
+        date:new Date().toLocaleString()
+    };
+
+    scoreHistory.unshift(record);
+
+    localStorage.setItem(
+        SCORE_KEY,
+        JSON.stringify(scoreHistory)
+    );
+
+    const result=
+        document.getElementById("quizResult");
+
+    result.innerHTML=`
+        <div class="score-big">
+            ${score}/${quiz.length}
+        </div>
+
+        <h2>${percentage}%</h2>
+
+        <h3>${status}</h3>
+
+        <p>
+            Your score has been saved automatically.
+        </p>
+
+        <button class="primary"
+            onclick="openQuiz(${id})">
+            🔄 Retake Quiz
+        </button>
+
+        <button class="secondary"
+            onclick="openLesson(${id})">
+            📖 Review Lesson
+        </button>
+    `;
+
+    result.classList.add("show");
+
+    updateStats();
+
+    result.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
 }
 
 
 /* =========================================================
-   RESET QUIZ
+   PROGRESS
 ========================================================= */
 
-function resetQuiz(){
+function updateProgress(){
 
-    document
-        .querySelectorAll(
-            '#quizContainer input[type="radio"]'
-        )
-        .forEach(input=>{
-            input.checked = false;
-        });
+    const completed=completedLessons.length;
 
-    document
-        .querySelectorAll(".option")
-        .forEach(option=>{
-            option.classList.remove(
-                "correct",
-                "wrong",
-                "no-answer"
-            );
-        });
+    const total=lessons.length;
 
-    document
-        .querySelectorAll(".explanation")
-        .forEach(box=>{
-            box.style.display = "none";
-            box.innerHTML = "";
-        });
+    const percentage=
+        Math.round((completed/total)*100);
 
-    document.getElementById("scoreResult")
-        .style.display = "none";
+    document.getElementById("progressText")
+        .textContent=
+        `${completed} of ${total} lessons completed`;
 
-    document.getElementById("quiz")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    document.getElementById("completedCount")
+        .textContent=completed;
+
+    document.getElementById("progressFill")
+        .style.width=percentage+"%";
+
+    updateStats();
 }
 
 
 /* =========================================================
-   SCROLL
+   STATS
 ========================================================= */
 
-function scrollToSection(id){
+function updateStats(){
 
-    document
-        .getElementById(id)
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    document.getElementById("quizCount")
+        .textContent=scoreHistory.length;
+
+    if(scoreHistory.length===0){
+
+        document.getElementById("highestScore")
+            .textContent="—";
+
+        document.getElementById("averageScore")
+            .textContent="—";
+
+        renderHistory();
+
+        return;
+    }
+
+    const highest=
+        Math.max(
+            ...scoreHistory.map(x=>x.percentage)
+        );
+
+    const average=
+        Math.round(
+            scoreHistory.reduce(
+                (sum,x)=>sum+x.percentage,
+                0
+            )/scoreHistory.length
+        );
+
+    document.getElementById("highestScore")
+        .textContent=highest+"%";
+
+    document.getElementById("averageScore")
+        .textContent=average+"%";
+
+    renderHistory();
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+function renderHistory(){
+
+    const container=
+        document.getElementById("historyList");
+
+    if(scoreHistory.length===0){
+
+        container.innerHTML=
+            `<p class="small-note">
+                No quizzes taken yet.
+            </p>`;
+
+        return;
+    }
+
+    container.innerHTML=
+        scoreHistory.map(record=>{
+
+            const lesson=
+                lessons.find(x=>x.id===record.lesson);
+
+            return`
+                <div class="history-item">
+
+                    <strong>
+                        Lesson ${record.lesson}:
+                        ${lesson?lesson.title:""}
+                    </strong>
+
+                    <br>
+
+                    Score:
+                    ${record.score}/${record.total}
+                    (${record.percentage}%)
+
+                    <br>
+
+                    ${record.status}
+
+                    <br>
+
+                    <span class="small-note">
+                        ${record.date}
+                    </span>
+
+                </div>
+            `;
+
+        }).join("");
+}
+
+
+/* =========================================================
+   CLEAR HISTORY
+========================================================= */
+
+function clearHistory(){
+
+    if(!confirm(
+        "Are you sure you want to clear all quiz history?"
+    )){
+        return;
+    }
+
+    scoreHistory=[];
+
+    localStorage.removeItem(SCORE_KEY);
+
+    updateStats();
 }
 
 
@@ -2403,9 +3011,8 @@ function scrollToSection(id){
    INITIALIZE
 ========================================================= */
 
-buildQuiz();
-updateProgress();
-updateScoreTracker();
+renderLessons();
+updateStats();
 
 </script>
 
